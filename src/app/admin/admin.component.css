@@ -1,0 +1,41 @@
+.logo{
+  height: 50px;
+  border-radius: 50%;
+}
+.header{
+  position: fixed;
+  z-index: 1;
+  background: #5199E4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2%;
+}
+.nav-links nav{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.nav-links nav a{
+  letter-spacing: 1px;
+  flex-direction: column;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+.nav-links nav a:hover{
+  background: linear-gradient(50deg, rgb(13, 231, 13), rgb(1, 247, 255));
+  border-radius: 50px;
+}
+.artists{
+  background-color: #077dfb;
+}
+.artists .artistsname{
+  font-size: large;
+  color: aliceblue;
+  border: 2px solid blanchedalmond;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 50px ;
+}

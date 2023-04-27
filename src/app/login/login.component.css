@@ -1,0 +1,135 @@
+.system{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.form{
+  width: 25rem;
+  /* height: 50vh; */
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.form #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 85%;
+  top: 4%;
+  font-size: 0.55cm;
+}
+.fa-arrow-rotate-right{
+  font-size: small;
+  background-color: khaki;
+  /* font-weight: bolder; */
+  border-radius: 30px;
+  padding: 1rem;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  /* margin-left: 14%; */
+}
+.fa-circle-xmark:hover,
+.fa:hover,
+.form .signup:hover,
+.form button:hover,
+.form .forgot:hover,
+.form i:hover{
+  cursor: pointer;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.email, .password{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.password{
+  position: relative;
+}
+.fa-eye-slash,.fa-eye{
+  position: absolute;
+  left: 79%;
+  bottom: 50%;
+  font-size: 0.35cm;
+}
+.form .flex{
+  display: flex;
+  justify-content: space-around;
+}
+.form .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  /* margin-left: 25%;
+  margin-top: -5%; */
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.form span{
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+.form .forgot{
+  margin-left: 10%;
+  margin-bottom: 7%;
+  text-decoration: none;
+  font-size: large;
+  border-radius: 30px;
+  background-color: khaki;
+  color: black;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.form .signup{
+  text-decoration: none;
+  border: none;
+  font-size: large;
+  background-color: khaki;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.form .flex button{
+  border: none;
+  font-size: large;
+  font-weight: bold;
+  background-color: khaki;
+  padding: 1rem;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+/* .form p{
+  color:red;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  padding: 15px;
+} */
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+      width: 100%;
+  }
+  .form-group span{
+      font-size: xx-small;
+  }
+}

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- <div *ngIf="openLogin"></div> -->
+
+<ng-template [ngIf]="openLogin">
+  <div class="system">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+      <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeLoginForm()"></i>
+      <h2 id="h2">Dulcet Login</h2>
+
+      <i class="fa-solid fa-envelope icon"></i>
+      <input type="text" placeholder="Enter your email" formControlName="email" class="email">
+      <small class="small" *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].dirty">* Email is required</small>
+      <small class="small" *ngIf="loginForm.controls['email'].errors?.['pattern']">* Please provide proper Email</small>
+
+
+      <!-- <i class="fa-solid fa-key icon"></i>
+      <input type="password" placeholder="Enter your password" formControlName="password" class="set_password">
+      <i class="fa fa-eye-slash" (click)="showPassword()"></i>
+      <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].errors?.['touched']">* Password is required</small>
+      <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your Password should be Strong</small> -->
+
+      <i class="fa-solid fa-key icon"></i>
+      <input type="password" placeholder="Enter your password" class="password" formControlName="password" #passwordfield>
+      <i (click)="passwordfield.type=passwordfield.type=='password'?'text':'password'" class="fa fa-eye-slash" [ngClass]="(passwordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+
+      <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].dirty">* Password is required</small>
+      <!-- <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Please provide a Strong Password </small> -->
+
+      <i class="fa-solid fa-arrow-rotate-right" (click)="loginReset()">&nbsp;&nbsp;Reset</i>
+
+      <button [disabled]="loginForm.valid">Submit</button>
+
+      <span (click)="showForgotPassword()"><span class="forgot">Forgot Password?</span></span>
+      <span>Not&nbsp;an&nbsp;User&nbsp;?&nbsp;<p (click)="showRegister()" class="registers">Register</p></span>
+    </form>
+  </div>
+</ng-template>
+
+  <div *ngIf="openRegister">
+      <div class="registersystem">
+        <form class="registerform" [formGroup]="registerForm" (submit)="submitRegisterForm()">
+          <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeRegisterForm()"></i>
+          <h2 id="h2">Create your account</h2>
+
+          <i class="fa-solid fa-user icon"></i>
+          <input type="text" class="name" placeholder="Enter your name" formControlName="regname">
+
+          <div *ngIf="registerForm.controls['regname'].invalid && (registerForm.controls['regname'].touched || registerForm.controls['regname'].dirty)"></div>
+          <small class="small" *ngIf="registerForm.controls['regname'].errors?.['required'] && registerForm.controls['regname'].dirty">* Name is required</small>
+          <small class="small" *ngIf="registerForm.controls['regname'].errors?.['pattern']">* Please provide a proper Name</small>
+
+          <i class="fa-solid fa-envelope icon"></i>
+          <input type="text" class="email" placeholder="Enter your email" formControlName="regemail">
+
+          <div *ngIf="registerForm.controls['regemail'].invalid && (registerForm.controls['regemail'].touched || registerForm.controls['regemail'].dirty)"></div>
+          <small class="small" *ngIf="registerForm.controls['regemail'].errors?.['required'] && registerForm.controls['regemail'].dirty">* Email is required</small>
+          <small class="small" *ngIf="registerForm.controls['regemail'].errors?.['pattern']">* Please provide proper Email</small>
+
+          <i class="fa-solid fa-key icon"></i>
+          <input type="password" class="password" placeholder="Enter your password" formControlName="regpassword"  #registerpasswordfield >
+          <i (click)="registerpasswordfield.type=registerpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon1"  [ngClass]="(registerpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+
+          <div *ngIf="registerForm.controls['regpassword'].invalid && (registerForm.controls['regpassword'].touched || registerForm.controls['regpassword'].dirty)"></div>
+          <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['required'] && registerForm.controls['regpassword'].dirty">* Password is required</small>
+          <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">* Provided password is not strong</small> -->
+          <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">(Note: Use Special Characters) </small> -->
+
+          <i class="fa-solid fa-key icon"></i>
+          <input type="password" class="confirmpassword" placeholder="Re-type the password" formControlName="regconfirmpassword" #registerconfirmpasswordfield>
+          <i (click)="registerconfirmpasswordfield.type=registerconfirmpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon2" [ngClass]="(registerconfirmpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+
+          <div *ngIf="registerForm.controls['regconfirmpassword'].invalid && (registerForm.controls['regconfirmpassword'].touched || registerForm.controls['regconfirmpassword'].dirty)"></div>
+          <small class="small" *ngIf="registerForm.controls['regconfirmpassword'].errors?.['required'] && registerForm.controls['regconfirmpassword'].errors?.['touched']">* Password is required</small>
+
+          <i class="fa-solid fa-arrow-rotate-right icon" (click)="registerReset()">&nbsp;&nbsp;Reset</i>
+          <button [disabled]="registerForm.valid">Submit</button>
+
+          <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<p class="registers" (click)="showLogin()">Login</p></span>
+        </form>
+      </div>
+  </div>
+
+  <div *ngIf="openforgotpass">
+    <!-- <div [ngClass]=""></div> -->
+    <div class="forgotsystem">
+      <form class="forgotform" [formGroup]="forgotpassForm" (ngSubmit)="submitForgotPassForm()">
+        <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeForgotPassForm()"></i>
+        <h2 id="h2">Dulcet Recover Password</h2>
+        <!-- <small class="smalltext">To recover your Password 1st fill your Name and Email</small> -->
+
+        <i class="fa-solid fa-user icon"></i>
+        <input type="text" class="name" placeholder="Enter your name" formControlName="forgotname" #forgotname>
+
+        <div *ngIf="forgotpassForm.controls['forgotname'].invalid && (forgotpassForm.controls['forgotname'].touched || forgotpassForm.controls['forgotname'].dirty)"></div>
+        <small class="small" *ngIf="forgotpassForm.controls['forgotname'].errors?.['required'] && forgotpassForm.controls['forgotname'].dirty">* Name is required</small>
+        <small class="small" *ngIf="forgotpassForm.controls['forgotname'].errors?.['pattern']">* Please provide a proper Name</small>
+
+        <i class="fa-solid fa-envelope icon"></i>
+        <input type="text" class="email" placeholder="Enter your email" formControlName="forgotpassemail" #forgotemail>
+        <div *ngIf="forgotpassForm.controls['forgotpassemail'].invalid && (forgotpassForm.controls['forgotpassemail'].touched || forgotpassForm.controls['forgotpassemail'].dirty)"></div>
+
+        <small class="small" *ngIf="forgotpassForm.controls['forgotpassemail'].errors?.['required'] && forgotpassForm.controls['forgotpassemail'].errors?.['touched']">* Email is required</small>
+        <small class="small" *ngIf="forgotpassForm.controls['forgotpassemail'].errors?.['pattern']">* Please provide proper Email</small>
+
+        <div *ngIf="opennewforgotpass">
+          <i class="fa-solid fa-key icon"></i>
+          <input type="password" placeholder="Enter your password" class="set_password" formControlName="forgotpassword" #forgotpasswordfield>
+          <i (click)="forgotpasswordfield.type=forgotpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash forgoticon1" [ngClass]="(forgotpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+          <div *ngIf="forgotpassForm.controls['forgotpassword'].invalid && (forgotpassForm.controls['forgotpassword'].touched || forgotpassForm.controls['forgotpassword'].dirty)"></div>
+            <small class="small" *ngIf="forgotpassForm.controls['forgotpassword'].errors?.['required'] && forgotpassForm.controls['forgotpassword'].errors?.['touched']">* Password is required</small>
+            <!-- <small class="small" *ngIf="forgotpassForm.controls['forgotpassword'].errors?.['pattern']">* Please provide a Strong Password </small> -->
+
+            <i class="fa-solid fa-key icon"></i>
+          <input type="password" placeholder="Enter your password" class="set_password" formControlName="reforgotpassword" #reforgotpasswordfield>
+          <i (click)="reforgotpasswordfield.type=reforgotpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash forgoticon2" [ngClass]="(reforgotpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+
+            <small class="small" *ngIf="forgotpassForm.controls['reforgotpassword'].errors?.['required'] && forgotpassForm.controls['reforgotpassword'].errors?.['touched']">* Password is required</small>
+            <!-- <small class="small" *ngIf="forgotpassForm.controls['reforgotpassword'].errors?.['pattern']">* Please provide a Strong Password </small> -->
+
+        </div>
+
+        <i class="fa-solid fa-arrow-rotate-right" (click)="forgotReset()">&nbsp;&nbsp;Reset</i>
+
+        <button [disabled]="forgotpassForm.valid">Submit</button>
+
+        <!-- <span>Not&nbsp;an&nbsp;User&nbsp;?&nbsp;<p (click)="showRegister()" class="registers">Register</p></span> -->
+      </form>
+    </div>
+  </div>
+
+<div *ngIf="openHome">
+<section id="main-header">
+    <h1>Welcome to Dulcet<br></h1>
+    <img src="/assets/images/logo.png" alt="Logo">
+    <p class="intro">One Good Thing About Music, When It Hits You, You Feel No Pain.</p>
+</section>
+
+<section id="slider-2">
+    <div>
+      <figure>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let image of images" class="slide">
+            <img src="{{ image.img }}" style="height: 300px; width: 100%;">
+            <figcaption>
+              <img src="/assets/images/icon-location.svg" alt="Icon location"><a href="/register">View site</a>
+            </figcaption>
+          </div>
+        </ngx-slick-carousel>
+      </figure>
+    </div>
+
+    <!-- <div class="swiper-custom-nav">
+        <svg width="64" height="64"  id="nav-left" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M32 2.79753e-06C14.3269 4.34256e-06 -4.34256e-06 14.3269 -2.79753e-06 32C-1.2525e-06 49.6731 14.3269 64 32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 1.2525e-06 32 2.79753e-06ZM28.9334 24.3999C28.6667 24.1333 28.4 23.9999 28 23.9999C27.6 23.9999 27.3334 24.1333 27.0667 24.3999L20.4 31.0666L20.4 31.0667C20.2 31.2667 20.075 31.5041 20.025 31.751C19.9417 32.1624 20.0666 32.6 20.4 32.9333L27.0667 39.6C27.6 40.1333 28.4 40.1333 28.9333 39.6C29.4667 39.0667 29.4667 38.2667 28.9333 37.7333L24.5334 33.3334L42.7222 33.3334C43.4889 33.3334 44 32.8 44 32C44 31.2 43.4889 30.6667 42.7222 30.6667L24.5333 30.6667L28.9334 26.2666C29.4667 25.7333 29.4667 24.9333 28.9334 24.3999Z" fill="cyan"/>
+        </svg>
+
+        <svg width="64" height="64"  id="nav-right" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64ZM35.0666 39.6001C35.3333 39.8667 35.6 40.0001 36 40.0001C36.4 40.0001 36.6666 39.8667 36.9333 39.6001L43.6 32.9334L43.6 32.9333C43.8 32.7333 43.925 32.4959 43.975 32.249C44.0583 31.8376 43.9334 31.4 43.6 31.0667L36.9333 24.4C36.4 23.8667 35.6 23.8667 35.0667 24.4C34.5333 24.9333 34.5333 25.7333 35.0667 26.2667L39.4666 30.6666H21.2778C20.5111 30.6666 20 31.2 20 32C20 32.8 20.5111 33.3333 21.2778 33.3333H39.4667L35.0666 37.7334C34.5333 38.2667 34.5333 39.0667 35.0666 39.6001Z" fill="cyan"/>
+        </svg>
+    </div> -->
+</section>
+
+<section id="bottom" class="bottom-contents">
+    <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
+    <div>
+        <span>COMPANY</span>
+        <ul>
+            <li>About
+            <li>Jobs
+            <li>Records
+        </ul>
+    </div>
+    <div>
+        <span>COMMUNITIES</span>
+        <ul>
+            <li>For&nbsp;Artists
+            <li>Developers
+            <li>Advertising
+            <li>Investors
+            <li>Vendors
+        </ul>
+    </div>
+    <div>
+        <span>USEFUL&nbsp;LINKS</span>
+        <ul>
+            <li>Support
+            <li>Web&nbsp;Player
+            <li>Contact&nbsp;Dulcet
+        </ul>
+    </div>
+    <div>
+        <nav>
+          <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+        <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+        <a href="https://www.linkedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+        <a href="mailto:delcetonline2023@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>E-mail</a>
+        <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+        </nav>
+    </div>
+</section>
+
+<footer class="footer">
+<h3>Copyrights &copy; 2022</h3>
+<p>All Rights Reserved</p>
+<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
+</footer>
+</div>
+
+<div class="container" *ngIf="closeMyCurrent">
+    <div class="aside">
+      <div class="nav">
+        <img src="/assets/images/blacklogo.png" alt="" class="blackimagelogo">
+      <a (click)="showHome()">Home</a>
+      <!-- <button (click)="showHome()">Home</button> -->
+      <a routerLink="search">Search</a>
+      <!-- <a >{{registerusername}}</a> -->
+      <a routerLink="library">Library</a>
+      <!-- <button (click)="showLogin()">Login</button> -->
+      <button (click)="logincheck()">&plus;&nbsp;Create Playlist</button>
+      <button><span>&hearts;</span>&nbsp;Liked Songs</button>
+      </div>
+    </div>
+
+
+    <div class="main">
+        <div class="navbar">
+          <button *ngIf="login" (click)="showLogin()"><a routerLink="login">Login</a></button>
+          <!-- <button *ngIf="login" (click)="showLogin()">Login</button> -->
+          <button *ngIf="logout">Logout</button>
+          <!-- <button>Account&nbsp;<i class="fa fa-external-link"></i></button> -->
+        </div>
+        <div class="card-container first">
+          <div class="titlehead">
+              <span>Vibes</span>
+              <a>Show All</a>
+              <!-- <p>{{vibes_value | json}}</p> -->
+          </div>
+
+          <div class="cards">
+              <div *ngFor="let vibes of vibes_value">
+                <div class="card">
+                  <img  class="image" src="{{vibes.images}}" alt="">
+                  <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
+                  <small class="maintitle">{{vibes.maintitle}}</small>
+                  <small class="subtitle">{{vibes.subtitle}}</small>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-container first">
+          <div class="titlehead">
+              <span>Vibes</span>
+              <a>Show All</a>
+              <!-- <p>{{vibes_value | json}}</p> -->
+          </div>
+
+          <div class="cards">
+              <div *ngFor="let vibes of vibes_value">
+                <div class="card">
+                  <img  class="image" src="{{vibes.images}}" alt="">
+                  <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
+                  <small class="maintitle">{{vibes.maintitle}}</small>
+                  <small class="subtitle">{{vibes.subtitle}}</small>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-container first">
+          <div class="titlehead">
+              <span>Vibes</span>
+              <a>Show All</a>
+              <!-- <p>{{vibes_value | json}}</p> -->
+          </div>
+
+          <div class="cards">
+              <div *ngFor="let vibes of vibes_value">
+                <div class="card">
+                  <img  class="image" src="{{vibes.images}}" alt="">
+                  <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
+                  <small class="maintitle">{{vibes.maintitle}}</small>
+                  <small class="subtitle">{{vibes.subtitle}}</small>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-container first">
+          <div class="titlehead">
+              <span>Vibes</span>
+              <a>Show All</a>
+              <!-- <p>{{vibes_value | json}}</p> -->
+          </div>
+
+          <div class="cards">
+              <div *ngFor="let vibes of vibes_value">
+                <div class="card">
+                  <img  class="image" src="{{vibes.images}}" alt="">
+                  <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
+                  <small class="maintitle">{{vibes.maintitle}}</small>
+                  <small class="subtitle">{{vibes.subtitle}}</small>
+                </div>
+            </div>
+          </div>
+        </div>
+          <!-- <div class="card-container">
+              <span>Podcasts</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>New Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>Old Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>Old Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>Old Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>Old Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div>
+          <div class="card-container">
+              <span>Old Songs</span>
+              <div class="cards">
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+          </div> -->
+    </div>
+</div>
+</body>
+</html>
+<router-outlet></router-outlet>

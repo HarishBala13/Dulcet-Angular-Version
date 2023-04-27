@@ -1,0 +1,798 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+html{
+  font-size: 100%;
+  overflow-x: hidden;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+}
+.container{
+  display: flex;
+  background-color: white;
+}
+.aside{
+  position: fixed;
+}
+.aside .nav{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 1rem;
+  height: 100vh;
+}
+.aside .blackimagelogo{
+  height: 120px;
+  width: 210px;
+  opacity: 0.5;
+}
+.aside .nav a{
+  color: white;
+  text-align: center;
+  font-size: 0.65cm;
+  padding: 1rem;
+  text-decoration: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.aside .nav button{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 30px;
+  padding: 1.5%;
+  background:#fff;
+  font-size: 0.55cm;
+  border: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.aside .nav button span{
+  font-size: x-large;
+}
+.aside .nav a:hover,.aside .nav button:hover,.aside .nav .blackimagelogo:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.main{
+  display: flex;
+  background-color: rgb(117, 106, 106);
+  color: white;
+  font-weight: bolder;
+  font-size: 0.75cm;
+  flex-direction: column;
+  /* margin-left: 12%; */
+}
+.navbar{
+  position: fixed;
+  width: 85%;
+  background-color: #222020;
+  padding: 1rem;
+  z-index: 1;
+  margin-left: 15.3%;
+}
+.navbar button{
+  width: 9%;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 30px;
+  border: none;
+  float: right;
+  font-size: 0.55cm;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.navbar button:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}
+.card-container{
+    /* background-color: #878181; */
+    margin-left: 16%;
+}
+.first{
+    margin-top: 5.6%;
+}
+.titlehead{
+    display: flex;
+    justify-content: space-between;
+}
+.titlehead span{
+    font-size: 0.80cm;
+    color: #000;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.titlehead a{
+    color: #fff;
+    font-size: 0.60cm;
+    text-decoration: none;
+}
+.titlehead a:hover{
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.cards{
+    display: flex;
+    /*Gap concept need to work more bcoz of moving*/
+    gap: 51px;
+}
+.card{
+    display: grid;
+    place-items: center;
+    background-color: #000;
+    margin-left: 3%;
+    margin-top: 2%;
+    padding: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    /* box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35); */
+}
+.card .image{
+    height: 175px;
+    width: 150px;
+}
+.card .maintitle{
+    font-size: large;
+    padding: 8px;
+}
+.card .subtitle{
+    color: #fff;
+    font-size: small;
+    padding: 5px;
+    /* text-shadow: 2px 3px cyan; */
+}
+.card #playicon{
+    position: absolute;
+    background-color: hsl(84, 81%, 47%);
+    left: 108px;
+    top: 130px;
+    padding: 0.75rem;
+    border-radius: 30px;
+    opacity: 0;
+    border: none;
+    color: #0d1ace;
+    transition: 800ms ease-in;
+}
+.card:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+.card:hover .maintitle, .card:hover .subtitle{
+    opacity: 0.75;
+}
+.card:hover .image{
+    opacity: 1;
+}
+.card:hover #playicon{
+    opacity: 1;
+    box-shadow: 2px 3px 0px 1px rgb(158, 152, 152);
+    transition: 800ms ease;
+}
+/** NewSongs Component CSS Starts **/
+/* .container{
+  display: flex;
+  background-color: white;
+}
+.aside .nav{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 1rem;
+  height: 100vh;
+}
+.aside .nav a{
+  color: white;
+  text-align: center;
+  font-size: 0.65cm;
+  padding: 1rem;
+  text-decoration: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.aside .nav button span{
+  font-size: x-large;
+}
+.aside .nav button{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 30px;
+  padding: 1.5%;
+  background:#fff;
+  font-size: 0.55cm;
+  border: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.aside .nav a:hover,.aside .nav button:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.main{
+  display: flex;
+  background-color: grey;
+  color: white;
+  font-weight: bolder;
+  font-size: 0.75cm;
+} */
+
+/** NewSongs Component CSS Ends **/
+
+/**Login Component CSS Starts**/
+.system{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.form{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.form #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 85%;
+  top: 4%;
+  font-size: 0.55cm;
+}
+.fa-arrow-rotate-right{
+  font-size: 0.33cm ;
+  font-weight: bolder;
+  border-radius: 30px;
+  padding: 0.85rem;
+  text-transform: capitalize;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  margin-left: 14%;
+}
+.fa-circle-xmark:hover, .fa:hover, .icon:hover, .registers:hover, .form button:hover, .form .forgot:hover{
+  cursor: pointer;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.email, .set_password{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.set_password{
+  position: relative;
+}
+.fa-eye-slash,.fa-eye{
+  position: absolute;
+  left: 79%;
+  bottom: 50%;
+  font-size: 0.35cm;
+}
+.form .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  margin-left: 25%;
+  margin-top: -5%;
+  padding-bottom: 1rem;
+}
+.form span{
+  display: block;
+  padding-bottom: 3%;
+  font-size: 15px;
+  margin-left: 20%;
+}
+.form .forgot{
+  font-size: large;
+  font-weight: bolder;
+  width: 60%;
+  background-color: khaki;
+  border-radius: 30px;
+  margin-bottom: 3%;
+  margin-left: -5%;
+  padding: 5px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.form .registers{
+  border: none;
+  font-size: large;
+  width: 30%;
+  background-color: khaki;
+  padding: 0.47rem;
+  font-weight: bolder;
+  border-radius: 30px;
+  margin-left: 45%;
+  margin-top: -9%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.form button{
+  border: none;
+  font-size: large;
+  width: 30%;
+  background-color: khaki;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+/* .form p{
+  color:red;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  padding: 15px;
+} */
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+      width: 100%;
+  }
+  .form-group span{
+      font-size: xx-small;
+  }
+}
+/** Login component CSS Ends **/
+
+/** Register component CSS Starts **/
+.registersystem{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.registerform{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.registerform #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 85%;
+  top: 4%;
+  font-size: 0.55cm;
+}
+.fa-circle-xmark:hover, .fa:hover, .icon:hover, .registers:hover{
+  cursor: pointer;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.name, .email, .password, .confirmpassword{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.regicon1{
+  bottom: 43%;
+}
+.regicon2{
+  bottom: 27%;
+}
+.registerform .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  margin-left: 25%;
+  margin-top: -5%;
+  padding-bottom: 1rem;
+}
+.registerform span{
+  display: block;
+  padding-bottom: 3%;
+  font-size: 15px;
+  margin-left: 7%;
+}
+.registerform .registers{
+  border: none;
+  font-size: large;
+  width: 30%;
+  padding: 0.47rem;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+  margin-left: 64%;
+  margin-top: -8%;
+}
+.fa-arrow-rotate-right{
+  font-size: 0.33cm ;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+  padding: 0.85rem;
+  text-transform: capitalize;
+}
+.registerform button{
+  border: none;
+  font-size: large;
+  width: 30%;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+}
+.registerform button:hover{
+  cursor: pointer;
+}
+/* .registerform p{
+  color:red;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  padding: 15px;
+} */
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+    width: 100%;
+  }
+  .form-group span{
+    font-size: xx-small;
+  }
+}
+/** Register component CSS Ends **/
+
+/** ForgotPassword component CSS Starts **/
+.forgotsystem{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.forgotform{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.forgotform #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 85%;
+  top: 4%;
+  font-size: 0.55cm;
+}
+.fa-circle-xmark:hover, button:hover, .fa-arrow-rotate-right:hover{
+  cursor: pointer;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.name, .email, .password, .confirmpassword{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.forgotform .forgoticon1{
+  bottom: 38%;
+}
+.forgotform .forgoticon2{
+  bottom: 20%;
+}
+.forgotform .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  margin-left: 25%;
+  margin-top: -5%;
+  padding-bottom: 1rem;
+}
+.forgotform .smalltext{
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+}
+.forgotform span{
+  display: block;
+  padding-bottom: 3%;
+  font-size: 15px;
+  margin-left: 7%;
+}
+.fa-arrow-rotate-right{
+  font-size: 0.33cm ;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+  padding: 0.85rem;
+  text-transform: capitalize;
+}
+.forgotform button{
+  border: none;
+  font-size: large;
+  width: 30%;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+}
+/** ForgotPassword component CSS Ends **/
+
+/** Home Component CSS Starts **/
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+}
+/* .header{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index:1;
+  background: rgb(80, 78, 78);
+  padding: 1.2rem;
+}
+.nav-links{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links a{
+  flex-direction: column;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
+}
+.nav-links a:hover{
+  border-bottom: 2px solid whitesmoke;
+}
+.nav-links .logo, .bottom-contents .logo{
+  height: 70px;
+  border-radius: 50px;
+} */
+.bottom-contents{
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(50px,1fr));
+  gap: 2rem;
+  padding-top: 1rem;
+}
+.bottom-contents span{
+  font-size: 0.50cm;
+}
+.bottom-contents ul li{
+  font-size: 0.45cm;
+  padding: 0.60rem;
+  list-style-type: none;
+}
+.bottom-contents .grid{
+  display: grid;
+  grid-template-rows:repeat(auto-fit,minmax(50px,1fr));
+}
+.bottom-contents nav{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.bottom-contents nav a{
+  text-decoration: none;
+  color:white;
+  margin-left: 12px;
+}
+.bottom-contents nav i{
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 15px;
+}
+#main-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding: 10rem 4rem;
+}
+#main-header img {
+  max-width: 100%;
+  height: auto;
+}
+p.intro {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+ /* figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+ figcaption {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 17px;
+  line-height: 29px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1rem 2rem;
+  left: 50%;
+  transform: translate3d(-50%, 100%, 0);
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+ figcaption a {
+  color: white;
+  text-decoration: none;
+}
+ figcaption a:hover{
+  cursor: pointer;
+  color: cyan;
+}
+ figcaption:active {
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+}
+ figcaption img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+} */
+.toggle-button{
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 30px;
+}
+.toggle-button .bar{
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+.footer{
+  background: linear-gradient(15deg, black, darkslategray);
+  color: #ddd;
+  box-shadow: 0 5px 10px black;
+  bottom: 0;
+  max-width: 100%;
+  padding: 10px;
+  font-size: 0.50cm;
+}
+.footer a{
+  text-decoration: none;
+  color: azure;
+}
+.popup p{
+  position: absolute;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+}
+.popup .popuptext {
+  visibility: hidden;
+  border-radius: 20px;
+  position: absolute;
+}
+.popup .show {
+  top: 50px;
+  left: 50px  ;
+  visibility: visible;
+}
+
+@media(max-width:500px){
+  .header{
+      width: 100%;
+      height: 50vh;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .padded,
+  #main-header {
+      padding: 4rem;
+  }
+  .image-sliding img {
+    height: 20rem;
+}
+.image-sliding figcaption {
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    background-color: rgba(21, 21, 21, .9);
+}
+.swiper-custom-nav {
+    display: none;
+}
+}
+
+@media(max-width: 500px){
+  .toggle-button{
+      display: flex;
+  }
+  .nav-links{
+      display: none;
+      width: 100%;
+  }
+  .header{
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .nav-links ul{
+      width: 100%;
+      flex-direction: column;
+  }
+  .nav-links li{
+      text-align: center;
+  }
+  .nav-links li a{
+      padding: 0.5rem 1rem;
+  }
+  .nav-links:active{
+      display: flex;
+  }
+}
+
+/** Home Component CSS Ends **/

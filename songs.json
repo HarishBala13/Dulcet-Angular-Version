@@ -1,0 +1,28 @@
+{
+  "songs_list":[
+    {
+      "albums":"/assets/images/album/1.jpg",
+      "audio":"/assets/images/audio/1.mp3",
+      "singers":"/assets/images/singers/andrea.jpg",
+      "singers_name":"Andrea",
+      "movie_name":"Ponniyin Selvan -I",
+      "song_name":"Chola Chola"
+    },
+    {
+      "albums":"/assets/images/album/2.jpg",
+      "audio":"/assets/images/audio/2.mp3",
+      "singers":"/assets/images/singers/anirudh.jpg",
+      "singers_name":"Anirudh",
+      "movie_name":"Navarasa",
+      "song_name":"Thooriga"
+    },
+    {
+      "albums":"/assets/images/album/3.jpg",
+      "audio":"/assets/images/audio/3.mp3",
+      "singers":"/assets/images/singers/ilayaraja.jpg",
+      "singers_name":"Ilayaraja",
+      "movie_name":"Sita Ramam",
+      "song_name":"Kurumugil"
+    }
+  ]
+}

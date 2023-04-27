@@ -1,0 +1,128 @@
+.registersystem{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.registerform{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.registerform #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 89%;
+  top: 3%;
+  font-size: 0.55cm;
+}
+.fa-circle-xmark:hover,
+.fa:hover,
+.icon:hover,
+.registers:hover{
+  cursor: pointer;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.name, .email, .password, .confirmpassword{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.registerform .regicon1{
+  position: absolute;
+  left: 79%;
+  bottom: 46%;
+}
+.registerform .regicon2{
+  position: absolute;
+  left: 80%;
+  bottom: 30%;
+}
+.registerform .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  margin-left: 25%;
+  margin-top: -5%;
+  padding-bottom: 1rem;
+}
+.registerform span{
+  display: block;
+  padding: 1rem;
+  font-size: 15px;
+  text-align: center;
+}
+.registerform .registers{
+  border: none;
+  font-size: large;
+  width: 30%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: khaki;
+  color: #000;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.fa-arrow-rotate-right{
+  font-size: 0.33cm ;
+  font-weight: bolder;
+  background-color: khaki;
+  color: #000;
+  border-radius: 30px;
+  padding: 0.85rem;
+  text-transform: capitalize;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.registerform button{
+  border: none;
+  font-size: large;
+  width: 30%;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.registerform button:hover{
+  cursor: pointer;
+}
+/* .registerform p{
+  color:red;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  padding: 15px;
+} */
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+    width: 100%;
+  }
+  .form-group span{
+    font-size: xx-small;
+  }
+}

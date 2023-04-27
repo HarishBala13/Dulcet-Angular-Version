@@ -1,0 +1,189 @@
+<div class="registersystem">
+  <form class="registerform" [formGroup]="registerForm" (submit)="submitRegisterForm()">
+    <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeRegisterForm()"></i>
+    <h2 id="h2">Create your account</h2>
+
+    <i class="fa-solid fa-user icon"></i>
+    <input type="text" class="name" placeholder="Enter your name" formControlName="regname">
+    <small class="small" *ngIf="registerForm.controls['regname'].errors?.['required'] && registerForm.controls['regname'].dirty">* Name is required</small>
+    <small class="small" *ngIf="registerForm.controls['regname'].errors?.['pattern']">* Please provide a proper Name</small>
+
+    <i class="fa-solid fa-envelope icon"></i>
+    <input type="text" class="email" placeholder="Enter your email" formControlName="regemail">
+    <small class="small" *ngIf="registerForm.controls['regemail'].errors?.['required'] && registerForm.controls['regemail'].dirty">* Email is required</small>
+    <small class="small" *ngIf="registerForm.controls['regemail'].errors?.['pattern']">* Please provide proper Email</small>
+
+    <i class="fa-solid fa-key icon"></i>
+    <input type="password" class="password" placeholder="Enter your password" formControlName="regpassword"  #registerpasswordfield >
+    <i (click)="registerpasswordfield.type=registerpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon1"  [ngClass]="(registerpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+    <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['required'] && registerForm.controls['regpassword'].dirty">* Password is required</small>
+    <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">* Provided password is not strong</small> -->
+    <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">(Note: Use Special Characters) </small> -->
+
+    <i class="fa-solid fa-key icon"></i>
+    <input type="password" class="confirmpassword" placeholder="Re-type the password" formControlName="regconfirmpassword" #registerconfirmpasswordfield>
+    <i (click)="registerconfirmpasswordfield.type=registerconfirmpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon2" [ngClass]="(registerconfirmpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
+    <small class="small" *ngIf="registerForm.controls['regconfirmpassword'].errors?.['required'] && registerForm.controls['regconfirmpassword'].errors?.['touched']">* Password is required</small>
+
+    <i class="fa-solid fa-arrow-rotate-right icon" (click)="registerReset()">&nbsp;&nbsp;Reset</i>
+    <button [disabled]="registerForm.valid">Submit</button>
+
+    <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="registers" routerLink="login">Login</a></span>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.system{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+}
+.form #h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black;
+  text-align: center;
+  padding: 20px 40px;
+}
+.form{
+width: 30rem;
+background: rgb(255, 255, 255);
+box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+border-radius: 20px 35px 20px 35px;
+}
+input{
+  width: 80%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  margin-left: 12%;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 30px;
+  border:none;
+  outline: none;
+}
+input:focus{
+  outline: none;
+}
+.form small{
+  color: #f40707;
+  visibility: hidden;
+  margin-left: 100px;
+  font-weight: 1rem;
+  font-weight: bolder;
+}
+.form span{
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.4cm;
+  font-weight: bolder;
+  margin-bottom:1%;
+}
+.form .password{
+  color: black;
+  text-decoration: none;
+}
+.form .password:hover{
+  color: blueviolet;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.form button{
+border: none;
+font-size: large;
+width: 60%;
+margin-left: 60px;
+padding: 10px;
+margin-bottom: 25px;
+font-weight: bolder;
+}
+.form button:hover{
+  cursor: pointer;
+  color: white;
+  background: rgba(0,0,0,0.75);
+}
+.form p{
+  color:red;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  padding: 15px;
+}
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+      width: 100%;
+  }
+  .form-group span{
+      font-size: xx-small;
+  }
+}
+</style>
+<div class="system">
+  <form class="form" method="post" #registerForm="ngForm" (submit)="submitRegisterForm()"><i class="fa-solid fa-circle-xmark fa-flip"></i>
+    <h4 id="h2">{{registerForm.value|json}}</h4>
+    <h2 id="h2">Create your account</h2>
+
+    <i class="fa-solid fa-user"></i>
+    <input type="text" placeholder="Enter your name" id="name" name="name" #u_name=ngModel [(ngModel)]="username" required minlength="8">
+    <div *ngIf="u_name.errors && (u_name.dirty || u_name.touched)">
+      <small style="visibility:visible;" [hidden]="!u_name.errors['required']">Please Enter Your Name</small>
+      <small style="visibility:visible;" [hidden]="!u_name.errors['minlength']">Please Enter a Name atleast 8 characters</small>
+    </div>
+
+
+    <i class="fa-solid fa-envelope"></i>
+    <input type="text" placeholder="Enter your email" id="email" name="email" #u_email=ngModel [(ngModel)]="email" required email>
+     <div *ngIf="u_email.errors && (u_email.dirty || u_email.touched)">
+      <small style="visibility:visible;" [hidden]="!u_email.errors['required']">*Email is required</small>
+      <small style="visibility:visible;" [hidden]="!u_email.errors['email']">Please Enter Proper Email</small>
+    </div>
+
+    <i class="fa-solid fa-key"></i>
+    <input type="password" placeholder="Enter your password" id="set_password" name="password" #u_pass=ngModel [(ngModel)]="password" required minlength="6">
+    <div *ngIf="u_pass.errors && (u_pass.dirty || u_pass.touched)">
+      <small [hidden]="!u_pass.errors['required']" style="visibility:visible;">*Password is required</small>
+      <small [hidden]="!u_pass.errors['minlength']" style="visibility:visible;">Password must contain 6 characters</small>
+    </div>
+
+
+    <i class="fa-solid fa-key"></i>
+    <input type="password" placeholder="Enter the above password" id="confirm_password" name="pass" #c_pass=ngModel [(ngModel)]="confirmpassword" required minlength="6">
+    <div *ngIf="(u_pass != c_pass)">
+      <small style="visibility:visible;">Password Doesn't match</small>
+    </div>
+    <div *ngIf="(c_pass.errors && (c_pass.dirty || c_pass.touched))">
+      <small [hidden]="!c_pass.errors['required']" style="visibility:visible;">*Password is required</small>
+      <small [hidden]="!c_pass.errors['minlength']" style="visibility:visible;">Password must contain 6 characters</small>
+    </div>
+
+    <button [disabled]="!registerForm.form.valid">Submit</button>
+
+    <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="password" routerLink="login">Login</a></span>
+  </form>
+</div>
+ -->

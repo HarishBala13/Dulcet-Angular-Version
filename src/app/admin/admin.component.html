@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="nav">
+      <img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo">
+  </div>
+  <div class="nav-links" id="togglebar">
+    <nav>
+      <a href="/premium">Premium</a>
+      <a href="#bottom">Contact</a>
+      <a href="/logout">Logout</a>
+      <a href="/loggedin">Songs</a>
+      <a href="/premium">Premium</a>
+      <a href="#bottom">Contact</a>
+      <a href="/login">Login</a>
+    </nav>
+  </div>
+</header>
+
+<section id="main-header">
+  <h1>Welcome to Dulcet Admin!<br><p class="footer intro">Current Users in our Website {{databaseLength}}</p></h1>
+  <img src="/assets/images/logo.png" alt="Logo" class="logo">
+  <p class="intro">One Good Thing About Music, When It Hits You, You Feel No Pain.</p>
+</section>
+
+
+<ng-container *ngFor="let value of values">
+  <div class="artists">
+    <p class="artistsname">{{value.singers_name}}</p>
+  </div>
+</ng-container>

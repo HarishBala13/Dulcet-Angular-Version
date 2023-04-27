@@ -1,0 +1,152 @@
+<div class="system">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+    <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeLoginForm()"></i>
+    <small class="small"></small>
+    <h2 id="h2">Dulcet Login</h2>
+
+    <i class="fa-solid fa-envelope icon"></i>
+    <input type="text" placeholder="Enter your email" formControlName="email" class="email">
+    <small class="small" *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].dirty">* User your email is required please provide</small>
+    <small class="small" *ngIf="loginForm.controls['email'].errors?.['pattern']">* Please provide proper Email</small>
+
+
+    <!-- <i class="fa-solid fa-key icon"></i>
+    <input type="password" placeholder="Enter your password" formControlName="password" class="set_password">
+    <i class="fa fa-eye-slash" (click)="showPassword()"></i>
+    <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].errors?.['touched']">* Password is required</small>
+    <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your Password should be Strong</small> -->
+
+    <i class="fa-solid fa-key icon"></i>
+    <input type="password" placeholder="Enter your password" class="password" formControlName="password" #passwordfield>
+    <i (click)="passwordfield.type=passwordfield.type=='password'?'text':'password'" class="fa fa-eye-slash" [ngClass]="(passwordfield.type=='password')? 'fa-eye-slash':'fa-eye'"></i>
+
+    <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].dirty">* User your password is required please provide</small>
+    <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your password must be Strong so use (@!%$*&^) and AlphaNumeric </small>
+
+    <div class="flex">
+      <div><i class="fa-solid fa-arrow-rotate-right" (click)="loginReset()">&nbsp;&nbsp;Reset</i></div>
+      <div><button [disabled]="!loginForm.valid">Submit</button></div>
+    </div>
+
+    <!-- <span>Click here to change password if you forgot it😊😊<a routerLink="forgot" class="forgot">Forgot Password?</a></span> -->
+    <a routerLink="forgot" class="forgot">Forgot Password?</a>
+    <span>Not&nbsp;an&nbsp;User&nbsp;?&nbsp;<a routerLink="register" class="signup">Register</a></span>
+  </form>
+</div>
+
+
+
+<!-- <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: bolder;
+  }
+  .system{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: rgb(255, 255, 255);
+  }
+  .form #h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    padding: 20px 40px;
+  }
+  .form{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+
+  }
+  input{
+    width: 60%;
+    box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+    margin-left: 20%;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 30px;
+    border:none;
+  }
+  input:focus{
+    outline: none;
+  }
+  .form small{
+    color: #c80d0d;
+    visibility: hidden;
+  }
+  .form span{
+    display: block;
+    padding-bottom: 3%;
+    text-align: center;
+    font-size: 15px;
+  }
+  .form .password{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+  }
+  .form .password:hover{
+    color: blueviolet;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .form button{
+  border: none;
+  font-size: large;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 25px;
+  font-weight: bolder;
+  }
+  .form button::before{
+    content: '';
+    position: absolute;
+    background: darkmagenta;
+    height: 150px;
+    width: 200px;
+    border-radius: 20%;
+    z-index:-1;
+  }
+  .form button:hover{
+    cursor: pointer;
+  }
+  .form p{
+    color:red;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    padding: 15px;
+  }
+
+
+  @media only screen and (max-width : 500px)
+  {
+    .form{
+        width: 100%;
+    }
+    .form-group span{
+        font-size: xx-small;
+    }
+  }
+  </style>
+  <div class="system">
+    <form class="form" method="get" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+      <h2 id="h2">Dulcet Login</h2>
+
+      <input type="text" placeholder="Enter your email" name="email" formControlName="email" required>
+        <small style="visibility: visible;" *ngIf="!loginForm.controls['email']">*Email is required</small>
+
+
+      <input type="password" placeholder="Enter your password" name="password" formControlName="password" required minlength="6">
+        <small style="visibility: visible;" *ngIf="!loginForm.controls['password']">*Password is required</small>
+
+      <button [disabled]="!loginForm.valid">Submit</button>
+
+      <span>Not&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="password" routerLink="register">Register</a></span>
+    </form>
+  </div> -->
+

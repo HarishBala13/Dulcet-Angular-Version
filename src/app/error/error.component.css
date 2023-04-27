@@ -1,0 +1,14 @@
+body{
+  background-color: burlywood;
+}
+div{
+  display: grid;
+  place-items: center;
+}
+h1{
+  color: blanchedalmond;
+  font-size: 2cm;
+}
+h2{
+  font-size: 1cm;
+}
