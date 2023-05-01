@@ -13,4 +13,7 @@ export class SongsService {
   vibesassets(){
     return this.http.get("http://localhost:3000/Vibes");
   }
+  newsongsassets(){
+    return this.http.get("http://localhost:3000/NewSongs");
+  }
 }

@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .forgotsystem{
   display: grid;
   place-items: center;
@@ -9,6 +13,7 @@
   background: rgb(255, 255, 255);
   box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
   border-radius: 20px 35px 20px 35px;
+  z-index: 1;
   position: relative;
 }
 .forgotform #h2{
@@ -23,8 +28,8 @@
 }
 .fa-circle-xmark{
   position: absolute;
-  left: 85%;
-  top: 4%;
+  left: 89%;
+  top: 5%;
   font-size: 0.55cm;
 }
 .fa-circle-xmark:hover, button:hover, .fa-arrow-rotate-right:hover{
@@ -93,27 +98,29 @@ input:focus{
   box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
 }
 
+
+
+
 .logo{
   height: 50px;
   border-radius: 50%;
 }
 .header{
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   background: #5199E4;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2%;
+  padding: 1rem;
+  width: 100%;
 }
 .nav-links nav{
-  margin: 0;
-  padding: 0;
   display: flex;
+  justify-content: space-around;
 }
-.nav-links nav a{
+.nav-links nav div a{
   letter-spacing: 1px;
-  flex-direction: column;
   margin: 0 1rem;
   text-decoration: none;
   color: white;
@@ -149,10 +156,17 @@ input:focus{
 .bottom-contents span{
   font-size: 0.50cm;
 }
-.bottom-contents ul li{
+.bottom-contents ul a{
+  display: flex;
+  flex-direction: column;
+
   font-size: 0.45cm;
   padding: 0.60rem;
-  list-style-type: none;
+  text-decoration: none;
+}
+.bottom-contents ul a:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 .bottom-contents .grid{
   display: grid;

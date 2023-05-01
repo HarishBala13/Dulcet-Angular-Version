@@ -1,13 +1,26 @@
+<header class="header">
+  <div class="nav"> <a><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo" style="cursor: pointer;" (click)="closeLoginForm()"></a> </div>
+  <div class="nav-links">
+    <nav>
+      <div><a href="#contact">Contact</a></div>
+      <div><a routerLink="premium">Premium</a></div>
+      <div><a routerLink="songs">Songs</a></div>
+    </nav>
+  </div>
+</header>
+
 <div class="system">
   <form class="form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
     <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeLoginForm()"></i>
-    <small class="small"></small>
+    <small class="smallerror">{{errormessage}}</small>
     <h2 id="h2">Dulcet Login</h2>
 
-    <i class="fa-solid fa-envelope icon"></i>
+    <div class="form-email">
+      <i class="fa-solid fa-envelope icon"></i>
     <input type="text" placeholder="Enter your email" formControlName="email" class="email">
-    <small class="small" *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].dirty">* User your email is required please provide</small>
+    <small class="small" *ngIf="loginForm.controls['email'].errors?.['required'] && loginForm.controls['email'].dirty">* Your email is required</small>
     <small class="small" *ngIf="loginForm.controls['email'].errors?.['pattern']">* Please provide proper Email</small>
+    </div>
 
 
     <!-- <i class="fa-solid fa-key icon"></i>
@@ -16,12 +29,14 @@
     <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].errors?.['touched']">* Password is required</small>
     <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your Password should be Strong</small> -->
 
-    <i class="fa-solid fa-key icon"></i>
-    <input type="password" placeholder="Enter your password" class="password" formControlName="password" #passwordfield>
-    <i (click)="passwordfield.type=passwordfield.type=='password'?'text':'password'" class="fa fa-eye-slash" [ngClass]="(passwordfield.type=='password')? 'fa-eye-slash':'fa-eye'"></i>
+<div class="form-password">
+  <i class="fa-solid fa-key icon"></i>
+  <input type="password" placeholder="Enter your password" class="password" formControlName="password" #passwordfield>
+  <i (click)="passwordfield.type=passwordfield.type=='password'?'text':'password'" class="fa fa-eye-slash" [ngClass]="(passwordfield.type=='password')? 'fa-eye-slash':'fa-eye'"></i>
 
-    <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].dirty">* User your password is required please provide</small>
-    <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your password must be Strong so use (@!%$*&^) and AlphaNumeric </small>
+  <small class="small" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].dirty">* Your password is required</small>
+  <small class="small" *ngIf="loginForm.controls['password'].errors?.['pattern']">* Your password must be strong</small>
+</div>
 
     <div class="flex">
       <div><i class="fa-solid fa-arrow-rotate-right" (click)="loginReset()">&nbsp;&nbsp;Reset</i></div>
@@ -33,6 +48,52 @@
     <span>Not&nbsp;an&nbsp;User&nbsp;?&nbsp;<a routerLink="register" class="signup">Register</a></span>
   </form>
 </div>
+
+
+<section id="contact" class="bottom-contents">
+  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
+  <div>
+      <span>COMPANY</span>
+      <ul>
+          <a target="_blank">About</a>
+          <a target="_blank">Jobs</a>
+          <a target="_blank">Records</a>
+      </ul>
+  </div>
+  <div>
+      <span>COMMUNITIES</span>
+      <ul>
+          <a target="_blank">For&nbsp;Artists</a>
+          <a target="_blank">Developers</a>
+          <a target="_blank">Advertising</a>
+          <a target="_blank">Investors</a>
+          <a target="_blank">Vendors</a>
+      </ul>
+  </div>
+  <div>
+      <span>USEFUL&nbsp;LINKS</span>
+      <ul>
+          <a target="_blank">Support</a>
+          <a target="_blank">Web&nbsp;Player</a>
+          <a target="_blank">Contact&nbsp;Dulcet</a>
+      </ul>
+  </div>
+  <div>
+      <nav>
+      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
+      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+      </nav>
+  </div>
+</section>
+
+<footer class="footer">
+<h3>Copyrights &copy; 2022</h3>
+<p>All Rights Reserved</p>
+<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
+</footer>
 
 
 

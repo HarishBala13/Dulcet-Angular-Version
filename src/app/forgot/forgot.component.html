@@ -1,10 +1,10 @@
 <header class="header">
-  <div class="nav">   <a routerLink=""><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo"></a>    </div>
+  <div class="nav"> <a><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo" (click)="home()" style="cursor: pointer;"></a> </div>
   <div class="nav-links">
     <nav>
-      <a routerLink="#contact">Contact</a>
-      <a routerLink="/premium">Premium</a>
-      <a routerLink="/loggedin">Songs</a>
+      <div><a href="#contact">Contact</a></div>
+      <div><a routerLink="premium">Premium</a></div>
+      <div><a routerLink="songs">Songs</a></div>
     </nav>
   </div>
 </header>
@@ -27,7 +27,7 @@
 
     <i class="fa-solid fa-arrow-rotate-right" (click)="forgotReset()">&nbsp;&nbsp;Reset</i>
 
-    <button [disabled]="forgotpassForm.valid">Submit</button>
+    <button [disabled]="!forgotpassForm.valid">Submit</button>
 
   </form>
 </div>
@@ -37,35 +37,35 @@
   <div>
       <span>COMPANY</span>
       <ul>
-          <li>About
-          <li>Jobs
-          <li>Records
+          <a target="_blank">About</a>
+          <a target="_blank">Jobs</a>
+          <a target="_blank">Records</a>
       </ul>
   </div>
   <div>
       <span>COMMUNITIES</span>
       <ul>
-          <li>For&nbsp;Artists
-          <li>Developers
-          <li>Advertising
-          <li>Investors
-          <li>Vendors
+          <a target="_blank">For&nbsp;Artists</a>
+          <a target="_blank">Developers</a>
+          <a target="_blank">Advertising</a>
+          <a target="_blank">Investors</a>
+          <a target="_blank">Vendors</a>
       </ul>
   </div>
   <div>
       <span>USEFUL&nbsp;LINKS</span>
       <ul>
-          <li>Support
-          <li>Web&nbsp;Player
-          <li>Contact&nbsp;Dulcet
+          <a target="_blank">Support</a>
+          <a target="_blank">Web&nbsp;Player</a>
+          <a target="_blank">Contact&nbsp;Dulcet</a>
       </ul>
   </div>
   <div>
       <nav>
-        <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
       <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-      <a href="https://www.linkedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
-      <a href="mailto:delcetonline2023@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>E-mail</a>
+      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
       <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
       </nav>
   </div>

@@ -7,6 +7,10 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { RegisterComponent } from './register/register.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { UserAuthorizationGuard } from './user-authorization.guard';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PremiumComponent } from './premium/premium.component';
+import { AdminupdateComponent } from './adminupdate/adminupdate.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -14,13 +18,22 @@ const routes: Routes = [
       canActivate:[UserAuthorizationGuard]},
   {path:'login',component:LoginComponent},
   {path:'forgot',component:ForgotComponent},
+  {path:'forgotpass',component:ForgotpassComponent},
   {path:'register',component:RegisterComponent},
+  {path:'playlist/premium',component:PremiumComponent},
+  {path:'payment',component:PaymentComponent},
   {path:'admin',component:AdminComponent},
+  {path:'admin/adminupdate/:id',component:AdminupdateComponent},
+  {path:'',children:[
+    {path:'playlist/home',component:HomeComponent}
+  ]},
   {path:'',children:[
     {path:'login/forgot',component:ForgotComponent},
+    {path:'login/forgot/',component:HomeComponent},
     {path:'login/register',component:RegisterComponent},
-    {path:'login/home',component:HomeComponent},
-    {path:'login/admin',component:AdminComponent}
+    {path:'login/',component:HomeComponent},
+    {path:'login/admin',component:AdminComponent},
+    {path:'login/playlist',component:PlaylistComponent}
   ]},
   {path:'',children:[
     {path:'login/register/login',component:LoginComponent},

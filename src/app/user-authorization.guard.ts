@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserregisterService } from './userregister.service';
 
@@ -7,12 +7,28 @@ import { UserregisterService } from './userregister.service';
   providedIn: 'root'
 })
 export class UserAuthorizationGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown> {
-  constructor(private userService:UserregisterService){}
+  constructor(private userService:UserregisterService, private router:Router){}
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(this.userService.checkUser()){
-      alert("Guard works here");
+    if(localStorage.getItem('loggedin')=='false'){
+      this.router.navigate(['login'],{queryParams:{returl:route.url}});
+      return false;
     }
-    return true;
+    else if(localStorage.getItem('loggedin')=='true'){
+      return true;
+    }
+    else{
+      if(this.userService.logoutUser()){
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    // if(this.userService.isLoggedIn == false){
+    // return true;
+    // }
+    // this.router.navigate(['/'],{queryParams: { }})
+    // return true;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,

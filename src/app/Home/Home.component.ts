@@ -13,27 +13,29 @@ export class HomeComponent implements OnInit {
   logout=false;
   login=true;
   vibes_value:any="";
+  new_songs_values:any='';
+  openBottomSongTrack:boolean=true;
 
-  images = [
-    { img: "/assets/images/singers/yuvancoat.jpeg" },
-    { img: "/assets/images/singers/andrea.jpg" },
-    { img: "/assets/images/singers/anirudh.jpg" },
-    { img: "/assets/images/singers/ar-rahman.jpg" },
-    { img: "/assets/images/singers/ilayaraja.jpg" },
-    { img: "/assets/images/singers/jonita gandhi.jpg" },
-    { img: "/assets/images/singers/k_s_chithra.jpg" },
-    { img: "/assets/images/singers/shreya-ghoshal.jpg" },
-    { img: "/assets/images/singers/Shweta_Mohan.jpg" },
-    { img: "/assets/images/singers/spb.jpg" },
-    { img: "/assets/images/singers/vaali.jpg" }
-  ];
+  // images = [
+  //   { img: "/assets/images/singers/yuvancoat.jpeg" },
+  //   { img: "/assets/images/singers/andrea.jpg" },
+  //   { img: "/assets/images/singers/anirudh.jpg" },
+  //   { img: "/assets/images/singers/ar-rahman.jpg" },
+  //   { img: "/assets/images/singers/ilayaraja.jpg" },
+  //   { img: "/assets/images/singers/jonita gandhi.jpg" },
+  //   { img: "/assets/images/singers/k_s_chithra.jpg" },
+  //   { img: "/assets/images/singers/shreya-ghoshal.jpg" },
+  //   { img: "/assets/images/singers/Shweta_Mohan.jpg" },
+  //   { img: "/assets/images/singers/spb.jpg" },
+  //   { img: "/assets/images/singers/vaali.jpg" }
+  // ];
 
-  slideConfig = {
-    "slidesToShow": 3,
-    "slidesToScroll": 1,
-    "autoplay":true,
-    "autoplaySpeed":1000,
-  };
+  // slideConfig = {
+  //   "slidesToShow": 3,
+  //   "slidesToScroll": 1,
+  //   "autoplay":true,
+  //   "autoplaySpeed":1000,
+  // };
 
 
   public item:any="";
@@ -45,11 +47,25 @@ export class HomeComponent implements OnInit {
 
     songService.vibesassets().subscribe(vibesvalues=>{
       this.vibes_value=vibesvalues;
-    })
+    });
+
+    songService.newsongsassets().subscribe(newsongsvalue=>{
+      this.new_songs_values=newsongsvalue;
+    });
+
   }
   ngOnInit() {}
 
-  // addPlaylist(){
+  playAudio(audioObject:any){
+    let audio = new Audio();
+    audio.src=audioObject['audios'];
+    audio.play();
+    console.log(audioObject['audios']);
+  }
+
+  currentSong(){}
+
+    // addPlaylist(){
   // this.client.get<any>("http://localhost:3000/usersregister").subscribe((datas)=>{
   //   const checkuser=datas.find((results:any)=>{
   //     return results.regemail;

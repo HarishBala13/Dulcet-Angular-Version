@@ -1,0 +1,78 @@
+<header class="header">
+  <div class="nav">   <a routerLink=""><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo"></a>    </div>
+  <div class="nav-links">
+    <nav>
+      <a routerLink="#contact">Contact</a>
+      <a routerLink="/premium">Premium</a>
+      <a routerLink="/loggedin">Songs</a>
+    </nav>
+  </div>
+</header>
+
+<div class="forgotsystem">
+  <form class="forgotform" [formGroup]="forgotnewpassForm" (ngSubmit)="submitForgotnewPassForm()">
+    <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeForgotnewPassForm()"></i>
+    <h2 id="h2">Dulcet Recover Password</h2>
+    <!-- <small class="smalltext">To recover your Password 1st fill your Name and Email</small> -->
+
+    <i class="fa-solid fa-key icon"></i>
+    <input type="text" class="name" placeholder="Enter your password" formControlName="forgotpassword" #forgotpassword>
+    <small class="small" *ngIf="forgotnewpassForm.controls['forgotpassword'].errors?.['required'] && forgotnewpassForm.controls['forgotpassword'].dirty">* Password is required</small>
+    <small class="small" *ngIf="forgotnewpassForm.controls['forgotpassword'].errors?.['pattern']">* Please provide a strong Password</small>
+
+    <i class="fa-solid fa-key icon"></i>
+    <input type="text" class="email" placeholder="Enter above password" formControlName="reforgotpassword" #reforgotpassword>
+    <small class="small" *ngIf="forgotnewpassForm.controls['reforgotpassword'].errors?.['required'] && forgotnewpassForm.controls['reforgotpassword'].dirty">* Password is required</small>
+    <small class="small" *ngIf="forgotnewpassForm.controls['reforgotpassword'].errors?.['pattern']">* Please provide a strong Password</small>
+
+    <i class="fa-solid fa-arrow-rotate-right" (click)="forgotReset()">&nbsp;&nbsp;Reset</i>
+
+    <button [disabled]="!forgotnewpassForm.valid">Submit</button>
+
+  </form>
+</div>
+
+<section id="contact" class="bottom-contents">
+  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
+  <div>
+      <span>COMPANY</span>
+      <ul>
+          <li>About
+          <li>Jobs
+          <li>Records
+      </ul>
+  </div>
+  <div>
+      <span>COMMUNITIES</span>
+      <ul>
+          <li>For&nbsp;Artists
+          <li>Developers
+          <li>Advertising
+          <li>Investors
+          <li>Vendors
+      </ul>
+  </div>
+  <div>
+      <span>USEFUL&nbsp;LINKS</span>
+      <ul>
+          <li>Support
+          <li>Web&nbsp;Player
+          <li>Contact&nbsp;Dulcet
+      </ul>
+  </div>
+  <div>
+      <nav>
+        <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.linkedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+      <a href="mailto:delcetonline2023@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>E-mail</a>
+      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+      </nav>
+  </div>
+</section>
+
+<footer class="footer">
+<h3>Copyrights &copy; 2022</h3>
+<p>All Rights Reserved</p>
+<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
+</footer>

@@ -2,6 +2,11 @@
   height: 50px;
   border-radius: 50%;
 }
+.image{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
 .header{
   position: fixed;
   z-index: 1;
@@ -10,6 +15,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2%;
+  width: 100%;
 }
 .nav-links nav{
   margin: 0;
@@ -29,7 +35,11 @@
   border-radius: 50px;
 }
 .artists{
-  background-color: #077dfb;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background-color: #e3cb71;
 }
 .artists .artistsname{
   font-size: large;

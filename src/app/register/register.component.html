@@ -1,3 +1,14 @@
+<!-- <header class="header">
+  <div class="nav"> <a routeLink=""><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo"></a> </div>
+  <div class="nav-links">
+    <nav>
+      <div><a href="#contact">Contact</a></div>
+      <div><a routerLink="premium">Premium</a></div>
+      <div><a routerLink="songs">Songs</a></div>
+    </nav>
+  </div>
+</header> -->
+
 <div class="registersystem">
   <form class="registerform" [formGroup]="registerForm" (submit)="submitRegisterForm()">
     <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeRegisterForm()"></i>
@@ -17,21 +28,64 @@
     <input type="password" class="password" placeholder="Enter your password" formControlName="regpassword"  #registerpasswordfield >
     <i (click)="registerpasswordfield.type=registerpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon1"  [ngClass]="(registerpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
     <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['required'] && registerForm.controls['regpassword'].dirty">* Password is required</small>
-    <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">* Provided password is not strong</small> -->
-    <!-- <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">(Note: Use Special Characters) </small> -->
+    <small class="small" *ngIf="registerForm.controls['regpassword'].errors?.['pattern']">* Provided password is not strong</small>
 
     <i class="fa-solid fa-key icon"></i>
     <input type="password" class="confirmpassword" placeholder="Re-type the password" formControlName="regconfirmpassword" #registerconfirmpasswordfield>
     <i (click)="registerconfirmpasswordfield.type=registerconfirmpasswordfield.type=='password'?'text':'password'" class="fa fa-eye-slash regicon2" [ngClass]="(registerconfirmpasswordfield.type=='password')?' fa-eye-slash':' fa-eye'"></i>
-    <small class="small" *ngIf="registerForm.controls['regconfirmpassword'].errors?.['required'] && registerForm.controls['regconfirmpassword'].errors?.['touched']">* Password is required</small>
+    <small class="small" *ngIf="registerForm.controls['regconfirmpassword'].errors?.['required'] && registerForm.controls['regconfirmpassword'].dirty">* Password is required</small>
 
     <i class="fa-solid fa-arrow-rotate-right icon" (click)="registerReset()">&nbsp;&nbsp;Reset</i>
-    <button [disabled]="registerForm.valid">Submit</button>
+    <button [disabled]="!registerForm.valid">Submit</button>
 
     <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="registers" routerLink="login">Login</a></span>
   </form>
 </div>
 
+<section id="contact" class="bottom-contents">
+  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
+  <div>
+      <span>COMPANY</span>
+      <ul>
+          <a target="_blank">About</a>
+          <a target="_blank">Jobs</a>
+          <a target="_blank">Records</a>
+      </ul>
+  </div>
+  <div>
+      <span>COMMUNITIES</span>
+      <ul>
+          <a target="_blank">For&nbsp;Artists</a>
+          <a target="_blank">Developers</a>
+          <a target="_blank">Advertising</a>
+          <a target="_blank">Investors</a>
+          <a target="_blank">Vendors</a>
+      </ul>
+  </div>
+  <div>
+      <span>USEFUL&nbsp;LINKS</span>
+      <ul>
+          <a target="_blank">Support</a>
+          <a target="_blank">Web&nbsp;Player</a>
+          <a target="_blank">Contact&nbsp;Dulcet</a>
+      </ul>
+  </div>
+  <div>
+      <nav>
+      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
+      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+      </nav>
+  </div>
+</section>
+
+<footer class="footer">
+<h3>Copyrights &copy; 2022</h3>
+<p>All Rights Reserved</p>
+<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
+</footer>
 
 
 

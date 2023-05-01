@@ -1,1 +1,52 @@
-<p>playlist works!</p>
+<div class="container">
+  <div class="aside">
+      <div class="nav">
+        <a routerLink="home"><img src="/assets/images/blacklogo.png" alt="Dulcet home logo" class="blackimagelogo"></a>
+        <!-- <a>Home</a> -->
+        <!-- <button (click)="showHome()">Home</button> -->
+        <a routerLink="search">Search</a>
+        <!-- <a >{{registerusername}}</a> -->
+        <a routerLink="library">Library</a>
+        <!-- <button (click)="showLogin()">Login</button> -->
+        <!-- <button>&plus;&nbsp;Create Playlist</button> -->
+        <!-- <button><span>&hearts;</span>&nbsp;Liked Songs</button> -->
+        <a routerLink="playlist"><span class="plus_playlist">&plus;</span>&nbsp;Create Playlist</a>
+        <a routerLink="search"><span class="hearts_likedsongs">&hearts;</span>&nbsp;Liked Songs</a>
+      </div>
+  </div>
+
+
+<div class="main">
+
+  <ng-template [ngIf]="openMyProfile">
+    <div class="profilecontainer">
+      <div class="navbar">
+          <span class="profile" clickOutside (clickOutside)="clickedOutside()" (click)="toggle()">
+            {{profileName}}
+            <i class="fa fa-caret-down"></i>
+          </span>
+          <div class="menu" *ngIf="isMenuOpened">
+            <a>Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+            <a (click)="openProfile()">Profile</a>
+            <a routerLink="premium">Premium</a>
+            <a (click)="logout()">Logout&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+          </div>
+      </div>
+      <div class="firstcontent" (click)="openEditprofile()" style="cursor: pointer;">
+       <img src="/assets/images/person.png" alt="">
+       <div class="user_name">{{profileName}}</div>
+      </div>
+      </div>
+  </ng-template>
+
+
+  <div class="navbar">
+    <span class="profile" clickOutside (clickOutside)="clickedOutside()" (click)="toggle()">    {{profileName}}  <i class="fa fa-caret-down"></i></span>
+    <div class="menu" *ngIf="isMenuOpened">
+      <a>Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+      <a (click)="openProfile()">Profile</a>
+      <a routerLink="premium">Premium</a>
+      <a (click)="logout()">Logout&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+    </div>
+  </div>
+</div>

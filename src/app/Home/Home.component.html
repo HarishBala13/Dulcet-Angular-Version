@@ -1,8 +1,7 @@
-
 <div class="container">
   <div class="aside">
     <div class="nav">
-    <a routerLink="home" style="padding: 0;"><img src="/assets/images/blacklogo.png" alt="Dulcet home logo" class="blackimagelogo"></a>
+    <a routerLink="home"><img src="/assets/images/blacklogo.png" alt="Dulcet home logo" class="blackimagelogo"></a>
     <!-- <a>Home</a> -->
     <!-- <button (click)="showHome()">Home</button> -->
     <a routerLink="search">Search</a>
@@ -12,7 +11,7 @@
     <!-- <button>&plus;&nbsp;Create Playlist</button> -->
     <!-- <button><span>&hearts;</span>&nbsp;Liked Songs</button> -->
     <a routerLink="playlist"><span class="plus_playlist">&plus;</span>&nbsp;Create Playlist</a>
-    <a routerLink="search"><div class="hearts_likedsongs"></div>&nbsp;Liked Songs</a>
+    <a routerLink="search"><span class="hearts_likedsongs">&hearts;</span>&nbsp;Liked Songs</a>
 
     </div>
   </div>
@@ -28,149 +27,114 @@
       <div class="card-container first">
         <div class="titlehead">
             <span>Vibes</span>
-            <a>Show All</a>
-            <!-- <p>{{vibes_value | json}}</p> -->
         </div>
 
         <div class="cards">
             <div *ngFor="let vibes of vibes_value">
               <div class="card">
-                <img  class="image" src="{{vibes.images}}" alt="">
-                <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
-                <small class="maintitle">{{vibes.maintitle}}</small>
-                <small class="subtitle">{{vibes.subtitle}}</small>
+                <div><img  class="image" src="{{vibes.images}}" alt=""></div>
+                <div><i class="fa fa-play" id="playicon" (click)="playAudio(vibes)"></i></div>
+                <div><small class="maintitle">{{vibes.maintitle}}</small></div>
+                <div><small class="subtitle">{{vibes.subtitle}}</small></div>
               </div>
           </div>
         </div>
       </div>
+
       <div class="card-container first">
         <div class="titlehead">
-            <span>Vibes</span>
-            <a>Show All</a>
-            <!-- <p>{{vibes_value | json}}</p> -->
+            <span>NewSongs</span>
         </div>
 
         <div class="cards">
-            <div *ngFor="let vibes of vibes_value">
+            <div *ngFor="let newsongs of new_songs_values">
               <div class="card">
-                <img  class="image" src="{{vibes.images}}" alt="">
-                <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
-                <small class="maintitle">{{vibes.maintitle}}</small>
-                <small class="subtitle">{{vibes.subtitle}}</small>
+                <img  class="image" src="{{newsongs.images}}" alt="">
+                <i class="fa fa-play" id="playicon" (click)="playAudio(newsongs)"></i>
+                <small class="maintitle">{{newsongs.maintitle}}</small>
+                <small class="subtitle">{{newsongs.subtitle}}</small>
               </div>
           </div>
         </div>
       </div>
-      <div class="card-container first">
-        <div class="titlehead">
-            <span>Vibes</span>
-            <a>Show All</a>
-            <!-- <p>{{vibes_value | json}}</p> -->
-        </div>
 
-        <div class="cards">
-            <div *ngFor="let vibes of vibes_value">
-              <div class="card">
-                <img  class="image" src="{{vibes.images}}" alt="">
-                <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
-                <small class="maintitle">{{vibes.maintitle}}</small>
-                <small class="subtitle">{{vibes.subtitle}}</small>
+          <ng-template [ngIf]="openBottomSongTrack">
+            <div class="master_play">
+              <div class="wave">
+                  <div class="wave1"></div>
+                  <div class="wave1"></div>
+                  <div class="wave1"></div>
               </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-container first">
-        <div class="titlehead">
-            <span>Vibes</span>
-            <a>Show All</a>
-            <!-- <p>{{vibes_value | json}}</p> -->
-        </div>
+              <img src="" alt="" id="poster_master_play">
+              <h5 id="title">Alan<br>
+                  <div class="subtitle">Song</div>
+              </h5>
+              <div class="icon">
+                  <!-- <button onclick="previouSong()"id="previous"><i class="bi bi-skip-start-fill" id="back"></i></button> -->
+                  <button (click)="currentSong()" id="play"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+                  <!-- <button onclick="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button> -->
+              </div>
+              <!-- <span id="currentStart">0:00</span>
+              <div class="bar">
+                  <input type="range" id="seek" min="0" value="0" max="100" onclick="changeDuration()">
+                  <div class="bar2" id="bar2"></div>
+                  <div class="dot"></div>
+              </div>
+              <span id="currentEnd">0:00</span>
 
-        <div class="cards">
-            <div *ngFor="let vibes of vibes_value">
-              <div class="card">
-                <img  class="image" src="{{vibes.images}}" alt="">
-                <i class="fa fa-play" id="playicon" onclick="alert(`Hi Harish`);"></i>
-                <small class="maintitle">{{vibes.maintitle}}</small>
-                <small class="subtitle">{{vibes.subtitle}}</small>
-              </div>
-          </div>
-        </div>
+              <div class="vol">
+                  <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+                  <input type="range" id="vol" min="0" value="30" max="100">
+                  <div class="vol_bar"></div>
+                  <div class="dot" id="vol_dot"></div>
+              </div> -->
       </div>
-        <!-- <div class="card-container">
-            <span>Podcasts</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>New Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>Old Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>Old Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>Old Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>Old Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-        <div class="card-container">
-            <span>Old Songs</span>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div> -->
-  </div>
+
+          </ng-template>
+
+
 </div>
 
+<section id="contact" class="bottom-contents">
+  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
+  <div>
+    <span>COMPANY</span>
+    <ul>
+      <a routerLink="contacts" target="_blank">About</a>
+      <a routerLink="terms" target="_blank">Terms&nbsp;&&nbsp;Conditions</a>
+    </ul>
+  </div>
+  <div>
+      <span>COMMUNITIES</span>
+      <ul>
+          <a routerLink="" target="_blank">For&nbsp;Artists</a>
+          <a routerLink="" target="_blank">Developers</a>
+          <a routerLink="" target="_blank">Advertising</a>
+          <a routerLink="" target="_blank">Investors</a>
+          <a routerLink="" target="_blank">Vendors</a>
+      </ul>
+  </div>
+  <div>
+      <nav>
+      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
+      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
+      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+    </nav>
+  </div>
+</section>
+
+<footer class="footer">
+  <h3>Copyrights &copy; 2022</h3>
+  <p>All Rights Reserved</p>
+  <p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
+</footer>
+</div>
+
+
+
+<!-- <router-outlet></router-outlet> -->
 
 <!-- <!DOCTYPE html>
 <html>

@@ -11,10 +11,17 @@ import { HomeComponent } from './Home/Home.component';
 import { SongsComponent } from './songs/songs.component';
 import { ErrorComponent } from './error/error.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NewsongsComponent } from './newsongs/newsongs.component';
 import { AdminComponent } from './admin/admin.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { ClickedOutsideDirective } from './clicked-outside.directive';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PremiumComponent } from './premium/premium.component';
+import { IndexComponent } from './index/index.component';
+import { AdminupdateComponent } from './adminupdate/adminupdate.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +31,16 @@ import { PlaylistComponent } from './playlist/playlist.component';
     HomeComponent,
     SongsComponent,
     ErrorComponent,
-    NewsongsComponent,
     AdminComponent,
     ForgotComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ClickedOutsideDirective,
+    ForgotpassComponent,
+    PaymentComponent,
+    PremiumComponent,
+    IndexComponent,
+    AdminupdateComponent,
+    SearchComponent
    ],
   imports: [
     BrowserModule,
@@ -35,7 +48,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
     FormsModule,
     HttpClientModule,
     SlickCarouselModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,215 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+.container{
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.aside{
+  position: fixed;
+  z-index: 2;
+  /* opacity: 0; */
+}
+.aside .nav{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 100vh;
+}
+.aside .blackimagelogo{
+  height: 120px;
+  width: 210px;
+  opacity: 1;
+}
+.aside .nav a{
+  color: white;
+  text-align: center;
+  font-size: 0.65cm;
+  padding: 1rem;
+  text-decoration: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+/* .aside .nav button{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 30px;
+  padding: 1.5%;
+  background:#fff;
+  font-size: 0.55cm;
+  border: none;
+  opacity: 0.5;
+  font-family: 'Space Grotesk', sans-serif;
+} */
+.aside .nav a .plus_playlist,.aside .nav a .hearts_likedsongs{
+  background-color: #fff;
+  color: #000;
+  padding: 0.2rem;
+  font-size: 0.85cm;
+}
+/* .aside .nav a .hearts_likedsongs{
+  width: 24px;
+	height: 24px;
+	background: #ef0b0b;
+	clip-path: path("M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z");
+} */
+.aside .nav a:hover,.aside .nav button:hover,.aside .nav .blackimagelogo:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.main{
+  display: flex;
+  background-color: rgb(117, 106, 106);
+  color: white;
+  font-weight: bolder;
+  font-size: 0.75cm;
+  flex-direction: column;
+  margin-left: 18.3%;
+}
+.navbar{
+  position: fixed;
+  width: 100%;
+  background-color: #222020;
+  padding: 1rem;
+  z-index: 1;
+  /* margin-left: 15.7%; */
+}
+.navbar button{
+  width: 9%;
+  padding: 0.4rem;
+  background-color: #fff;
+  border-radius: 30px;
+  border: none;
+  margin-left: 75%;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.navbar button a{
+  text-decoration: none;
+  color: black;
+  font-size: 0.55cm;
+}
+.navbar button:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}
+.first{
+    margin-top: 8%;
+}
+.titlehead span{
+  padding: 10px;
+    font-size: 0.80cm;
+    color: #000;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.cards{
+  display: flex;
+  /*Gap concept need to work more bcoz of moving*/
+}
+.card{
+  display: grid;
+  place-items: center;
+    background-color: #000;
+    margin-left: 3%;
+    margin-top: 2%;
+    padding: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    /* box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35); */
+}
+.card .image{
+    height: 175px;
+    width: 150px;
+}
+.card .maintitle{
+    font-size: large;
+    padding: 8px;
+}
+.card .subtitle{
+    color: #fff;
+    font-size: small;
+    padding: 5px;
+    /* text-shadow: 2px 3px cyan; */
+}
+.card #playicon{
+    position: absolute;
+    background-color: hsl(84, 81%, 47%);
+    left: 108px;
+    top: 130px;
+    padding: 0.75rem;
+    border-radius: 30px;
+    opacity: 0;
+    border: none;
+    color: #0d1ace;
+    transition: 800ms ease;
+}
+.card:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+.card:hover .maintitle, .card:hover .subtitle{
+    opacity: 0.75;
+}
+.card:hover .image{
+    opacity: 1;
+}
+.card:hover #playicon{
+    opacity: 1;
+    box-shadow: 2px 3px 0px 1px rgb(158, 152, 152);
+    transition: 800ms ease;
+}
+
+
+
+
+
+
+.bottom-contents{
+  margin-top: 2%;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(40px,1fr));
+}
+.bottom-contents .logo{
+  width: 100px;
+  height: 100px;
+}
+.bottom-contents ul a{
+  display: flex;
+  flex-direction: column;
+  font-size: 0.45cm;
+  color: #fff;
+  text-decoration: none;
+}
+.bottom-contents ul a:hover,.bottom-contents nav a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.bottom-contents nav{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.bottom-contents nav a{
+  text-decoration: none;
+  color:white;
+  margin-left: 12px;
+  font-size: 20px;
+}
+.bottom-contents nav i{
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 15px;
+}
+.footer{
+  background: linear-gradient(15deg, black, rgb(41, 51, 51));
+  color: #ddd;
+  box-shadow: 0 5px 10px black;
+  max-width: 100%;
+  padding: 10px;
+  font-size: 0.50cm;
+}
+.footer a{
+  text-decoration: none;
+  color: azure;
+}
