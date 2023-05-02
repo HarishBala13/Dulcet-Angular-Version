@@ -8,6 +8,9 @@
   </div>
 </nav>
 
+
+<h2>Current Users in {{title}} : <h1 style="color: crimson; font-size: bolder;">{{currentUsers}}</h1></h2>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -20,8 +23,8 @@
         <form [formGroup]="songsEntry">
 
           <div class="form-group mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Song Path</label>
-            <input type="text" class="form-control" formControlName="songspath" id="exampleInputEmail1">
+            <label for="formFile" class="form-label">Enter Song Path</label>
+            <input class="form-control" type="file" id="formFile" formControlName="songspath">
           </div>
 
           <div class="form-group mb-3">
@@ -35,8 +38,8 @@
           </div>
 
           <div class="form-group mb-3">
-            <label for="exampleInputPassword1" class="form-label">Enter Album Path</label>
-            <input type="text" class="form-control" formControlName="albumpath" id="exampleInputPassword1">
+            <label for="formFile" class="form-label">Enter Album Path</label>
+            <input type="file" class="form-control" formControlName="albumpath" id="formFile">
           </div>
 
         </form>
@@ -49,11 +52,69 @@
   </div>
 </div>
 
+<div class="container">
+  <h1>Click any of the Buttons to view and edit it</h1>
+  <button class="btn btn-primary" (click)="vibesOpen()">Vibes</button>&nbsp;&nbsp;
+  <button class="btn btn-primary" (click)="newSongsOpen()">NewSongs</button>
+  <!-- <button class="btn btn-primary" (click)="usersOpen()">UsersList</button> -->
+</div>
+
+
 <div class="container-fluid mt-3">
-  <table class="table">
+
+    <table class="table" *ngIf="vibesboolean">
+      <thead>
+        <tr>
+          <!-- <td scope="col">S.No</td> -->
+          <th scope="col">Song path</th>
+          <th scope="col">Song</th>
+          <th scope="col">Artist</th>
+          <th scope="col">Album path</th>
+          <th scope="col" colspan="2">CRUD Operations</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let datas of vibes_data" >
+          <!-- <th scope="row">{{datas.id}}</th> -->
+          <td>{{datas.audios}}</td>
+          <td>{{datas.maintitle}}</td>
+          <td>{{datas.subtitle}}</td>
+          <td><img src="{{datas.images}}" style="height: 100px; width: 100px;"></td>
+          <td><button routerLink="adminupdate/{{datas.id}}" class="btn btn-warning">Edit</button></td>
+          <td><button (click)="deleteSongs(datas.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  <table class="table" *ngIf="newsongsboolean">
     <thead>
       <tr>
-        <td scope="col">S.No</td>
+        <!-- <td scope="col">S.No</td> -->
+        <th scope="col">Song path</th>
+        <th scope="col">Song</th>
+        <th scope="col">Artist</th>
+        <th scope="col">Album path</th>
+        <th scope="col" colspan="2">CRUD Operations</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let datas of newsongs_data" >
+        <!-- <th scope="row">{{datas.id}}</th> -->
+        <td>{{datas.audios}}</td>
+        <td>{{datas.maintitle}}</td>
+        <td>{{datas.subtitle}}</td>
+        <td><img src="{{datas.images}}" style="height: 100px; width: 100px;"></td>
+        <td><button routerLink="adminupdate/{{datas.id}}" class="btn btn-warning">Edit</button></td>
+        <td><button (click)="deleteSongs(datas.id)" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- <table class="table">
+    <thead>
+      <tr>
         <th scope="col">Song path</th>
         <th scope="col">Song</th>
         <th scope="col">Artist</th>
@@ -63,16 +124,17 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let datas of data" >
-        <th scope="row">{{datas.id}}</th>
-        <td>{{datas.songspath}}</td>
-        <td>{{datas.songsname}}</td>
-        <td>{{datas.artistsname}}</td>
-        <td>{{datas.albumpath}}</td>
+        <td>{{datas.audios}}</td>
+        <td>{{datas.maintitle}}</td>
+        <td>{{datas.subtitle}}</td>
+        <td><img src="{{datas.images}}" style="height: 100px; width: 100px;"></td>
         <td><button routerLink="adminupdate/{{datas.id}}" class="btn btn-warning">Edit</button></td>
         <td><button (click)="deleteSongs(datas.id)" class="btn btn-danger">Delete</button></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+
 </div>
 
 <!-- <form class="example-form">

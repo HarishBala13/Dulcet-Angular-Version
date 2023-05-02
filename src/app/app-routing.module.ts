@@ -11,12 +11,18 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PremiumComponent } from './premium/premium.component';
 import { AdminupdateComponent } from './adminupdate/adminupdate.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'playlist',component:PlaylistComponent,
       canActivate:[UserAuthorizationGuard]},
+  {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},
+  {path:'',children:[
+    {path:'login/register',component:RegisterComponent},
+    {path:'login',component:LoginComponent}
+  ]},
   {path:'forgot',component:ForgotComponent},
   {path:'forgotpass',component:ForgotpassComponent},
   {path:'register',component:RegisterComponent},
@@ -35,11 +41,7 @@ const routes: Routes = [
     {path:'login/admin',component:AdminComponent},
     {path:'login/playlist',component:PlaylistComponent}
   ]},
-  {path:'',children:[
-    {path:'login/register/login',component:LoginComponent},
-    {path:'register/login',component:LoginComponent},
-    {path:'register/home',component:HomeComponent}
-  ]},
+
   {path:'',children:[
     {path:'forgot/login',component:LoginComponent},
     {path:'forgot/admin',component:AdminComponent},

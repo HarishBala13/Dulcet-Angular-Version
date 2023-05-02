@@ -11,8 +11,7 @@ import { formatDate } from "@angular/common";
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls:['./register.component.css'],
-  styles: [`input.ng-invalid{border: 2px solid red;} input.ng-valid{border:2px solid green;} input.ng-untouched{border:none;}`],
-  encapsulation:ViewEncapsulation.None
+  styles: [`input.ng-invalid{border: 2px solid red;} input.ng-valid{border:2px solid green;} input.ng-untouched{border:none;}`]
 })
 export class RegisterComponent {
 

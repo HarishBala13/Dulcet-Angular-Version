@@ -43,5 +43,6 @@ export class PlaylistComponent {
     this.AL.AlertUser("Are You Sure want to Logout?");
     setTimeout(()=>this.router.navigate(['login']),5000);
     localStorage.removeItem("currentUserName");
+    localStorage.setItem("loggedin","false");
   }
 }

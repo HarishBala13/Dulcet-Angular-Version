@@ -1,0 +1,22 @@
+form{
+  background: linear-gradient(35deg, darkslategrey, green);
+  padding: 10px;
+}
+input[type=text] {
+  width: 20%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+  width: 50%;
+}
+span{
+  color: #000;
+  font-size: 0.8cm;
+  font-weight: 400;
+}

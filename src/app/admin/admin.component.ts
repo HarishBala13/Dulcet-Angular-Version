@@ -11,27 +11,22 @@ import { ApiService } from '../api.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit{
+
   title:any="Dulcet";
   public values:any="";
-  databaseLength:String='';
-  data:any='';
+  currentUsers:String='';
+  vibes_data:any='';
+  newsongs_data:any='';
+  vibesboolean:boolean=false;
+  newsongsboolean:boolean=false;
+  usersboolean:boolean=false;
+
   constructor(private formBuild:FormBuilder,private API:ApiService ,private service:SongsService,private userService:UserregisterService,private client:HttpClient) {
-    this.API.fetchALL().subscribe((values)=>{
-      this.data=values;
-    });
-
-    service.dulcetassets().subscribe((data:any)=>{
-      this.values=data;
-  });
-
-
+    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.currentUsers=userdata.length;    });
   }
+    // this.service.dulcetassets().subscribe((data:any)=>{ this.values=data;   });
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{
-      this.databaseLength=userdata.length;
-    })
-  }
   songsEntry=this.formBuild.group({
     songspath:['',Validators.required],
     albumpath:['',Validators.required],
@@ -39,6 +34,17 @@ export class AdminComponent implements OnInit{
     artistsname:['',Validators.required]
    })
 
+   vibesOpen(){
+    this.vibesboolean=true;
+    this.API.fetchVibes().subscribe(values=>{   this.vibes_data=values;   });
+   }
+   newSongsOpen(){
+    this.newsongsboolean=true;
+    this.API.fetchNewSongs().subscribe(values=>{  this.newsongs_data=values;  });
+   }
+  //  usersOpen(){
+  //   this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.currentUsers=userdata.length;    });
+  //  }
    addSongs(add:any){
     this.API.addSongsServ(add).subscribe((values)=>{
       console.log(values);

@@ -119,6 +119,30 @@
       "regconfirmpassword": "Harish@2002",
       "UserRegisterTime": "01-05-2023 12:40:31 PM",
       "id": 16
+    },
+    {
+      "regname": "Jeeva122",
+      "regemail": "jeevaaravinth2001@gmail.com",
+      "regpassword": "Jeeva@2001",
+      "regconfirmpassword": "Jeeva@2001",
+      "UserRegisterTime": "02-05-2023 02:50:22 PM",
+      "id": 17
+    },
+    {
+      "regname": "Jeeva123",
+      "regemail": "jeevaaravinth2001@gmail.com",
+      "regpassword": "Aravinth@2001",
+      "regconfirmpassword": "Aravinth@2001",
+      "UserRegisterTime": "02-05-2023 02:50:22 PM",
+      "id": 18
+    },
+    {
+      "regname": "balaji124",
+      "regemail": "2k19eee056@kiot.ac.in",
+      "regpassword": "asd123!A",
+      "regconfirmpassword": "asd123!A",
+      "UserRegisterTime": "02-05-2023 03:26:32 PM",
+      "id": 19
     }
   ],
   "songs_list": [
@@ -152,87 +176,87 @@
       "images": "https://i.etsystatic.com/10449941/r/il/6b5ed5/1586326929/il_794xN.1586326929_kvfi.jpg",
       "maintitle": "Good Vibes",
       "subtitle": "Get into the Vibes",
-      "audios":"/assets/images/audio/1.mp3"
+      "audios": "/assets/images/audio/1.mp3"
     },
     {
-      "images": "data:image/jpeg;base64,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",
+      "images": "/assets/images/album/Negative.jpg",
       "maintitle": "Trash it!",
       "subtitle": "The Negative Memories",
-      "audios":"/assets/images/audio/2.mp3"
+      "audios": "/assets/images/audio/2.mp3"
     },
     {
       "images": "https://tse4.mm.bing.net/th/id/OIP.YpUWQtnVsgAN9c5Qc4eICgHaHa?pid=ImgDet&w=1000&h=1000&rs=1",
-      "maintitle": "AcrosstheUniverse",
+      "maintitle": "Across Universe",
       "subtitle": "Keep calm and focus",
-      "audios":"/assets/images/audio/3.mp3"
+      "audios": "/assets/images/audio/3.mp3"
     },
     {
       "images": "https://wallpaperaccess.com/full/776136.png",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/4.mp3"
+      "audios": "/assets/images/audio/4.mp3"
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT3aiUsf4Yy4oCS4O1A9PDosZ8e2-HaynGFg&usqp=CAU",
       "maintitle": "Peace is here",
       "subtitle": "Vibe in Peace mood",
-      "audios":"/assets/images/audio/5.mp3"
+      "audios": "/assets/images/audio/5.mp3"
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSrYzRivN3AvYszFeOBGzlAY41AOQ9q94eZQ&usqp=CAU",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
-      "images":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjteuE71in1b-aL-8f3M_J3OwLqNtUanDpg&usqp=CAU",
+      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjteuE71in1b-aL-8f3M_J3OwLqNtUanDpg&usqp=CAU",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     }
   ],
   "NewSongs": [
     {
       "images": "/assets/images/album/Master.jpg",
       "maintitle": "Master",
-      "subtitle": "Listen a KuttyStory",
-      "audios":"/assets/images/audio/.mp3"
+      "subtitle": "JD Alcoholic",
+      "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3"
     },
     {
       "images": "/assets/images/album/VikramOST.jpg",
       "maintitle": "Vikram - II",
       "subtitle": "Vibe for Vikram",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
       "images": "/assets/images/album/Jailer.jpg",
       "maintitle": "Jailer",
       "subtitle": "Rampage walk of SSR",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
       "images": "/assets/images/album/Headphones.jpg",
       "maintitle": "Work Stress",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
       "images": "/assets/images/album/JioSavnImag.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
       "images": "/assets/images/album/Singing.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     },
     {
       "images": "/assets/images/album/Yashoda.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios":"/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3"
     }
   ],
   "posts": [

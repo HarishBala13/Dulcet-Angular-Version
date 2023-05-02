@@ -65,13 +65,13 @@
                   <div class="wave1"></div>
                   <div class="wave1"></div>
               </div>
-              <img src="" alt="" id="poster_master_play">
-              <h5 id="title">Alan<br>
-                  <div class="subtitle">Song</div>
+              <img src="{{imagepath}}" alt="" id="poster_master_play">
+              <h5 id="title">{{maintitle}}<br>
+                  <div class="subtitle">{{subtitle}}</div>
               </h5>
               <div class="icon">
                   <!-- <button onclick="previouSong()"id="previous"><i class="bi bi-skip-start-fill" id="back"></i></button> -->
-                  <button (click)="currentSong()" id="play"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+                  <button (click)="currentSong()" id="play"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
                   <!-- <button onclick="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button> -->
               </div>
               <!-- <span id="currentStart">0:00</span>

@@ -14,7 +14,11 @@ export class HomeComponent implements OnInit {
   login=true;
   vibes_value:any="";
   new_songs_values:any='';
-  openBottomSongTrack:boolean=true;
+  openBottomSongTrack:boolean=false;
+  audiosrc:string='';
+  imagepath:string='';
+  maintitle:string='';
+  subtitle:string='';
 
   // images = [
   //   { img: "/assets/images/singers/yuvancoat.jpeg" },
@@ -57,6 +61,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   playAudio(audioObject:any){
+    this.openBottomSongTrack=true;
+    this.audiosrc=audioObject['audios'];
+    this.imagepath=audioObject['images'];
+    this.maintitle=audioObject['maintitle'];
+    this.subtitle=audioObject['subtitle'];
     let audio = new Audio();
     audio.src=audioObject['audios'];
     audio.play();
