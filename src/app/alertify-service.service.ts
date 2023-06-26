@@ -22,4 +22,8 @@ export class AlertifyServiceService {
   AlertUser(message:any){
     alertifyjs.alert(message);
   }
+  ADService(){
+    alertifyjs.set("notifier","position","top-center");
+    alertifyjs.alert("Hi User! This is an simple Alert with an information to you that so far promoting commercial advertisements is strictly restricted");
+  }
 }

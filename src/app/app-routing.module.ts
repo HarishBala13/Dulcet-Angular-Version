@@ -12,11 +12,13 @@ import { PaymentComponent } from './payment/payment.component';
 import { PremiumComponent } from './premium/premium.component';
 import { AdminupdateComponent } from './adminupdate/adminupdate.component';
 import { SearchComponent } from './search/search.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'playlist',component:PlaylistComponent,
       canActivate:[UserAuthorizationGuard]},
+  {path:'accounts',component:AccountsComponent},
   {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},
   {path:'',children:[
@@ -26,7 +28,7 @@ const routes: Routes = [
   {path:'forgot',component:ForgotComponent},
   {path:'forgotpass',component:ForgotpassComponent},
   {path:'register',component:RegisterComponent},
-  {path:'playlist/premium',component:PremiumComponent},
+  {path:'premium',component:PremiumComponent},
   {path:'payment',component:PaymentComponent},
   {path:'admin',component:AdminComponent},
   {path:'admin/adminupdate/:id',component:AdminupdateComponent},

@@ -1,136 +1,88 @@
-<div class="container">
-  <div class="aside">
-    <div class="nav">
-    <a routerLink="home"><img src="/assets/images/blacklogo.png" alt="Dulcet home logo" class="blackimagelogo"></a>
-    <!-- <a>Home</a> -->
-    <!-- <button (click)="showHome()">Home</button> -->
-    <a routerLink="search">Search</a>
-    <!-- <a >{{registerusername}}</a> -->
-    <a routerLink="library">Library</a>
-    <!-- <button (click)="showLogin()">Login</button> -->
-    <!-- <button>&plus;&nbsp;Create Playlist</button> -->
-    <!-- <button><span>&hearts;</span>&nbsp;Liked Songs</button> -->
-    <a routerLink="playlist"><span class="plus_playlist">&plus;</span>&nbsp;Create Playlist</a>
-    <a routerLink="search"><span class="hearts_likedsongs">&hearts;</span>&nbsp;Liked Songs</a>
+<app-navigationbar></app-navigationbar>
+<div class="card-container first">
+  <div class="titlehead">
+    <span>Vibes</span>
+  </div>
 
+  <div class="cards">
+      <div *ngFor="let vibes of vibes_value">
+        <div class="card" (click)="playAudio(vibes)">
+          <div><img  class="image" src="{{vibes.images}}" alt=""></div>
+          <div><i class="fa fa-play" id="playicon"></i></div>
+          <div><small class="maintitle">{{vibes.maintitle}}</small></div>
+          <div><small class="subtitle">{{vibes.subtitle}}</small></div>
+        </div>
     </div>
   </div>
-
-
-  <div class="main">
-      <div class="navbar">
-        <button *ngIf="login"><a routerLink="login">Login</a></button>
-        <!-- <button *ngIf="login" (click)="showLogin()">Login</button> -->
-        <button *ngIf="logout">Logout</button>
-        <!-- <button>Account&nbsp;<i class="fa fa-external-link"></i></button> -->
-      </div>
-      <div class="card-container first">
-        <div class="titlehead">
-            <span>Vibes</span>
-        </div>
-
-        <div class="cards">
-            <div *ngFor="let vibes of vibes_value">
-              <div class="card">
-                <div><img  class="image" src="{{vibes.images}}" alt=""></div>
-                <div><i class="fa fa-play" id="playicon" (click)="playAudio(vibes)"></i></div>
-                <div><small class="maintitle">{{vibes.maintitle}}</small></div>
-                <div><small class="subtitle">{{vibes.subtitle}}</small></div>
-              </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-container first">
-        <div class="titlehead">
-            <span>NewSongs</span>
-        </div>
-
-        <div class="cards">
-            <div *ngFor="let newsongs of new_songs_values">
-              <div class="card">
-                <img  class="image" src="{{newsongs.images}}" alt="">
-                <i class="fa fa-play" id="playicon" (click)="playAudio(newsongs)"></i>
-                <small class="maintitle">{{newsongs.maintitle}}</small>
-                <small class="subtitle">{{newsongs.subtitle}}</small>
-              </div>
-          </div>
-        </div>
-      </div>
-
-          <ng-template [ngIf]="openBottomSongTrack">
-            <div class="master_play">
-              <div class="wave">
-                  <div class="wave1"></div>
-                  <div class="wave1"></div>
-                  <div class="wave1"></div>
-              </div>
-              <img src="{{imagepath}}" alt="" id="poster_master_play">
-              <h5 id="title">{{maintitle}}<br>
-                  <div class="subtitle">{{subtitle}}</div>
-              </h5>
-              <div class="icon">
-                  <!-- <button onclick="previouSong()"id="previous"><i class="bi bi-skip-start-fill" id="back"></i></button> -->
-                  <button (click)="currentSong()" id="play"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
-                  <!-- <button onclick="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button> -->
-              </div>
-              <!-- <span id="currentStart">0:00</span>
-              <div class="bar">
-                  <input type="range" id="seek" min="0" value="0" max="100" onclick="changeDuration()">
-                  <div class="bar2" id="bar2"></div>
-                  <div class="dot"></div>
-              </div>
-              <span id="currentEnd">0:00</span>
-
-              <div class="vol">
-                  <i class="bi bi-volume-down-fill" id="vol_icon"></i>
-                  <input type="range" id="vol" min="0" value="30" max="100">
-                  <div class="vol_bar"></div>
-                  <div class="dot" id="vol_dot"></div>
-              </div> -->
-      </div>
-
-          </ng-template>
-
-
 </div>
 
-<section id="contact" class="bottom-contents">
-  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
-  <div>
-    <span>COMPANY</span>
-    <ul>
-      <a routerLink="contacts" target="_blank">About</a>
-      <a routerLink="terms" target="_blank">Terms&nbsp;&&nbsp;Conditions</a>
-    </ul>
-  </div>
-  <div>
-      <span>COMMUNITIES</span>
-      <ul>
-          <a routerLink="" target="_blank">For&nbsp;Artists</a>
-          <a routerLink="" target="_blank">Developers</a>
-          <a routerLink="" target="_blank">Advertising</a>
-          <a routerLink="" target="_blank">Investors</a>
-          <a routerLink="" target="_blank">Vendors</a>
-      </ul>
-  </div>
-  <div>
-      <nav>
-      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
-      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
-      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
-    </nav>
-  </div>
-</section>
+<div class="card-container first">
+    <div class="titlehead">
+      <span>NewSongs</span>
+    </div>
 
-<footer class="footer">
-  <h3>Copyrights &copy; 2022</h3>
-  <p>All Rights Reserved</p>
-  <p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
-</footer>
+    <div class="cards">
+        <div *ngFor="let newsongs of new_songs_values">
+          <div class="card" (click)="playAudio(newsongs)">
+            <img  class="image" src="{{newsongs.images}}" alt="">
+            <i class="fa fa-play" id="playicon"></i>
+            <small class="maintitle">{{newsongs.maintitle}}</small>
+            <small class="subtitle">{{newsongs.subtitle}}</small>
+          </div>
+      </div>
+    </div>
 </div>
+
+<ng-template [ngIf]="openBottomSongTrack">
+  <div class="master_play" >
+    <div class="box1">
+        <!-- <div class="notwave" [ngClass]="(openBottomSongTrack== true)?'notwave':'wave'"> -->
+        <div class="notwave" id="masterplay">
+          <div class="wave1"></div>
+          <div class="wave1"></div>
+          <div class="wave1"></div>
+        </div>
+        <div>
+          <img src="{{imagepath}}" alt="" id="poster_master_play">
+          <h5 id="title">{{maintitle}}<br>
+            <div class="subtitle">{{subtitle}}</div>
+          </h5>
+        </div>
+        <div>
+          <i class="fa-solid fa-heart" style="color: blanchedalmond;"></i>
+        </div>
+    </div>
+    <div class="box2">
+      <div class="icon">
+        <button (click)="previousSong()"id="previous"><i class="bi bi-skip-start-fill" id="back"></i></button>
+        <button (click)="currentSong($event)" id="play"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+        <button (click)="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
+      </div>
+      <!-- <div class="box3">
+        <span id="currentStart">0:00</span>
+        <input type="range" id="seek" min="0" value="0" max="100" onclick="changeDuration()">
+        <div class="bar">
+          <input type="range" id="seek" min="0" value="0" max="100" onclick="changeDuration()">
+          <div class="bar2" id="bar2"></div>
+          <div class="dot"></div>
+        </div>
+        <span id="currentEnd">0:00</span>
+      </div> -->
+  </div>
+
+
+    <div class="vol">
+      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+      <input type="range" id="vol" min="0" value="30" max="100">
+      <div class="vol_bar"></div>
+      <div class="dot" id="vol_dot">
+    </div>
+    </div>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>
+
 
 
 
@@ -179,7 +131,7 @@
 <section id="bottom" class="bottom-contents">
     <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
     <div>
-        <span>COMPANY</span>
+        <COMPANY</
         <ul>
             <li>About
             <li>Jobs
@@ -187,7 +139,7 @@
         </ul>
     </div>
     <div>
-        <span>COMMUNITIES</span>
+        <COMMUNITIES</
         <ul>
             <li>For&nbsp;Artists
             <li>Developers
@@ -197,7 +149,7 @@
         </ul>
     </div>
     <div>
-        <span>USEFUL&nbsp;LINKS</span>
+        <USEFUL&nbsp;LINKS</
         <ul>
             <li>Support
             <li>Web&nbsp;Player

@@ -1,0 +1,24 @@
+<app-navigationbar></app-navigationbar>
+<div class="box">
+  <div class="asideleft">
+    <div><img src="/assets/images/person.png" alt=""></div>
+    <div (click)="account()"><i class="fa-solid fa-regular fa-house"></i>Account Overview</div>
+    <div><i class="fa-solid fa-user-pen"></i>Edit Profile</div>
+    <div><i class="fa-solid fa-lock"></i>Change Password</div>
+    <div><i class="fa-solid fa-arrow-rotate-right"></i>Recover Playlists</div>
+  </div>
+  <div class="asideright">
+    <div>
+      <ng-template *ngIf="accountsOpen">
+        <div class="accounts">
+          
+        </div>
+      </ng-template>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <main></main>
+</div>
+<app-footer></app-footer>

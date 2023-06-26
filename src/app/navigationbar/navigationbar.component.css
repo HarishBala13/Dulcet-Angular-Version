@@ -1,0 +1,35 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  background: #000;
+  z-index: 1;
+  top: 0;
+  padding: 0.6rem;
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  opacity: 0.9;
+}
+.brandlogo{
+  height: 80px;
+  width: 150px;
+}
+header a{
+  color: #fff;
+  font-size: 0.6cm;
+  font-weight: 400;
+  text-decoration: none;
+}
+header a:hover{
+  color: #00ff00;
+}
+header a:nth-child(6){
+  background-color: #00ff00;
+  color: #000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50px;
+}
+header a:nth-child(6):hover{
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+.box{
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.asideleft div img{
+  align-items: center;
+  height: 80px;
+  width: 80px;
+}
+.asideleft{
+  background-color: #282828;
+  color: #7f7f7f;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border-right: 1px solid #7f7f7f;
+}
+.asideleft div{
+  border: 1px solid #7f7f7f;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 1rem;
+  font-size: 0.6cm;
+}
+.asideleft div i{
+  font-size: 0.4cm;
+  padding: 15px;
+}
+.asideleft div:hover{
+  outline-style: solid;
+  outline-color: lime;
+  outline-width: 5px;
+  cursor: pointer;
+}
+.asideleft .active{
+  outline-style: solid;
+  outline-color: lime;
+  outline-width: 6px;
+}
+.asideright{
+  background-color: #282828;
+  color: #7f7f7f;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.asideright div{
+  width: 50%;
+  height: 30vh;
+}

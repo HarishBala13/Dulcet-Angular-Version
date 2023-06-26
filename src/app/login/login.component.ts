@@ -43,15 +43,15 @@ export class LoginComponent implements OnInit {
 submitLoginForm(){
   this.userService.loginCheckUser(this.loginForm.value.email,this.loginForm.value.password,this.returnURL);
 
-  this.clientHTTP.get<any>("http://localhost:3000/usersregister").subscribe(x=>{
-    const findName=x.find((y:any)=>{
-      if(this.loginForm.value.email === y.regemail){
-      return y.regname;
-    }
-  })
-    this.userName=findName.regname;
-    localStorage.setItem("currentUserName",this.userName);
-  })
+  // this.clientHTTP.get<any>("http://localhost:3000/usersregister").subscribe(x=>{
+  //   const findName=x.find((y:any)=>{
+  //     if(this.loginForm.value.email === y.regemail){
+  //     return y.regname;
+  //   }
+  // })
+  //   this.userName=findName.regname;
+  //   localStorage.setItem("currentUserName",this.userName);
+  // })
 
 }
 

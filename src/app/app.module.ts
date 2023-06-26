@@ -22,6 +22,9 @@ import { IndexComponent } from './index/index.component';
 import { AdminupdateComponent } from './adminupdate/adminupdate.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
+import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { SearchComponent } from './search/search.component';
     PremiumComponent,
     IndexComponent,
     AdminupdateComponent,
-    SearchComponent
+    SearchComponent,
+    NavigationbarComponent,
+    FooterComponent,
+    AccountsComponent
    ],
   imports: [
     BrowserModule,

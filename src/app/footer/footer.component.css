@@ -1,0 +1,58 @@
+footer{
+  background-color: #121212;
+  color: #9a9a9a;
+  padding: 10px;
+  font-size: 0.50cm;
+}
+footer .footerflex{
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  align-items: center;
+}
+footer .footerflex div p a{
+  text-decoration: none;
+  color: #fff;
+}
+.bottom-contents{
+  display: flex;
+  justify-content: space-around;
+}
+.firstbox{
+  display: flex;
+  justify-content: space-between;
+}
+.firstbox .box1,.firstbox .box2{
+  display: flex;
+  flex-direction: column;
+}
+.firstbox .box1 p,.firstbox .box2 p{
+  padding-top: 20px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.7cm;
+}
+.firstbox .box1 a,.firstbox .box2 a{
+  font-size: 0.5cm;
+  color: #9a9a9a;
+  text-decoration: none;
+  padding: 1rem;
+}
+.firstbox .box1 a:hover,.firstbox .box2 a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.secondbox{
+  display: flex;
+  flex-direction: column;
+}
+.bottom-contents .secondbox a{
+  text-decoration: none;
+  color: #9a9a9a;
+  font-size: 0.5cm;
+}
+.bottom-contents .secondbox i{
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 0.7cm;
+}

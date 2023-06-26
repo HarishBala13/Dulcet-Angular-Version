@@ -1,63 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-.container{
+.navbar{
+  float: right;
+
+}
+.navbar .profile_container{
   display: flex;
-  margin: 0;
-  padding: 0;
-}
-.aside{
-  position: fixed;
-  z-index: 2;
-  /* opacity: 0; */
-}
-.aside .nav{
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-  height: 100vh;
-}
-.aside .blackimagelogo{
-  height: 120px;
-  width: 210px;
-  opacity: 1;
-}
-.aside .nav a{
-  color: white;
-  text-align: center;
-  font-size: 0.65cm;
-  padding: 1rem;
-  text-decoration: none;
-  opacity: 0.5;
-  font-family: 'Space Grotesk', sans-serif;
-}
-.aside .nav a .plus_playlist,.aside .nav a .hearts_likedsongs{
-  background-color: #fff;
-  color: #000;
-  padding: 0.2rem;
-  font-size: 0.85cm;
-}
-.aside .nav a:hover,.aside .nav button:hover,.aside .nav .blackimagelogo:hover{
-  opacity: 1;
+  align-items: center;
+  gap: 10px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 30px;
+  font-weight: bold;
   cursor: pointer;
 }
-
-
-.main{
-  display: flex;
-  /* background-color: rgb(117, 106, 106); */
-  color: white;
-  font-weight: bolder;
-  font-size: 0.75cm;
-}
-.navbar{
-  position: fixed;
-  width: 100%;
-  background-color: #222020;
-  padding: 1rem;
-  z-index: 1;
-  /* opacity: 0; */
-}
 .navbar .profile{
-  width: fit-content;
   padding: 1rem;
   background-color: #fff;
   border-radius: 30px;
@@ -72,50 +29,28 @@
   border-radius: 30px;
   box-shadow: 2px 0px 5px 8px rgba(31, 29, 29, 0.2);
 }
-/* .navbar .profile a{
-  text-decoration: none;
-  color: black;
-  font-size: 0.55cm;
-} */
-
-/* .flex-1{
-  float: right;
-  background-color: antiquewhite;
-  padding: 10px;
-  color: #000;
-}
-.profile{
-  padding: 10px;
-  font-weight: 0.5cm;
-}
-.profile span{
-  display: block;
-} */
-.navbar .menu{
+ .menu{
   display: flex;
   flex-direction: column;
-  margin-left: 92%;
   opacity: 0.7;
 }
-.navbar .menu a{
+ .menu a{
   color: #000;
-  background-color: rgb(115, 172, 221);
+  background-color: rgba(31, 29, 29,0.2);
   font-size: 0.5cm;
   padding: 0.7rem;
+  text-decoration: none;
 }
-.navbar .menu a:hover{
+ .menu a:hover{
+  text-decoration: underline;
   cursor: pointer;
 }
-.navbar .menu:hover{
+ .menu:hover{
   opacity: 1;
 }
-.navbar .menu i{
+ .menu i{
   font-size: 0.4cm;
 }
-/* .profilecontainer{
-  background-color:aquamarine;
-} */
-
 .firstcontent {
   margin-top: 20%;
   margin-left: 40%;

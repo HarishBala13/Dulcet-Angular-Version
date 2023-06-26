@@ -1,0 +1,9 @@
+<header>
+  <a routerLink=""><img src="../../assets/images/blacklogo.png" alt="" class="brandlogo"></a>
+  <a routerLink="/search">Search</a>
+  <a routerLink="/playlist">Playlist</a>
+  <a routerLink="/premium">Premium</a>
+  <a routerLink="/register" *ngIf="!loggedinNavBar">Register</a>
+  <a routerLink="/login" *ngIf="login">Login</a>
+  <a (click)="logout()" *ngIf="loggedinNavBar">Logout</a>
+</header>

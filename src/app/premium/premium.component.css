@@ -1,6 +1,4 @@
-label{
-  font-weight: bold;
-}
+
 span{
   font-family: monospace;
   font-weight: bold;
@@ -11,7 +9,7 @@ span{
 }
 p{
   font-size: 20px;
-  padding: 10px;
+  padding: 25px;
   font-family: monospace;
   font-weight: 100;
   color: white;
@@ -22,8 +20,8 @@ p{
   color: white;
   text-align: center;
   justify-content: center;
-  padding: 1rem;
-  height: fit-content;
+  padding: 2rem;
+  height: 30vh;
 }
 .div1 a{
   text-decoration: none;
@@ -49,7 +47,7 @@ p{
 
 .grid-container .div2 {
   background-color: rgb(1, 4, 4);
-  padding: 20px 0;
+  padding: 2rem;
   font-size: 30px;
   text-align: center;
   justify-content: center;
@@ -81,7 +79,6 @@ p{
   padding: 0.5rem;
 }
 .grid-container .div3 .container .row .col-sm .button{
-  justify-content: center;
   align-items: center;
 }
 .grid-container .div3 .container .row .col-sm .button button{
@@ -92,4 +89,21 @@ p{
   padding: 1rem;
   border-radius: 30px;
   box-shadow: 5px 5px 8px 4px  rgba(199, 182, 182, 0.874);
+}
+.grid-container .div3 .container .row .col-sm .button button a{
+  color: #fff;
+  text-decoration: none;
+}
+.coupon{
+  text-align: center;
+  padding: 1rem;
+}
+.coupon label{
+  font-weight: bold;
+  font-size: 0.9cm;
+  font-weight: 500;
+}
+.coupon input{
+  color: rebeccapurple;
+  font-size: 0.6cm;
 }

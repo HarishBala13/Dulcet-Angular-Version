@@ -38,11 +38,23 @@ export class PlaylistComponent {
     this.editProfile=true;
   }
 
+  // logout(){
+  //   this.AL.AlertUser("Are You Sure want to Logout?");
+  //   setTimeout(()=>this.router.navigate(['login']),5000);
+  //   localStorage.removeItem("currentUserName");
+  //   localStorage.setItem("loggedin","false");
+  // }
   logout(){
-    this.userRegService.logoutUser();
-    this.AL.AlertUser("Are You Sure want to Logout?");
-    setTimeout(()=>this.router.navigate(['login']),5000);
-    localStorage.removeItem("currentUserName");
-    localStorage.setItem("loggedin","false");
+
+      this.AL.AlertUser(`Are You sure want to Logout ${localStorage.getItem("currentUserName")} ?`);
+      
+    // if(confirm(`Are You Sure want to logout ${localStorage.getItem("currentUserName")} ?`)==true){
+    //   setTimeout(()=>this.router.navigate(['login']),3000);
+    //   localStorage.setItem("loggedin","false");
+    //   localStorage.removeItem("currentUserName");
+    // }
+    // else{
+    //   this.AL.AlertUser(`Oops ${localStorage.getItem("currentUserName")}! You have clicked cancel button`);
+    // }
   }
 }

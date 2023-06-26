@@ -11,9 +11,12 @@ export class UserAuthorizationGuard implements CanActivate, CanActivateChild, Ca
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if(localStorage.getItem('loggedin')=='false'){
       this.router.navigate(['login'],{queryParams:{returl:route.url}});
+      console.log(route.url)
+      console.log("1")
       return false;
     }
     else if(localStorage.getItem('loggedin')=='true'){
+      console.log("2");
       return true;
     }
     else{

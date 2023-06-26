@@ -14,18 +14,27 @@ export class AdminComponent implements OnInit{
 
   title:any="Dulcet";
   public values:any="";
-  currentUsers:String='';
+  registeredUsers:number=0;
   vibes_data:any='';
   newsongs_data:any='';
   vibesboolean:boolean=false;
   newsongsboolean:boolean=false;
   usersboolean:boolean=false;
+  currentUser:number=0;
+
 
   constructor(private formBuild:FormBuilder,private API:ApiService ,private service:SongsService,private userService:UserregisterService,private client:HttpClient) {
-    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.currentUsers=userdata.length;    });
+    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.registeredUsers=userdata.length;    });
   }
     // this.service.dulcetassets().subscribe((data:any)=>{ this.values=data;   });
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let userLoggedIn = localStorage.getItem("loggedin");
+    if(userLoggedIn == "true"){
+      this.currentUser = 1;
+    }else{
+      this.currentUser = 0;
+    }
+  }
 
   songsEntry=this.formBuild.group({
     songspath:['',Validators.required],

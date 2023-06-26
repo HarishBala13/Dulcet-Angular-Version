@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { datamodel } from '../admin/model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { vibes_datamodel } from '../admin/homemodelservice';
 
 @Component({
   selector: 'app-adminupdate',
@@ -11,7 +12,7 @@ import { ApiService } from '../api.service';
 })
 export class AdminupdateComponent {
   public dataID!:number;
-  public songsRetrieve!:datamodel;
+  public songsRetrieve!:vibes_datamodel;
   public datas:any='';
   constructor (private activatedroute:ActivatedRoute,
     private router:Router,
@@ -25,7 +26,7 @@ export class AdminupdateComponent {
       // console.log(this.dataID);
     });
 
-    this.API.fetchUpdateDataServ(this.dataID).subscribe((data:datamodel)=>{
+    this.API.fetchUpdateDataServ(this.dataID).subscribe((data:vibes_datamodel)=>{
       this.songsRetrieve=data;
     });
 

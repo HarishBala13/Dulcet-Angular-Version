@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class PremiumComponent {
 
+  placekey(){
+    let key = document.getElementById('name');
+    // key=key?.innerText
+    // key.value = key.value.toUpperCase();
+}
 }

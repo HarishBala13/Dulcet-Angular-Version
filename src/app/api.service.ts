@@ -22,7 +22,7 @@ export class ApiService {
     return this.http.delete<datamodel>("http://localhost:3000/Vibes/"+dataID);
   }
   fetchUpdateDataServ(ID:number){
-    return this.http.get<datamodel>("http://localhost:3000/Vibes/"+ID);
+    return this.http.get<vibes_datamodel>("http://localhost:3000/Vibes/"+ID);
   }
   updateSongsServ(ID:number,songpath:string | null | undefined, albumpath:string | null | undefined ,songsname:string | null | undefined ,artistsname:string | null | undefined){
     return this.http.patch("http://localhost:3000/Vibes/"+ID,{songpath:songpath,albumpath:albumpath,songsname:songsname,artistsname:artistsname});

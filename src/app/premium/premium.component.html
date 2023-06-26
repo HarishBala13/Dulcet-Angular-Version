@@ -1,6 +1,4 @@
-<header class="header">
-  <a routerLink=""><img src="/assets/images/logo.png" class="logo" height="65px" width="80px"></a>
-</header>
+<app-navigationbar></app-navigationbar>
 <div class="grid-container">
   <div class="div1">
       <span>Introducing Premium Feliq</span>
@@ -22,9 +20,9 @@
             <div class="box1"><b>Mini</b><br>From ₹7/day<br>1 account on mobile only<hr></div>
             <div class="box2">
               <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Ad-free music listening<br>
-              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 30 songs <br>
+              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 30 songs<br>
             </div>
-            <div class="button"><button>View Plans</button></div>
+            <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
           </div>
         <div class="col-sm">
           <span class="one-time">One-time plans available</span>
@@ -34,6 +32,7 @@
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Ad-free music listening<br>
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 500 songs on 3 devices<br>
           </div>
+          <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
         </div>
         <div class="col-sm">
           <span class="one-time">One-time plans available</span>
@@ -44,6 +43,7 @@
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;For couples who live together<br>
             <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 1k songs on 5 devices<br>
           </div>
+          <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
         </div>
       </div>
     </div>
@@ -51,12 +51,9 @@
 </div>
 
 
+<div class="coupon">
+  <label>Coupon Code :&nbsp;&nbsp;</label>
+    <input type="text" placeholder="Enter your Coupon Code" id="name" (keyup)="placekey()">
+</div>
 
-<label>Coupon Code : </label>
-    <input type="text" placeholder="Enter your Coupon Code" id="name" onkeyup="placekey()">
-<script>
-    function placekey(){
-        var key = document.getElementById('name');
-        key.value = key.value.toUpperCase();
-    }
-</script>
+<app-footer></app-footer>

@@ -143,6 +143,46 @@
       "regconfirmpassword": "asd123!A",
       "UserRegisterTime": "02-05-2023 03:26:32 PM",
       "id": 19
+    },
+    {
+      "regname": "SasiDharan",
+      "regemail": "sscsbs@kiot.ac.in",
+      "regpassword": "Sasi@123",
+      "regconfirmpassword": "Sasi@123",
+      "UserRegisterTime": "11-05-2023 02:45:15 PM",
+      "id": 20
+    },
+    {
+      "regname": "Sasidharan123",
+      "regemail": "sscsbs@kiot.ac.in",
+      "regpassword": "Sasi@123",
+      "regconfirmpassword": "Sasi@123",
+      "UserRegisterTime": "11-05-2023 02:45:15 PM",
+      "id": 21
+    },
+    {
+      "regname": "Nandha123",
+      "regemail": "2k19ece050@kiot.ac.in",
+      "regpassword": "Nasa@123",
+      "regconfirmpassword": "Nasa@123",
+      "UserRegisterTime": "11-05-2023 03:17:36 PM",
+      "id": 22
+    },
+    {
+      "regname": "Harish_Test_01",
+      "regemail": "balahkharish@gmail.com",
+      "regpassword": "Harish@2002",
+      "regconfirmpassword": "Harish@2002",
+      "UserRegisterTime": "26-06-2023 12:55:10 PM",
+      "id": 23
+    },
+    {
+      "regname": "Harish_13",
+      "regemail": "balahkharish@gmail.com",
+      "regpassword": "Harish@2023",
+      "regconfirmpassword": "Harish@2023",
+      "UserRegisterTime": "26-06-2023 02:11:46 PM",
+      "id": 24
     }
   ],
   "songs_list": [
@@ -176,43 +216,50 @@
       "images": "https://i.etsystatic.com/10449941/r/il/6b5ed5/1586326929/il_794xN.1586326929_kvfi.jpg",
       "maintitle": "Good Vibes",
       "subtitle": "Get into the Vibes",
-      "audios": "/assets/images/audio/1.mp3"
+      "audios": "/assets/images/audio/1.mp3",
+      "id": 1
     },
     {
       "images": "/assets/images/album/Negative.jpg",
       "maintitle": "Trash it!",
       "subtitle": "The Negative Memories",
-      "audios": "/assets/images/audio/2.mp3"
+      "audios": "/assets/images/audio/2.mp3",
+      "id": 2
     },
     {
       "images": "https://tse4.mm.bing.net/th/id/OIP.YpUWQtnVsgAN9c5Qc4eICgHaHa?pid=ImgDet&w=1000&h=1000&rs=1",
       "maintitle": "Across Universe",
       "subtitle": "Keep calm and focus",
-      "audios": "/assets/images/audio/3.mp3"
+      "audios": "/assets/images/audio/3.mp3",
+      "id": 3
     },
     {
       "images": "https://wallpaperaccess.com/full/776136.png",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/4.mp3"
+      "audios": "/assets/images/audio/4.mp3",
+      "id": 4
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT3aiUsf4Yy4oCS4O1A9PDosZ8e2-HaynGFg&usqp=CAU",
       "maintitle": "Peace is here",
       "subtitle": "Vibe in Peace mood",
-      "audios": "/assets/images/audio/5.mp3"
+      "audios": "/assets/images/audio/5.mp3",
+      "id": 5
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSrYzRivN3AvYszFeOBGzlAY41AOQ9q94eZQ&usqp=CAU",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 6
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjteuE71in1b-aL-8f3M_J3OwLqNtUanDpg&usqp=CAU",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 7
     }
   ],
   "NewSongs": [
@@ -220,43 +267,50 @@
       "images": "/assets/images/album/Master.jpg",
       "maintitle": "Master",
       "subtitle": "JD Alcoholic",
-      "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3"
+      "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3",
+      "id": 1
     },
     {
       "images": "/assets/images/album/VikramOST.jpg",
       "maintitle": "Vikram - II",
       "subtitle": "Vibe for Vikram",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 2
     },
     {
       "images": "/assets/images/album/Jailer.jpg",
       "maintitle": "Jailer",
       "subtitle": "Rampage walk of SSR",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 3
     },
     {
       "images": "/assets/images/album/Headphones.jpg",
       "maintitle": "Work Stress",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 4
     },
     {
       "images": "/assets/images/album/JioSavnImag.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 5
     },
     {
       "images": "/assets/images/album/Singing.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 6
     },
     {
       "images": "/assets/images/album/Yashoda.jpg",
       "maintitle": "Workday Lounge",
       "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3"
+      "audios": "/assets/images/audio/.mp3",
+      "id": 7
     }
   ],
   "posts": [
@@ -294,6 +348,20 @@
       "songsname": "Un thunaikku naandhaan",
       "artistsname": "Ilayaraja",
       "id": 5
+    }
+  ],
+  "premium": [
+    {
+      "description": "One-time plans available",
+      "plans": {
+        "title": "Mini",
+        "offer": "From ₹7/day",
+        "info": "1 account on mobile only"
+      },
+      "benefits": {
+        "one": "Ad-free music listening",
+        "two": "Downolad 30 songs"
+      }
     }
   ]
 }

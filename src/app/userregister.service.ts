@@ -25,23 +25,39 @@ export class UserregisterService {
 
   if(user){
     if(returl==null){
-      this.routes.navigate(['playlist'])
+      setTimeout(  ()=>{this.routes.navigate(['']),8000});
+      // console.log(user);
+      // console.log("ReturnURL in IF : "+returl);
+      // this.routes.navigate(['playlist']);
     }
     else{
       console.log(returl);
       this.routes.navigate([returl]);
     }
     localStorage.setItem('loggedin','true');
+    console.log(localStorage.setItem("currentUserName",user.regname));
     this.AL.Success("Login Success");
+    // console.log(localStorage.getItem("loggedin"));
+    // console.log(localStorage.getItem("currentUserName"));
     // this.isLoggedIn=true;
     // console.log(this.isLoggedIn);
     // console.log("Login Success");
-    setTimeout(  ()=>this.routes.navigate(['playlist']),8000);
     // this.routes.navigate(['']);
   }
-  else if(userEmail="dulcetsass22@music.in" && userPass=="@dulcet123"){
-    this.AL.Success("ADMIN Login Success")
-    setTimeout(  ()=>this.routes.navigate(['admin']),5000);
+  else if(userEmail="dulcetonline2023@gmail.com" && userPass=="@dulcet123"){
+
+
+    if(prompt("Enter AdminI'D: ")=="123"){
+      // setTimeout(  ()=>this.routes.navigate(['/admin']),3000);
+      this.AL.Success("Admin Login Success");
+      setTimeout(()=>{
+        this.routes.navigate(['admin']);
+      })
+    }
+    else{
+      this.AL.Error("Unauthorized Login");
+    }
+
     // this.routes.navigate(['admin']);
   }
   else if(!user){
