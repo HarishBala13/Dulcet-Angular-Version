@@ -9,15 +9,22 @@ import { UserregisterService } from './userregister.service';
 export class UserAuthorizationGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown> {
   constructor(private userService:UserregisterService, private router:Router){}
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(localStorage.getItem('loggedin')=='false'){
+    if(sessionStorage.getItem('loggedin')=="false"){
       this.router.navigate(['login'],{queryParams:{returl:route.url}});
-      console.log(route.url)
+      // this.userService.routingGuardPath(route.url);
+      console.log("Guard Console "+route.url)
       console.log("1")
       return false;
     }
-    else if(localStorage.getItem('loggedin')=='true'){
+    else if(sessionStorage.getItem('loggedin')=='true'){
       console.log("2");
       return true;
+    }
+    else if(!sessionStorage.getItem("currentUserName")){
+      // console.log("Another tab SessionStorage works");
+      this.router.navigate(['login'], {queryParams: {returl: route.url}});
+      console.log("Guard Console"+route.url)
+      return false;
     }
     else{
       if(this.userService.logoutUser()){

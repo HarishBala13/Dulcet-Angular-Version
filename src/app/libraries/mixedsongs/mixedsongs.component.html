@@ -1,0 +1,22 @@
+<app-navigationbar></app-navigationbar>
+
+<div class="card-container first">
+  <div class="titlehead">
+    <a routerLink="/topsongs" routerLinkActive="active">Top Songs</a>
+    <a routerLink="/mixedsongs" routerLinkActive="active">Discovered for you</a>
+    <a routerLink="/podcasts" routerLinkActive="active">Podcasts</a>
+  </div>
+
+  <div class="cards">
+      <div *ngFor="let songs of mixedSongs">
+        <div class="card" (click)="loadAudio(songs)">
+          <img  class="image" src="{{songs.images}}" loading="lazy" alt="">
+          <i class="fa fa-play" id="playicon" (click)="playAI()"></i>
+          <small class="maintitle">{{songs.movie_name}}</small>
+          <small class="subtitle">{{songs.song_name}}</small>
+        </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

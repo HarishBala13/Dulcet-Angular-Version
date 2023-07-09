@@ -1,124 +1,11 @@
 {
   "usersregister": [
     {
-      "regname": "Harish12",
-      "regemail": "balahkharish213@gmail.com",
+      "regname": "Harish",
+      "regemail": "balahkharish@gmail.com",
       "regpassword": "Harish@2002",
       "regconfirmpassword": "Harish@2002",
       "id": 1
-    },
-    {
-      "regname": "Harish",
-      "regemail": "balahkharish123@gmail.com",
-      "regpassword": "Harish@13",
-      "regconfirmpassword": "Harish@13",
-      "id": 2
-    },
-    {
-      "regname": "Harish__13",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "id": 3
-    },
-    {
-      "regname": "Harish__12",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish__12",
-      "regconfirmpassword": "Harish__12",
-      "id": 4
-    },
-    {
-      "regname": "harish__11",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish__22",
-      "regconfirmpassword": "Harish__22",
-      "id": 5
-    },
-    {
-      "regname": "Harish__12",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@133",
-      "regconfirmpassword": "Harish@133",
-      "id": 6
-    },
-    {
-      "regname": "Harish_new",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "id": 7
-    },
-    {
-      "regname": "ahrish_time",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "id": 8
-    },
-    {
-      "regname": "harish_09",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "harish__22",
-      "regconfirmpassword": "harish__22",
-      "UserRegisterTime": "30-04-2023 06:44:16 PM",
-      "id": 9
-    },
-    {
-      "regname": "Janani_11",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Janani_110",
-      "regconfirmpassword": "Janani_110",
-      "UserRegisterTime": "30-04-2023 06:48:55 PM",
-      "id": 10
-    },
-    {
-      "regname": "Janani__09",
-      "regemail": "janani123@gmail.com",
-      "regpassword": "Janani__09",
-      "regconfirmpassword": "Janani__09",
-      "UserRegisterTime": "30-04-2023 07:19:02 PM",
-      "id": 11
-    },
-    {
-      "regname": "RegisterTest01",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "30-04-2023 07:35:09 PM",
-      "id": 12
-    },
-    {
-      "regname": "Register02",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "30-04-2023 07:37:39 PM",
-      "id": 13
-    },
-    {
-      "regname": "Register03",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "30-04-2023 07:39:10 PM",
-      "id": 14
-    },
-    {
-      "regname": "HarishBala_13",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "01-05-2023 12:40:31 PM",
-      "id": 15
-    },
-    {
-      "regname": "HarishBala",
-      "regemail": "balahkharish222@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "01-05-2023 12:40:31 PM",
-      "id": 16
     },
     {
       "regname": "Jeeva122",
@@ -126,15 +13,7 @@
       "regpassword": "Jeeva@2001",
       "regconfirmpassword": "Jeeva@2001",
       "UserRegisterTime": "02-05-2023 02:50:22 PM",
-      "id": 17
-    },
-    {
-      "regname": "Jeeva123",
-      "regemail": "jeevaaravinth2001@gmail.com",
-      "regpassword": "Aravinth@2001",
-      "regconfirmpassword": "Aravinth@2001",
-      "UserRegisterTime": "02-05-2023 02:50:22 PM",
-      "id": 18
+      "id": 2
     },
     {
       "regname": "balaji124",
@@ -142,23 +21,59 @@
       "regpassword": "asd123!A",
       "regconfirmpassword": "asd123!A",
       "UserRegisterTime": "02-05-2023 03:26:32 PM",
-      "id": 19
+      "id": 3
     },
     {
-      "regname": "SasiDharan",
+      "regname": "Sasidharan",
       "regemail": "sscsbs@kiot.ac.in",
       "regpassword": "Sasi@123",
       "regconfirmpassword": "Sasi@123",
-      "UserRegisterTime": "11-05-2023 02:45:15 PM",
-      "id": 20
-    },
-    {
-      "regname": "Sasidharan123",
-      "regemail": "sscsbs@kiot.ac.in",
-      "regpassword": "Sasi@123",
-      "regconfirmpassword": "Sasi@123",
-      "UserRegisterTime": "11-05-2023 02:45:15 PM",
-      "id": 21
+      "UserRegisterTime": "02-05-2023 03:26:32 PM",
+      "id": 4,
+      "likedSongs": [
+        {
+          "movie_name": "Jailer",
+          "song_name": "Rampage walk of MP",
+          "images": "/assets/images/album/Jailer.jpg",
+          "audios": "/assets/images/audio/Jailer-Announcement-Theme-MassTamilan.dev.mp3",
+          "id": 2
+        },
+        {
+          "movie_name": "LEO",
+          "song_name": "Naa Ready",
+          "images": "/assets/images/album/LEO-Naa-Ready-Song.png",
+          "audios": "/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3",
+          "id": 1
+        },
+        {
+          "movie_name": "Master",
+          "song_name": "JD Alcoholic",
+          "images": "/assets/images/album/Master.jpg",
+          "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3",
+          "id": 4
+        },
+        {
+          "movie_name": "Work Stress",
+          "song_name": "Chill with NCS",
+          "images": "/assets/images/album/Singing.jpg",
+          "audios": "/assets/images/audio/videoplaybeck (2).mp3",
+          "id": 5
+        }
+      ],
+      "subscribedPlans": [
+        {
+          "plans": {
+            "title": "Individual",
+            "offer": "₹119/month after offer period",
+            "info": "1 account"
+          },
+          "benefits": {
+            "one": "Ad-free music listening",
+            "two": "Download 500 songs on 3 devices"
+          },
+          "id": 3
+        }
+      ]
     },
     {
       "regname": "Nandha123",
@@ -166,23 +81,7 @@
       "regpassword": "Nasa@123",
       "regconfirmpassword": "Nasa@123",
       "UserRegisterTime": "11-05-2023 03:17:36 PM",
-      "id": 22
-    },
-    {
-      "regname": "Harish_Test_01",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2002",
-      "regconfirmpassword": "Harish@2002",
-      "UserRegisterTime": "26-06-2023 12:55:10 PM",
-      "id": 23
-    },
-    {
-      "regname": "Harish_13",
-      "regemail": "balahkharish@gmail.com",
-      "regpassword": "Harish@2023",
-      "regconfirmpassword": "Harish@2023",
-      "UserRegisterTime": "26-06-2023 02:11:46 PM",
-      "id": 24
+      "id": 5
     }
   ],
   "songs_list": [
@@ -215,102 +114,130 @@
     {
       "images": "https://i.etsystatic.com/10449941/r/il/6b5ed5/1586326929/il_794xN.1586326929_kvfi.jpg",
       "maintitle": "Good Vibes",
-      "subtitle": "Get into the Vibes",
+      "song_name": "Get into the Vibes",
+      "singers_name": "",
       "audios": "/assets/images/audio/1.mp3",
       "id": 1
     },
     {
       "images": "/assets/images/album/Negative.jpg",
       "maintitle": "Trash it!",
-      "subtitle": "The Negative Memories",
+      "song_name": "The Negative Memories",
+      "singers_name": "",
       "audios": "/assets/images/audio/2.mp3",
       "id": 2
     },
     {
       "images": "https://tse4.mm.bing.net/th/id/OIP.YpUWQtnVsgAN9c5Qc4eICgHaHa?pid=ImgDet&w=1000&h=1000&rs=1",
       "maintitle": "Across Universe",
-      "subtitle": "Keep calm and focus",
+      "song_name": "Keep calm and focus",
+      "singers_name": "",
       "audios": "/assets/images/audio/3.mp3",
       "id": 3
     },
     {
       "images": "https://wallpaperaccess.com/full/776136.png",
       "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
+      "song_name": "Lounge and chill",
+      "singers_name": "",
       "audios": "/assets/images/audio/4.mp3",
       "id": 4
     },
     {
       "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT3aiUsf4Yy4oCS4O1A9PDosZ8e2-HaynGFg&usqp=CAU",
       "maintitle": "Peace is here",
-      "subtitle": "Vibe in Peace mood",
+      "song_name": "Vibe in Peace mood",
+      "singers_name": "",
       "audios": "/assets/images/audio/5.mp3",
       "id": 5
-    },
-    {
-      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSrYzRivN3AvYszFeOBGzlAY41AOQ9q94eZQ&usqp=CAU",
-      "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
-      "id": 6
-    },
-    {
-      "images": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjteuE71in1b-aL-8f3M_J3OwLqNtUanDpg&usqp=CAU",
-      "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
-      "id": 7
     }
   ],
   "NewSongs": [
     {
-      "images": "/assets/images/album/Master.jpg",
-      "maintitle": "Master",
-      "subtitle": "JD Alcoholic",
-      "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3",
+      "images": "/assets/images/album/LEO-Naa-Ready-Song.png",
+      "movie_name": "LEO",
+      "song_name": "Naa Ready",
+      "singers_name": "Vijay, Anirudh Ravichander, Asal Kolaru",
+      "audios": "/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3",
       "id": 1
     },
     {
-      "images": "/assets/images/album/VikramOST.jpg",
-      "maintitle": "Vikram - II",
-      "subtitle": "Vibe for Vikram",
-      "audios": "/assets/images/audio/.mp3",
+      "images": "/assets/images/album/Jailer.jpg",
+      "movie_name": "Jailer",
+      "song_name": "Rampage walk of MP",
+      "singers_name": "Anirudh Ravichander",
+      "audios": "/assets/images/audio/Jailer-Announcement-Theme-MassTamilan.dev.mp3",
       "id": 2
     },
     {
-      "images": "/assets/images/album/Jailer.jpg",
-      "maintitle": "Jailer",
-      "subtitle": "Rampage walk of SSR",
-      "audios": "/assets/images/audio/.mp3",
+      "images": "/assets/images/album/VikramOST.jpg",
+      "movie_name": "Vikram - II",
+      "song_name": "Vibe for Vikram",
+      "singers_name": "Anirudh Ravichander, Kamal Haasan",
+      "audios": "/assets/images/audio/Pablo-Sandhanam-(Background-Score)-MassTamilan.dev.mp3",
       "id": 3
     },
     {
-      "images": "/assets/images/album/Headphones.jpg",
-      "maintitle": "Work Stress",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
+      "images": "/assets/images/album/Master.jpg",
+      "movie_name": "Master",
+      "song_name": "JD Alcoholic",
+      "singers_name": "Anirudh Ravichander, Vijay",
+      "audios": "/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3",
       "id": 4
     },
     {
-      "images": "/assets/images/album/JioSavnImag.jpg",
-      "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
+      "images": "/assets/images/album/Singing.jpg",
+      "movie_name": "Work Stress",
+      "song_name": "Chill with NCS",
+      "singers_name": "",
+      "audios": "/assets/images/audio/videoplaybeck (2).mp3",
       "id": 5
     },
     {
-      "images": "/assets/images/album/Singing.jpg",
-      "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
+      "images": "/assets/images/album/Alan Walker On My Way.jpg",
+      "movie_name": "Workday Lounge",
+      "song_name": "Lounge and chill",
+      "singers_name": "",
+      "audios": "/assets/images/audio/videoplaybeck (3).mp3",
       "id": 6
+    }
+  ],
+  "searchBoxes": [
+    {
+      "backgroundColor": "#00b0e4",
+      "color": "",
+      "title": "Tamil",
+      "image": "assets/images/singers/ar-rahman.jpg"
     },
     {
-      "images": "/assets/images/album/Yashoda.jpg",
-      "maintitle": "Workday Lounge",
-      "subtitle": "Lounge and chill",
-      "audios": "/assets/images/audio/.mp3",
-      "id": 7
+      "backgroundColor": "#F77400",
+      "color": "",
+      "title": "English",
+      "image": "/assets/images/singers/andrea.jpg"
+    },
+    {
+      "backgroundColor": "#ff2f6c",
+      "color": "",
+      "title": "Malayalam",
+      "image": "/assets/images/singers/spb.jpg"
+    },
+    {
+      "backgroundColor": "#b2b6b7",
+      "color": "",
+      "title": "Hindi",
+      "image": "assets/images/singers/ilayaraja.jpg"
+    },
+    {
+      "backgroundColor": "#10ab85",
+      "color": "",
+      "title": "Kannada",
+      "image": "assets/images/singers/shreya-ghoshal.jpg"
+    },
+    {
+      "backgroundColor": "#481369",
+      "color": "",
+      "title": "Gibberish",
+      "image": "/assets/images/album/Gibberish-Anirudh.jpg"
     }
   ],
   "posts": [
@@ -352,7 +279,18 @@
   ],
   "premium": [
     {
-      "description": "One-time plans available",
+      "plans": {
+        "title": "Feliq",
+        "offer": "From ₹25/day",
+        "info": "1 account on mobile only"
+      },
+      "benefits": {
+        "one": "Ad-free music listening",
+        "two": "Downolad 30 songs"
+      },
+      "id": 1
+    },
+    {
       "plans": {
         "title": "Mini",
         "offer": "From ₹7/day",
@@ -361,7 +299,32 @@
       "benefits": {
         "one": "Ad-free music listening",
         "two": "Downolad 30 songs"
-      }
+      },
+      "id": 2
+    },
+    {
+      "plans": {
+        "title": "Individual",
+        "offer": "₹119/month after offer period",
+        "info": "1 account"
+      },
+      "benefits": {
+        "one": "Ad-free music listening",
+        "two": "Download 500 songs on 3 devices"
+      },
+      "id": 3
+    },
+    {
+      "plans": {
+        "title": "Duo",
+        "offer": "₹149/month after offer period",
+        "info": "2 accounts"
+      },
+      "benefits": {
+        "one": "Group session",
+        "two": "For couples who live together"
+      },
+      "id": 4
     }
   ]
 }

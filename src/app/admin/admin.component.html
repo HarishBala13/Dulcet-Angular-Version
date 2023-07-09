@@ -1,16 +1,16 @@
 <nav class="navbar bg-dark">
   <div class="container">
-    <h2 style="color: antiquewhite;">Welcome Admin! </h2>
+    <h2 style="color: antiquewhite;">Dulcet Admin!</h2>
   </div>
   <div class="d-flex">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Songs</button>
+    <button type="button" class="btn" style="background: #00f000; color: black; border-radius: 30px; padding: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Songs</button>
   </div>
 </nav>
 
 
-<h2>Total Registered in {{title}} : <h1 style="color: crimson; font-size: bolder;">{{registeredUsers}}</h1></h2>
-<h2>Current Users in {{title}} : <h1 style="color: crimson; font-size: bolder;">{{currentUser}}</h1></h2>
+<h2>Total Users Registered in {{title}} : <h1 style="color: rgb(13, 86, 232); font-size: bolder;">{{registeredUsers}}</h1></h2>
+<h2>Current Users in {{title}} : <h1 style="color: rgb(0, 128, 0); font-size: bolder;">{{currentUser}}</h1></h2>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -23,25 +23,14 @@
       <div class="modal-body">
         <form [formGroup]="songsEntry">
 
-          <div class="form-group mb-3">
-            <label for="formFile" class="form-label">Enter Song Path</label>
-            <input class="form-control" type="file" id="formFile" formControlName="songspath">
-          </div>
+        <label for="formFile" class="form-label">Choose the audio and image</label>
+        <input type="file" class="form-control" formControlName="assets" id="formFile" name="assets" multiple (change)="selectSongAssets($event)">
 
-          <div class="form-group mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Song Name</label>
-            <input type="text" class="form-control" formControlName="songsname" id="exampleInputEmail1">
-          </div>
+        <label for="exampleInputEmail1" class="form-label">Enter Movie Name</label>
+        <input type="text" class="form-control" formControlName="maintitle" id="exampleInputEmail1">
 
-          <div class="form-group mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Artists Name</label>
-            <input type="text" class="form-control" formControlName="artistsname" id="exampleInputEmail1">
-          </div>
-
-          <div class="form-group mb-3">
-            <label for="formFile" class="form-label">Enter Album Path</label>
-            <input type="file" class="form-control" formControlName="albumpath" id="formFile">
-          </div>
+        <label for="exampleInputEmail1" class="form-label">Enter Song Name</label>
+        <input type="text" class="form-control" formControlName="subtitle" id="exampleInputEmail1">
 
         </form>
       </div>
@@ -55,18 +44,15 @@
 
 <div class="container">
   <h1>Click any of the Buttons to view and edit it</h1>
-  <button class="btn btn-primary" (click)="vibesOpen()">Vibes</button>&nbsp;&nbsp;
-  <button class="btn btn-primary" (click)="newSongsOpen()">NewSongs</button>
-  <!-- <button class="btn btn-primary" (click)="usersOpen()">UsersList</button> -->
+  <button class="btn" style="background: #00f000; color: black;" (click)="vibesOpen()">Vibes</button>&nbsp;&nbsp;
+  <button class="btn" style="background: #00f000; color: black;" (click)="newSongsOpen()">NewSongs</button>
 </div>
-
 
 <div class="container-fluid mt-3">
 
     <table class="table" *ngIf="vibesboolean">
       <thead>
         <tr>
-          <!-- <td scope="col">S.No</td> -->
           <th scope="col">Song path</th>
           <th scope="col">Song</th>
           <th scope="col">Artist</th>
@@ -76,7 +62,6 @@
       </thead>
       <tbody class="table-group-divider">
         <tr *ngFor="let datas of vibes_data" >
-          <!-- <th scope="row">{{datas.id}}</th> -->
           <td>{{datas.audios}}</td>
           <td>{{datas.maintitle}}</td>
           <td>{{datas.subtitle}}</td>
@@ -91,7 +76,6 @@
   <table class="table" *ngIf="newsongsboolean">
     <thead>
       <tr>
-        <!-- <td scope="col">S.No</td> -->
         <th scope="col">Song path</th>
         <th scope="col">Song</th>
         <th scope="col">Artist</th>
@@ -101,7 +85,6 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let datas of newsongs_data" >
-        <!-- <th scope="row">{{datas.id}}</th> -->
         <td>{{datas.audios}}</td>
         <td>{{datas.maintitle}}</td>
         <td>{{datas.subtitle}}</td>
@@ -113,91 +96,3 @@
   </table>
 
 
-  <!-- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Song path</th>
-        <th scope="col">Song</th>
-        <th scope="col">Artist</th>
-        <th scope="col">Album path</th>
-        <th scope="col" colspan="2">CRUD Operations</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let datas of data" >
-        <td>{{datas.audios}}</td>
-        <td>{{datas.maintitle}}</td>
-        <td>{{datas.subtitle}}</td>
-        <td><img src="{{datas.images}}" style="height: 100px; width: 100px;"></td>
-        <td><button routerLink="adminupdate/{{datas.id}}" class="btn btn-warning">Edit</button></td>
-        <td><button (click)="deleteSongs(datas.id)" class="btn btn-danger">Delete</button></td>
-      </tr>
-    </tbody>
-  </table> -->
-
-
-</div>
-
-<!-- <form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-  </mat-form-field>
-</form> -->
-
-
-<!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <header class="header">
-  <div class="nav">
-      <img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo">
-  </div>
-  <div class="nav-links" id="togglebar">
-    <nav>
-      <a href="/premium">Premium</a>
-      <a href="#bottom">Contact</a>
-      <a href="/logout">Logout</a>
-      <a href="/loggedin">Songs</a>
-      <a href="/premium">Premium</a>
-      <a href="#bottom">Contact</a>
-      <a href="/login">Login</a>
-    </nav>
-  </div>
-</header>
-
-<section id="main-header">
-  <h1>Welcome to Dulcet Admin!<br><p class="footer intro">Current Users in {{title}} {{databaseLength}}</p></h1>
-  <img src="/assets/images/logo.png" alt="Logo" class="image">
-  <p class="intro">One Good Thing About Music, When It Hits You, You Feel No Pain.</p>
-</section>
-
-
-
-  <div class="artists" >
-    <div *ngFor="let value of values"><p class="artistsname">{{value.singers_name}}</p></div>
-  </div> -->

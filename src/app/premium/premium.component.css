@@ -1,7 +1,6 @@
 
 span{
-  font-family: monospace;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
 }
 .header{
@@ -10,7 +9,6 @@ span{
 p{
   font-size: 20px;
   padding: 25px;
-  font-family: monospace;
   font-weight: 100;
   color: white;
 }
@@ -18,41 +16,43 @@ p{
   background-color: rgb(21, 123, 241);
   font-size: 30px;
   color: white;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
-  height: 30vh;
+  padding: 4rem;
+  height: 50vh;
 }
-.div1 a{
+.div1 a,  .div2 a{
   text-decoration: none;
   border: 3px solid white;
   padding: 15px;
   color: white;
   background-color: black;
   border-radius: 50px;
+  scale: 1.05;
+  font-size: 25px;
+  font-weight: 500;
 }
 .div1 a:hover,.div2 a:hover{
   cursor: pointer;
-  padding: 10px;
+  scale: 1.15;
 }
-
-.div2 a{
-  text-decoration: none;
-  border-radius: 50px;
-  border: 3px solid white;
-  padding: 15px;
-  color: white;
-}
-
 
 .grid-container .div2 {
   background-color: rgb(1, 4, 4);
-  padding: 2rem;
   font-size: 30px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 4rem;
+  height: 50vh;
 }
-.grid-container .div3 .container p{
+.grid-container .div3{
+  background-color: #efefef;
+}
+.grid-container .div3 .premiumPlansContainer p{
   font-family: 'Times New Roman', Times, serif;
   letter-spacing: 1px;
   text-align: center;
@@ -60,28 +60,30 @@ p{
   font-size: 1cm;
   font-weight: 600;
 }
-.grid-container .div3 .container .row {
-  padding: 1rem;
-  gap: 1.5rem;
+.grid-container .div3 .premiumPlansContainer .gridRow{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 4rem;
 }
-.grid-container .div3 .container .row .col-sm{
-  padding: 2rem;
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer{
+  padding: 3rem;
+  height: 60vh;
+  width: 20vw;
+  background-color: #ffffff;
   box-shadow: 5px 5px 8px 4px  rgba(199, 182, 182, 0.874);
 }
-.grid-container .div3 .container .row .col-sm .one-time{
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer .one-time{
   width: 10%;
   background-color: rgb(126, 249, 249);
   color:black;
   padding: 10px;
   border-radius: 10px;
 }
-.grid-container .div3 .container .row .col-sm .box1,.grid-container .div3 .container .row .col-sm .box2{
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer .box1,
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer .box2{
   padding: 0.5rem;
 }
-.grid-container .div3 .container .row .col-sm .button{
-  align-items: center;
-}
-.grid-container .div3 .container .row .col-sm .button button{
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer .button button{
   font-size:  0.5cm;
   font-weight: bold;
   background-color: #000;
@@ -89,8 +91,9 @@ p{
   padding: 1rem;
   border-radius: 30px;
   box-shadow: 5px 5px 8px 4px  rgba(199, 182, 182, 0.874);
+  width: auto;
 }
-.grid-container .div3 .container .row .col-sm .button button a{
+.grid-container .div3 .premiumPlansContainer .gridRow .gridPremiumPlanContainer .button button a{
   color: #fff;
   text-decoration: none;
 }

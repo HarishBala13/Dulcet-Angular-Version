@@ -1,15 +1,19 @@
-<header class="header">
-  <div class="nav"> <a><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo" (click)="home()" style="cursor: pointer;"></a> </div>
-  <div class="nav-links">
-    <nav>
-      <div><a href="#contact">Contact</a></div>
-      <div><a routerLink="premium">Premium</a></div>
-      <div><a routerLink="songs">Songs</a></div>
-    </nav>
-  </div>
-</header>
+<app-navigationbar></app-navigationbar>
 
 <div class="forgotsystem">
+
+  <div class="marqueeBox-1">
+    <marquee behavior="alternate" direction="up" scrolldelay="20" height="150px"><i class="fa-solid fa-music"></i></marquee>
+    <marquee behavior="alternate" direction="down" scrolldelay="20" height="250px"><i class="fa-solid fa-music"></i></marquee>
+    <marquee behavior="alternate" direction="left" scrollamount="30" width="1200px"><i class="fa-solid fa-music"></i></marquee>
+    <marquee behavior="alternate" direction="right" scrollamount="30" width="1200px"><i class="fa-solid fa-music"></i></marquee>
+  </div>
+  <div class="marqueeBox-2">
+    <marquee behavior="alternate" direction="up" scrolldelay="20" height="150px"><i class="fa-solid fa-music"></i></marquee>
+    <marquee behavior="alternate" direction="down" scrolldelay="20" height="250px"><i class="fa-solid fa-music"></i></marquee>
+  </div>
+
+
   <form class="forgotform" [formGroup]="forgotpassForm" (ngSubmit)="submitForgotPassForm()">
     <i class="fa-solid fa-circle-xmark fa-flip" (click)="closeForgotPassForm()"></i>
     <h2 id="h2">Dulcet Recover Password</h2>
@@ -32,47 +36,4 @@
   </form>
 </div>
 
-<section id="contact" class="bottom-contents">
-  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
-  <div>
-      <span>COMPANY</span>
-      <ul>
-          <a target="_blank">About</a>
-          <a target="_blank">Jobs</a>
-          <a target="_blank">Records</a>
-      </ul>
-  </div>
-  <div>
-      <span>COMMUNITIES</span>
-      <ul>
-          <a target="_blank">For&nbsp;Artists</a>
-          <a target="_blank">Developers</a>
-          <a target="_blank">Advertising</a>
-          <a target="_blank">Investors</a>
-          <a target="_blank">Vendors</a>
-      </ul>
-  </div>
-  <div>
-      <span>USEFUL&nbsp;LINKS</span>
-      <ul>
-          <a target="_blank">Support</a>
-          <a target="_blank">Web&nbsp;Player</a>
-          <a target="_blank">Contact&nbsp;Dulcet</a>
-      </ul>
-  </div>
-  <div>
-      <nav>
-      <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-      <a href="https://www.ankedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
-      <a href="mailto:delcetonane2023@gmail.com" target="_blank"><i class="fa-soad fa-envelope"></i>E-mail</a>
-      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
-      </nav>
-  </div>
-</section>
-
-<footer class="footer">
-<h3>Copyrights &copy; 2022</h3>
-<p>All Rights Reserved</p>
-<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
-</footer>
+<app-footer></app-footer>

@@ -19,7 +19,7 @@ export class IndexComponent {
       this.item=values;
     }));
 
-    songService.vibesassets().subscribe(vibesvalues=>{
+    songService.mixedSongsAssets().subscribe(vibesvalues=>{
       this.vibes_value=vibesvalues;
     })
   }

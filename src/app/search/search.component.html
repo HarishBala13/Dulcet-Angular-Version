@@ -1,6 +1,31 @@
 <app-navigationbar></app-navigationbar>
-<form>
-  <input type="text" [(ngModel)]="searchString" name="searchString" placeholder="Search your Favourite Songs..."/>
-</form>
-  <span>You have searched for<br>{{searchString}}</span>
+
+<div class="search-container">
+  <div class="searchBar">
+    <i class="fa-solid fa-search"></i> <input type="text" [(ngModel)]="searchString" id="input-box" name="searchString" placeholder="Search your Favourites"/>
+  </div>
+  <div class="result-box" id="input-box">
+    <ul>
+      <li *ngIf="searchString.length <= 0">No Searches</li>
+     <div *ngFor="let key of keywords | searchFilter : searchString">
+      <li *ngIf="searchString.length > 1">{{key.artistName}}</li>
+     </div>
+    </ul>
+  </div>
+
+  <span>Browse All</span>
+
+  <div class="searchBox">
+  <div *ngFor="let src of searchBoxes">
+    <div>
+      <a class="box" routerLink="/searchedPlaylist" style="background-color: {{src.backgroundColor}}">
+      <p>{{src.title}}</p>
+      <img class="scaledImage" src="{{src.image}}">
+    </a></div>
+  </div>
+  </div>
+
+
+</div>
+
 <app-footer></app-footer>

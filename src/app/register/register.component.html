@@ -1,6 +1,17 @@
 <app-navigationbar></app-navigationbar>
 
 <div class="registersystem">
+<div class="marqueeBox-1">
+  <marquee behavior="alternate" direction="up" scrolldelay="20" height="150px"><i class="fa-solid fa-music"></i></marquee>
+  <marquee behavior="alternate" direction="down" scrolldelay="20" height="250px"><i class="fa-solid fa-music"></i></marquee>
+  <marquee behavior="alternate" direction="left" scrollamount="30" width="1200px"><i class="fa-solid fa-music"></i></marquee>
+  <marquee behavior="alternate" direction="right" scrollamount="30" width="1200px"><i class="fa-solid fa-music"></i></marquee>
+</div>
+<div class="marqueeBox-2">
+  <marquee behavior="alternate" direction="up" scrolldelay="20" height="150px"><i class="fa-solid fa-music"></i></marquee>
+  <marquee behavior="alternate" direction="down" scrolldelay="20" height="250px"><i class="fa-solid fa-music"></i></marquee>
+</div>
+
   <form class="registerform" [formGroup]="registerForm" (submit)="submitRegisterForm()">
     <i class="fa-solid fa-circle-xmark" (click)="closeRegisterForm()"></i>
     <h2 id="h2">Create your account</h2>
@@ -30,8 +41,8 @@
     <button [disabled]="!registerForm.valid">Submit</button>
 
     <span>Already&nbsp;an&nbsp;User&nbsp;?&nbsp;Click&nbsp;<a class="registers" routerLink="/login">Login</a></span>
-  </form>
-</div>
+   </form>
+  </div>
 
 <app-footer></app-footer>
 

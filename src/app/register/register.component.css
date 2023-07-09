@@ -5,7 +5,23 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background: rgb(255, 255, 255);
+  /* background-image: url("/assets/images/backgroundImageRegLogin.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+.fa-music{
+  color: #00f000;
+  font-size: 1.5cm;
+}
+.marqueeBox-1{
+  margin-right: 90%;
+  width: 100px;
+  height: 80px;
+}
+.marqueeBox-2{
+  margin-left: 90%;
+  width: 100px;
+  height: 80px;
 }
 .registerform{
   width: 25rem;

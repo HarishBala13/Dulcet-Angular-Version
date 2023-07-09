@@ -1,22 +1,68 @@
-form{
-  background: linear-gradient(35deg, darkslategrey, green);
-  padding: 10px;
+.search-container .searchBar{
+  width: 60%;
+  padding: 10px 20px;
+  border: 3px solid black;
+  border-radius: 30px;
+  margin-top: 40px;
 }
-input[type=text] {
-  width: 20%;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+.search-container .searchBar input{
+  width: 60%;
   font-size: 16px;
-  background-color: white;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  border: 0;
+  outline: 0;
 }
-input[type=text]:focus {
-  width: 50%;
+.result-box ul{
+  /* border-top: 1px solid #999; */
+  padding: 15px 10px;
 }
-span{
+.result-box ul li{
+  list-style: none;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.result-box ul li:hover{
+  background: #e9f3ff;
+}
+.result-box ul li:first-child:hover{
+  background: #fff;
+  cursor: default;
+}
+.search-container span{
   color: #000;
   font-size: 0.8cm;
-  font-weight: 400;
+  font-weight: 800;
+  padding: 10px;
+}
+.search-container div div .box{
+  display: grid;
+  place-items: center;
+  width: 250px;
+  height: 250px;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.search-container div div{
+  opacity: 1;
+}
+.search-container div div .box p{
+  font-size: 1cm;
+  font-weight: 500;
+}
+.search-container div div .box .scaledImage{
+  height: 150px;
+  width: 150px;
+  box-shadow: #000 0px 0px 13px;
+  /* transform: rotate(45deg); */
+  transform: rotate(20deg) translate(37%,-2%);
+}
+.search-container .searchBox{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 3rem;
 }

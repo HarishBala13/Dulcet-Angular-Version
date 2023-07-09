@@ -4,6 +4,6 @@
   <a routerLink="/playlist">Playlist</a>
   <a routerLink="/premium">Premium</a>
   <a routerLink="/register" *ngIf="!loggedinNavBar">Register</a>
-  <a routerLink="/login" *ngIf="login">Login</a>
-  <a (click)="logout()" *ngIf="loggedinNavBar">Logout</a>
+  <a routerLink="/login" *ngIf="login" class="loginButton">Login</a>
+  <a (click)="logout()" *ngIf="loggedinNavBar" class="loginButton">Logout</a>
 </header>

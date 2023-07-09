@@ -13,17 +13,30 @@ import { PremiumComponent } from './premium/premium.component';
 import { AdminupdateComponent } from './adminupdate/adminupdate.component';
 import { SearchComponent } from './search/search.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { PodcastsComponent } from './libraries/podcasts/podcasts.component';
+import { TopsongsComponent } from './libraries/topsongs/topsongs.component';
+import { MixedsongsComponent } from './libraries/mixedsongs/mixedsongs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  // {
+  //   path:'',
+  //   redirectTo:'topsongs',
+  //   pathMatch:'full'
+  // },
   {path:'',component:HomeComponent},
+  {path:'podcasts',component:PodcastsComponent},
+  {path:'topsongs',component:TopsongsComponent},
+  {path:'mixedsongs',component:MixedsongsComponent},
   {path:'playlist',component:PlaylistComponent,
       canActivate:[UserAuthorizationGuard]},
   {path:'accounts',component:AccountsComponent},
+  {path:'profile',component:ProfileComponent},
   {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},
   {path:'',children:[
     {path:'login/register',component:RegisterComponent},
-    {path:'login',component:LoginComponent}
+    {path:'login/playlist',component:PlaylistComponent}
   ]},
   {path:'forgot',component:ForgotComponent},
   {path:'forgotpass',component:ForgotpassComponent},

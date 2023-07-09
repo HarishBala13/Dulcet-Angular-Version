@@ -41,6 +41,7 @@ export class ForgotComponent {
         this.AL.Success("Reset password has been sent to your Email ID");
         localStorage.setItem("ForgotEmail",JSON.stringify(users.userEmail));
         console.log(localStorage.getItem("ForgotEmail"));
+        localStorage.removeItem("ForgotEmail");
         this.userService.sendPasswordRecoveryEmail("http://localhost:1999/sendEmail",users).subscribe((data)=>{
           console.log(data)
         });
@@ -52,7 +53,6 @@ export class ForgotComponent {
   }
 
   forgotReset(){
-  // trigger
   this.forgotpassForm.reset();
 }
 

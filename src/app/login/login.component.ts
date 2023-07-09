@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserregisterService } from '../userregister.service';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,48 +9,28 @@ import { first } from 'rxjs';
   styleUrls: ['./login.component.css'],
   styles: [`input.ng-invalid{border: 2px solid red;} input.ng-valid{border:2px solid green;} input.ng-untouched{border:none;}`]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  returnURL:any;
   errormessage='';
+  returl:any;
 
-  userName=''
-
-  constructor(private clientHTTP:HttpClient,
-    private userService:UserregisterService,
+  constructor( private userService:UserregisterService,
     private formBuilder:FormBuilder,
-    private routes:Router,
-    private router:ActivatedRoute){
-      let errormessage = this.userService.errorMessage;
+    private routes:Router,private activate:ActivatedRoute){
+      this.activate.queryParamMap.subscribe(x=>{
+        this.returl=x.get('returl');
+        console.log(this.returl);
+      })
+      this.errormessage = this.userService.errorMessage;
      }
-  ngOnInit(): void {
-    this.router.queryParamMap.subscribe(param=>{
-      this.returnURL=param.get("returnURL");
-      console.log(this.returnURL);
-    })
-  }
+
   loginForm=this.formBuilder.group({
-    email:['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-    // password:['',[Validators.required,Validators.pattern("(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[$@$!%?&])[A-Za-z\d$@$!%?&].{8,}")]]
-    password:['',[Validators.required,Validators.pattern(`(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}`)]],
-    // password:['',[Validators.required]]
+    email:['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,5}$")]],
+    password:['',[Validators.required,Validators.pattern(`(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}`)]]
   })
 
-  // get f() { return this.loginForm.controls; }
-
 submitLoginForm(){
-  this.userService.loginCheckUser(this.loginForm.value.email,this.loginForm.value.password,this.returnURL);
-
-  // this.clientHTTP.get<any>("http://localhost:3000/usersregister").subscribe(x=>{
-  //   const findName=x.find((y:any)=>{
-  //     if(this.loginForm.value.email === y.regemail){
-  //     return y.regname;
-  //   }
-  // })
-  //   this.userName=findName.regname;
-  //   localStorage.setItem("currentUserName",this.userName);
-  // })
-
+  this.userService.loginCheckUser(this.loginForm.value.email,this.loginForm.value.password,this.returl);
 }
 
 loginReset(){

@@ -2,48 +2,27 @@
 <div class="grid-container">
   <div class="div1">
       <span>Introducing Premium Feliq</span>
-      <p>₹25/- for 1 day.<br>₹175/- for 1 week</p>
-      <a href="#">GET FELIQ</a>&nbsp;&nbsp;
-      <a>SEE OTHER PLANS</a>
+      <p>Starts from ₹25/- per day</p>
+      <a routerLink="/payment">Get Feliq</a>
   </div>
   <div class="div2">
       <span>Get Premium free for 1 month</span>
       <p>Just ₹150/-month..Grab it soon</p>
-      <a routerLink="#">GET STARTED</a>
+      <a routerLink="/payment">Get Started</a>
   </div>
   <div class="div3">
-    <div class="container">
+    <div class="premiumPlansContainer">
       <p>Pick your Premium Plan</p>
-      <div class="row">
-        <div class="col-sm">
-            <span class="one-time">One-time plans available</span>
-            <div class="box1"><b>Mini</b><br>From ₹7/day<br>1 account on mobile only<hr></div>
+      <div class="gridRow">
+        <div *ngFor="let premium of premiumPlansJSON">
+          <div class="gridPremiumPlanContainer">
+            <div class="box1"><b>{{premium.id}} {{premium.plans['title']}}</b><br>{{premium.plans['offer']}}<br>{{premium.plans['info']}}<hr></div>
             <div class="box2">
-              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Ad-free music listening<br>
-              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 30 songs<br>
+              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;{{premium.benefits['one']}}<br>
+              <i class="fa-solid fa-check"></i>&nbsp;&nbsp;{{premium.benefits['two']}}<br>
             </div>
-            <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
+            <div class="button"><button><a routerLink="/payment" (click)="subscribeOffer(premium)">Subscribe</a></button></div>
           </div>
-        <div class="col-sm">
-          <span class="one-time">One-time plans available</span>
-          <div class="box1"><b>Individual</b><br>₹119/month after offer period<br>1 account</div>
-          <hr>
-          <div class="box2">
-            <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Ad-free music listening<br>
-            <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 500 songs on 3 devices<br>
-          </div>
-          <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
-        </div>
-        <div class="col-sm">
-          <span class="one-time">One-time plans available</span>
-          <div class="box1"><b>Duo</b><br>₹149/month after offer period<br>2 accounts</div>
-          <hr>
-          <div class="box2">
-            <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Group Session<br>
-            <i class="fa-solid fa-check"></i>&nbsp;&nbsp;For couples who live together<br>
-            <i class="fa-solid fa-check"></i>&nbsp;&nbsp;Downolad 1k songs on 5 devices<br>
-          </div>
-          <div class="button"><button><a routerLink="/payment">View Plans</a></button></div>
         </div>
       </div>
     </div>
@@ -51,9 +30,9 @@
 </div>
 
 
-<div class="coupon">
+<!-- <div class="coupon">
   <label>Coupon Code :&nbsp;&nbsp;</label>
     <input type="text" placeholder="Enter your Coupon Code" id="name" (keyup)="placekey()">
-</div>
+</div> -->
 
 <app-footer></app-footer>

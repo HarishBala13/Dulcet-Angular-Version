@@ -5,10 +5,24 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background: rgb(255, 255, 255);
+}
+.fa-music{
+  color: #00f000;
+  font-size: 1.5cm;
+}
+.marqueeBox-1{
+  margin-right: 90%;
+  width: 70px;
+  height: 10px;
+}
+.marqueeBox-2{
+  margin-left: 90%;
+  width: 70px;
+  height: 10px;
 }
 .form{
   width: 25rem;
+  top: -20%;
   /* height: 50vh; */
   background: rgb(255, 255, 255);
   box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
@@ -69,7 +83,7 @@ input:focus{
 .fa-eye-slash,.fa-eye{
   position: absolute;
   left: 72%;
-  bottom: 50%;
+  bottom: 47%;
   font-size: 0.35cm;
 }
 .form .flex{

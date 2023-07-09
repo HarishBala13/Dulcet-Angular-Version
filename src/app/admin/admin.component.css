@@ -1,3 +1,6 @@
+*{
+  margin: 0;
+}
 .logo{
   height: 50px;
   border-radius: 50%;
@@ -49,3 +52,135 @@
   padding: 1rem;
   border-radius: 50px ;
 }
+
+.adminFormSystem{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  /* background-image: url("/assets/images/backgroundImageRegLogin.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+.fa-music{
+  color: #00f000;
+  font-size: 1.5cm;
+}
+.marqueeBox-1{
+  margin-right: 90%;
+  width: 100px;
+  height: 80px;
+}
+.marqueeBox-2{
+  margin-left: 90%;
+  width: 100px;
+  height: 80px;
+}
+.adminFormAddSongs{
+  width: 25rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 5px 20px 4px rgba(22, 22, 22, 0.874);
+  border-radius: 20px 35px 20px 35px;
+  position: relative;
+}
+.adminFormAddSongs #h2{
+  font-family: 'Space Grotesk', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+.icon{
+ margin-left: 14%;
+ color: rgb(102, 51, 153);
+}
+.fa-circle-xmark{
+  position: absolute;
+  left: 89%;
+  top: 3%;
+  font-size: 0.55cm;
+}
+.fa-circle-xmark:hover,
+.fa:hover,
+.icon:hover,
+.registers:hover,
+.adminFormAddSongs button:hover{
+  cursor: pointer;
+}
+.adminFormAddSongs span .registers:hover{
+  color: rebeccapurple;
+}
+input{
+  width: 60%;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+}
+.name, .email, .password, .confirmpassword{
+  margin-left: 9%;
+  margin-bottom: 10%;
+}
+input:focus{
+  outline: none;
+}
+.adminFormAddSongs .regicon1{
+  position: absolute;
+  left: 79%;
+  bottom: 46%;
+}
+.adminFormAddSongs .regicon2{
+  position: absolute;
+  left: 80%;
+  bottom: 30%;
+}
+.adminFormAddSongs .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+  display: block;
+  margin-left: 25%;
+  margin-top: -5%;
+  padding-bottom: 1rem;
+}
+.adminFormAddSongs span{
+  display: block;
+  padding: 1rem;
+  font-size: 0.5cm;
+  text-align: center;
+}
+.adminFormAddSongs .registers{
+  font-size: 0.5cm;
+  color: black;
+}
+.fa-arrow-rotate-right{
+  font-size: 0.33cm ;
+  font-weight: bolder;
+  background-color: khaki;
+  color: #000;
+  border-radius: 30px;
+  padding: 0.85rem;
+  text-transform: capitalize;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+.adminFormAddSongs button{
+  border: none;
+  font-size: large;
+  width: 30%;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  background-color: khaki;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+}
+
+@media only screen and (max-width : 500px)
+{
+  .form{
+    width: 100%;
+  }
+  .form-group span{
+    font-size: xx-small;
+  }
+}
+

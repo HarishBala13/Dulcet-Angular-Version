@@ -1,17 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-.navbar{
-  float: right;
-
+.songs_container{
+  width: auto;
+  height: 80px;
+  background-color: #131315;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 2rem;
 }
-.navbar .profile_container{
+.songs_container .fa-heart{
+  font-size: 20px;
+}
+.songs-container{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  place-items: center;
+  background-color: #131315;
+  gap: 2rem;
+}
+.songs-container .headTitle{
+  color: white;
+  font-size: 0.5cm;
+  font-weight: 800;
+}
+.songs_container > span, .songs_container > img{
+  padding: 8px 4px;
+}
+.songs_container .number,.songs_container .maintitle,.songs_container .duration{
+  color: #fff;
+  font-size: 0.55cm;
+  font-weight: 500;
+}
+.songs_container img{
+  width: 60px;
+  height: 70px;
+}
+.songs_container:hover{
+  background-color: #3f3f42;
+  cursor: pointer;
+}
+.navbar{
+  position: relative;
+  display: inline-block;
+}
+.playlist_container .horizontalLine{
+  background: #e9f3ff;
+  height: 5px;
+  width: auto;
+}
+.profile_container{
   display: flex;
   align-items: center;
   gap: 10px;
   background-color: #000;
   color: #fff;
-  padding: 10px;
+  padding: 15px;
   border-radius: 30px;
-  font-weight: bold;
   cursor: pointer;
 }
 .navbar .profile{
@@ -29,10 +72,35 @@
   border-radius: 30px;
   box-shadow: 2px 0px 5px 8px rgba(31, 29, 29, 0.2);
 }
+.dropdowns{
+  position: relative;
+  display: inline-block;
+}
+.dropdowns-items{
+  display: none;
+  position: absolute;
+}
+.dropdowns-items a{
+  padding: 10px;
+  display: block;
+}
+.dropdowns:hover .dropdowns-items{
+  width: 200px;
+  left: 20px;
+  top: 15px;
+  display: inline-block;
+  background-color: #181515;
+  color: #fff;
+  font-size: 0.4cm;
+  font-weight: 400;
+}
+.dropdowns-items a:hover{
+  text-decoration: underline;
+}
  .menu{
   display: flex;
-  flex-direction: column;
   opacity: 0.7;
+  flex-direction: column;
 }
  .menu a{
   color: #000;
@@ -52,7 +120,6 @@
   font-size: 0.4cm;
 }
 .firstcontent {
-  margin-top: 20%;
   margin-left: 40%;
 }
 .firstcontent img{
@@ -61,6 +128,12 @@
 }
 .firstcontent .user_name{
   color: rgb(46, 230, 144);
-  font-size: 2cm;
+  font-size: 1.5cm;
 }
 
+.liked {
+  color: #00ff00;
+}
+.untouched {
+  color: rgb(92, 91, 90);
+}

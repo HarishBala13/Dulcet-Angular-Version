@@ -25,6 +25,11 @@ import { SearchComponent } from './search/search.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { PodcastsComponent } from './libraries/podcasts/podcasts.component';
+import { TopsongsComponent } from './libraries/topsongs/topsongs.component';
+import { MixedsongsComponent } from './libraries/mixedsongs/mixedsongs.component';
+import { SearchFilterPipe } from './search/searchFilter.pipe';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { AccountsComponent } from './accounts/accounts.component';
     SearchComponent,
     NavigationbarComponent,
     FooterComponent,
-    AccountsComponent
+    AccountsComponent,
+    PodcastsComponent,
+    TopsongsComponent,
+    MixedsongsComponent,
+    SearchFilterPipe,
+    ProfileComponent
    ],
   imports: [
     BrowserModule,

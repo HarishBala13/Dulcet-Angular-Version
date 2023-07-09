@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SongsService } from '../songs.service';
-import { UserregisterService } from '../userregister.service';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
@@ -21,14 +19,15 @@ export class AdminComponent implements OnInit{
   newsongsboolean:boolean=false;
   usersboolean:boolean=false;
   currentUser:number=0;
+  songsAssets = [];
 
-
-  constructor(private formBuild:FormBuilder,private API:ApiService ,private service:SongsService,private userService:UserregisterService,private client:HttpClient) {
-    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.registeredUsers=userdata.length;    });
-  }
-    // this.service.dulcetassets().subscribe((data:any)=>{ this.values=data;   });
+  constructor(private formBuild:FormBuilder, private API:ApiService, private client:HttpClient) {  }
   ngOnInit(): void {
-    let userLoggedIn = localStorage.getItem("loggedin");
+    this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{
+      this.registeredUsers=userdata.length;
+    });
+
+    let userLoggedIn = sessionStorage.getItem("loggedin");
     if(userLoggedIn == "true"){
       this.currentUser = 1;
     }else{
@@ -37,10 +36,9 @@ export class AdminComponent implements OnInit{
   }
 
   songsEntry=this.formBuild.group({
-    songspath:['',Validators.required],
-    albumpath:['',Validators.required],
-    songsname:['',Validators.required],
-    artistsname:['',Validators.required]
+    assets:['',Validators.required],
+    maintitle:['',Validators.required],
+    subtitle:['',Validators.required]
    })
 
    vibesOpen(){
@@ -51,14 +49,42 @@ export class AdminComponent implements OnInit{
     this.newsongsboolean=true;
     this.API.fetchNewSongs().subscribe(values=>{  this.newsongs_data=values;  });
    }
-  //  usersOpen(){
-  //   this.client.get<any>("http://localhost:3000/usersregister").subscribe((userdata:any)=>{   this.currentUsers=userdata.length;    });
-  //  }
+
+   selectSongAssets(event:any){
+    if(event.target.files.length > 0){
+      const file = event.target.files;
+      this.songsAssets = file;
+    }
+   }
+
    addSongs(add:any){
+    const formData = new FormData();
+    for(let img of this.songsAssets){
+      formData.append('files', img);
+    }
+    console.log(this.songsAssets);
+
+    this.client.post<any>("http://localhost:1999/multipleFileUpload", formData).subscribe(
+      (res) => console.log(res)
+    )
+
     this.API.addSongsServ(add).subscribe((values)=>{
       console.log(values);
     })
    }
+
+    onSubmit(){
+      const formData = new FormData();
+      for(let img of this.songsAssets){
+        formData.append('files', img);
+      }
+      console.log(this.songsAssets);
+
+      this.client.post<any>("http://localhost:1999/multipleFileUpload", formData).subscribe(
+        (res) => console.log(res)
+      )
+    }
+
    deleteSongs(ID:number){
     this.API.deleteSongsServ(ID).subscribe(()=>{});
    }

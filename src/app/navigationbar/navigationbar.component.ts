@@ -17,19 +17,21 @@ export class NavigationbarComponent {
     private router:Router)  {
     this.name=localStorage.getItem("loggedin");
 
-    if(localStorage.getItem("loggedin")=="true"){
+    if(sessionStorage.getItem("loggedin")=="true"){
       this.loggedinNavBar=true;
       this.login=false;
     }
   }
 
   logout(){
-    if(confirm(`Are You Sure want to logout ${localStorage.getItem("currentUserName")} ?`)==true){
+    if(confirm(`Are You Sure want to logout ${sessionStorage.getItem("currentUserName")} ?`)==true){
       this.loggedinNavBar=false;
       this.login=true;
-      setTimeout(()=>this.router.navigate(['login']),5000);
-      localStorage.setItem("loggedin","false");
-      localStorage.removeItem("currentUserName");
+      sessionStorage.setItem("loggedin","false");
+      sessionStorage.removeItem("currentUserName");
+      this.router.navigateByUrl('login').then(()=>{
+        location.reload();
+      })
     }
     // else{
     //   this.AL.AlertUser(`Oops ${localStorage.getItem("currentUserName")}! You have clicked cancel button`);

@@ -1,42 +1,38 @@
 
 <app-navigationbar></app-navigationbar>
 
-  <ng-template [ngIf]="openMyProfile">
-    <div class="profilecontainer">
-      <!-- <div class="navbar">
-          <button class="profile" clickOutside (clickOutside)="clickedOutside()" (click)="toggle()">
-            {{profileName}}
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="menu" *ngIf="isMenuOpened">
-            <a>Account&nbsp;&nbsp;<i class="fa fa-external-link"></i  ></a>
-            <a (click)="openProfile()">Profile</a>
-            <a routerLink="premium">Premium</a>
-            <a (click)="logout()">Logout&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
-          </div>
-      </div> -->
-      <div class="firstcontent" (click)="openEditprofile()" style="cursor: pointer;">
-       <img src="/assets/images/person.png" alt="">
-       <div class="user_name">{{profileName}}</div>
-      </div>
-      </div>
-  </ng-template>
-
 <div class="playlist_container">
   <div class="navbar">
-    <div class="profile_container" clickOutside (clickOutside)="clickedOutside()" (click)="toggle()">
-      <div><img src="/assets/images/person.png" style="height: 40px; width: 40px;" alt="userImage"></div>
-      <div title="{{profileName}}">{{profileName}}</div>
+    <div class="profile_container" clickOutside  (click)="toggle()">
+      <div><img src="/assets/images/person.png" title="{{profileName}}" style="height: 40px; width: 40px;" alt="userImage"></div>
+      <!-- <div title="{{profileName}}">{{profileName}}</div> -->
       <div><i class="fa fa-caret-down"></i></div>
     </div>
-
     <div class="menu" *ngIf="isMenuOpened">
       <a routerLink="/accounts">Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
-      <a (click)="openProfile()">Profile</a>
+      <a routerLink="/profile">Profile</a>
       <a routerLink="/premium">Premium</a>
       <a (click)="logout()">Logout&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
     </div>
-
   </div>
 
+  <div class="songs-container">
+    <div class="headTitle">#</div>
+    <div class="headTitle">Image</div>
+    <div class="headTitle">Title</div>
+    <div class="headTitle">Song</div>
+    <div class="headTitle">Liked Songs</div>
+  </div>
+  <div class="horizontalLine"></div>
+  <div *ngFor="let source of assets">
+    <div class="songs_container">
+    <span class="number">{{source.id}}</span>
+    <img src="{{source.images}}" alt="">
+    <span class="maintitle">{{source.movie_name}}</span>
+    <span class="maintitle">{{source.song_name}}</span>
+    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)"
+    [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
+    <a>Add to Playlist</a>
+</div>
+</div>
 </div>

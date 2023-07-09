@@ -1,13 +1,4 @@
-<header class="header">
-  <div class="nav">   <a routerLink=""><img src="/assets/images/logo.png" alt="Dulcet Logo" class="logo"></a>    </div>
-  <div class="nav-links">
-    <nav>
-      <a routerLink="#contact">Contact</a>
-      <a routerLink="/premium">Premium</a>
-      <a routerLink="/loggedin">Songs</a>
-    </nav>
-  </div>
-</header>
+<app-navigationbar></app-navigationbar>
 
 <div class="forgotsystem">
   <form class="forgotform" [formGroup]="forgotnewpassForm" (ngSubmit)="submitForgotnewPassForm()">
@@ -32,47 +23,4 @@
   </form>
 </div>
 
-<section id="contact" class="bottom-contents">
-  <div> <a href="#top"><img src="/assets/images/logo.png" class="logo"></a>  </div>
-  <div>
-      <span>COMPANY</span>
-      <ul>
-          <li>About
-          <li>Jobs
-          <li>Records
-      </ul>
-  </div>
-  <div>
-      <span>COMMUNITIES</span>
-      <ul>
-          <li>For&nbsp;Artists
-          <li>Developers
-          <li>Advertising
-          <li>Investors
-          <li>Vendors
-      </ul>
-  </div>
-  <div>
-      <span>USEFUL&nbsp;LINKS</span>
-      <ul>
-          <li>Support
-          <li>Web&nbsp;Player
-          <li>Contact&nbsp;Dulcet
-      </ul>
-  </div>
-  <div>
-      <nav>
-        <a href="https://www.facebook.com/profile.php?id=100089790477429" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-      <a href="https://www.instagram.com/__delcet__23/"  target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-      <a href="https://www.linkedin.com/in/delcet-musicapp-766898265/" target="_blank"><i class="fab fa-linkedin-in"></i>Linked-in</a>
-      <a href="mailto:delcetonline2023@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i>E-mail</a>
-      <a href="https://twitter.com/DelcetMusicHB"  target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
-      </nav>
-  </div>
-</section>
-
-<footer class="footer">
-<h3>Copyrights &copy; 2022</h3>
-<p>All Rights Reserved</p>
-<p>Developed and Maintaining by&nbsp;<a href="#"><b>Mr. HARISH B</b></a></p>
-</footer>
+<app-footer></app-footer>
