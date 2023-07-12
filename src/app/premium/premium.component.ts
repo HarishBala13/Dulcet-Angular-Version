@@ -22,7 +22,7 @@ export class PremiumComponent {
   }
 
   subscribeOffer(premiumPlans:any){
-    this.songService.subscribePremiumPlans(premiumPlans,this.id);
+    this.songService.userSubscribingPremiumPlans(premiumPlans,this.id);
   }
 
 }

@@ -8,15 +8,19 @@ import { SongsService } from '../songs.service';
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']
 })
-export class PlaylistComponent implements OnInit{
+export class PlaylistComponent {
 
   openSongTracker : boolean | string | null= false;
   openNewPlaylist : boolean = false;
+  openUserPlaylistDiv : boolean = false;
   openLEODiv : boolean = false;
   openVikramIIDiv : boolean = false;
-  userPlaylist : boolean = true;
+  userPlaylist : boolean = false;
+  openPlaylistDiv : boolean = false;
   toggled = true;
+  toggle = true;
   status = 'Enable';
+  statuses = 'Enable';
   count: number = 0;
 
   profileName : string | null | undefined ='';
@@ -111,7 +115,9 @@ export class PlaylistComponent implements OnInit{
           // sessionStorage.setItem("songTrackLocalStorage","true");
           console.log(sessionStorage.getItem("songTrackLocalStorage"));
 
-          // this.openSongTracker = sessionStorage.getItem("songTrackLocalStorage");
+          this.openSongTracker = sessionStorage.getItem("songTracker");
+
+
 
           // this.audioPlayer?.src = audioObject.audios;
           this.audiosrc = audioObject.audios;
@@ -126,22 +132,22 @@ export class PlaylistComponent implements OnInit{
       }
 
 
-  playAI(){
+  playSong(){
     this.audioPlayer?.play();
     let masterPlay=document.getElementById("masterplay");
     masterPlay?.classList.add("wave");
   }
-  pauseAI(){
+  pauseSong(){
     this.audioPlayer?.pause();
     let masterPlay=document.getElementById("masterplay");
     masterPlay?.classList.remove("wave");
   }
-  nextSongAI(){
+  nextSong(){
     // this.currentTrackIndex = (this.currentTrackIndex + 1) % this.playlist.length;
     // this.audioPlayer.src = this.playlist[this.currentTrackIndex];
     this.audioPlayer?.play();
   }
-  previousSongAI(){
+  previousSong(){
     // this.currentTrackIndex = (this.currentTrackIndex - 1 + this.playlist.length) % this.playlist.length;
     // this.audioPlayer.src = this.playlist[this.currentTrackIndex];
     this.audioPlayer?.play();
@@ -172,17 +178,17 @@ export class PlaylistComponent implements OnInit{
     }
   }
 
-  ngOnInit() {
-    if(sessionStorage.getItem("loggedin")=="true"){
-      sessionStorage.setItem("songTracker","true");
-      console.log(sessionStorage.getItem("songTracker"));
-      this.openSongTracker=sessionStorage.getItem("songTracker");
-    }
-    else if(sessionStorage.getItem("loggedin")=="false"){
-      sessionStorage.removeItem("songTracker")
-    }
+  // ngOnInit() {
+  //   if(sessionStorage.getItem("loggedin")=="true"){
+  //     sessionStorage.setItem("songTracker","true");
+  //     console.log(sessionStorage.getItem("songTracker"));
+  //     this.openSongTracker=sessionStorage.getItem("songTracker");
+  //   }
+  //   else if(sessionStorage.getItem("loggedin")=="false"){
+  //     sessionStorage.removeItem("songTracker")
+  //   }
 
-  }
+  // }
 
   createPlaylist(){
     this.openNewPlaylist = true;
@@ -190,20 +196,35 @@ export class PlaylistComponent implements OnInit{
     this.openLEODiv = false;
   }
 
+  openPlaylist(){
+    this.openPlaylistDiv = true;
+  }
+
+  openUserPlaylist(){
+    this.userPlaylist = true;
+  }
+
   closePlaylist(){
     this.openNewPlaylist = false;
     this.openVikramIIDiv = false;
     this.openLEODiv = false;
   }
+
   openLEOPlaylist(){
     this.openLEODiv = true;
     this.openVikramIIDiv = false;
     this.openNewPlaylist = false;
   }
+
   openVikramPlaylist(){
     this.openVikramIIDiv = true;
     this.openLEODiv = false;
     this.openNewPlaylist = false;
+  }
+
+  addToLike() {
+    this.toggle = !this.toggle;
+    this.statuses = this.toggle ? 'Enable' : 'Disable';
   }
 
   addToFavouritesSongs(songsObject:any,i:any){
@@ -211,6 +232,10 @@ export class PlaylistComponent implements OnInit{
     this.toggled = ! this.toggled;
     this.status = this.toggled ? 'Enable' : 'Disable';
     this.songService.addToFavouritesSongsFromPlaylist(songsObject,this.JSONID);
+  }
+
+  addSongsToPlaylist(playlistSongs:any){
+    this.songService.addSongsToUserPlaylist(playlistSongs,this.JSONID);
   }
 
   logout(){

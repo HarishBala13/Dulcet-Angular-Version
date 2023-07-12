@@ -6,48 +6,18 @@
       "regpassword": "Harish@2002",
       "regconfirmpassword": "Harish@2002",
       "id": 1,
-      "likedSongs": [
-        {
-          "movie_name": "LEO",
-          "song_name": "Bloody Sweet",
-          "images": "/assets/images/album/bloody sweet.jpg",
-          "audios": "/assets/images/audio/Bloody-Sweet-MassTamilan.dev.mp3",
-          "id": 2
-        },
-        {
-          "movie_name": "LEO",
-          "song_name": "Bloody Sweet",
-          "images": "/assets/images/album/bloody sweet.jpg",
-          "audios": "/assets/images/audio/Bloody-Sweet-MassTamilan.dev.mp3",
-          "id": 2
-        },
-        {
-          "movie_name": "LEO",
-          "song_name": "Bloody Sweet",
-          "images": "/assets/images/album/bloody sweet.jpg",
-          "audios": "/assets/images/audio/Bloody-Sweet-MassTamilan.dev.mp3",
-          "id": 2
-        },
-        {
-          "movie_name": "Vikram - II",
-          "song_name": "Plata Pablo Theme",
-          "images": "/assets/images/album/VikramOST.jpg",
-          "audios": "/assets/images/audio/Pablo-Sandhanam-(Background-Score)-MassTamilan.dev.mp3",
-          "id": 1
-        }
-      ],
       "subscribedPlans": [
         {
           "plans": {
-            "title": "Mini",
-            "offer": "From ₹7/day",
-            "info": "1 account on mobile only"
+            "title": "Individual",
+            "offer": "₹240/year",
+            "info": "Play as your wish"
           },
           "benefits": {
             "one": "Ad-free music listening",
-            "two": "Downolad 30 songs"
+            "two": "Download 50 songs"
           },
-          "id": 2
+          "id": 3
         }
       ]
     },
@@ -126,6 +96,51 @@
       "regconfirmpassword": "Nasa@123",
       "UserRegisterTime": "11-05-2023 03:17:36 PM",
       "id": 5
+    },
+    {
+      "regname": "JeevaArav",
+      "regemail": "2k19me070@kiot.ac.in",
+      "regpassword": "Jeeva@2001",
+      "regconfirmpassword": "Jeeva@2001",
+      "UserRegisterTime": "12-07-2023 01:04:57 PM",
+      "id": 6,
+      "subscribedPlans": [
+        {
+          "plans": {
+            "title": "Individual",
+            "offer": "₹240/year",
+            "info": "Play as your wish"
+          },
+          "benefits": {
+            "one": "Ad-free music listening",
+            "two": "Download 50 songs"
+          },
+          "id": 3
+        }
+      ],
+      "myPlaylist_1": [
+        {
+          "movie_name": "Jailer",
+          "song_name": "Muthuvel theme",
+          "images": "/assets/images/album/Jailer.jpg",
+          "audios": "/assets/images/audio/Jailer-Announcement-Theme-MassTamilan.dev.mp3",
+          "id": 1
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Lokiverse Theme",
+          "images": "/assets/images/album/Lokiverse Theme.jpg",
+          "audios": "/assets/images/audio/Lokiverse-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 7
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Porkanda Singam",
+          "images": "/assets/images/album/Porkanda Singam.jpg",
+          "audios": "/assets/images/audio/Porkanda-Singam-EDM-Version-(Additional-Song)-MassTamilan.dev.mp3",
+          "id": 8
+        }
+      ]
     }
   ],
   "songs_list": [
@@ -203,7 +218,7 @@
         {
           "images": "/assets/images/album/LEO-Naa-Ready-Song.png",
           "movie_name": "LEO",
-          "song_name": "Naa Ready",
+          "song_name": "Naa Ready Dhaan",
           "singers_name": "Vijay, Anirudh Ravichander, Asal Kolaru",
           "audios": "/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3",
           "duration": "04:30",
@@ -576,6 +591,452 @@
         "two": "For couples who live together"
       },
       "id": 4
+    }
+  ],
+  "Visa": [
+    {
+      "binNumber": "406814",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "461934",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "461933",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "457357",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "470441",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "483748",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "438623",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "483749",
+      "bankname": "CITY UNION BANK"
+    },
+    {
+      "binNumber": "436370",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "436369",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "436371",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "466256",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "457500",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "463237",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "463238",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "466257",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "436312",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "436372",
+      "bankname": "DBS BANK"
+    },
+    {
+      "binNumber": "445533",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "445535",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "445532",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "462851",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "404322",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "445534",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "418254",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "418234",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "474864",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "486575",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "421334",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "421334",
+      "bankname": "HDFC BANK"
+    }
+  ],
+  "Mastercard": [
+    {
+      "binNumber": "539194",
+      "bankname": "KVB BANK"
+    },
+    {
+      "binNumber": "511511",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "511665",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "511666",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "512962",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "512967",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "512968",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "513490",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "514560",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "514834",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "517635",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "517652",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "517848",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "521511",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "522023",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "522024",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526266",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "523674",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524111",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524181",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524216",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524254",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524368",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524877",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "524931",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "525760",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526266",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526269",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526265",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526271",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526419",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "526715",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "527692",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "528882",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "528887",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "528945",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "529185",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "529186",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "546094",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "550372",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552088",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552260",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552365",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552394",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "553583",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "556620",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "559300",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "531829",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "531831",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "531836",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "532118",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "532135",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "532676",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "532961",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "533136",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "534952",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "540536",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "541919",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "545226",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552274",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552385",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "553115",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "555153",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552218",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "532973",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "533744",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "533744",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "536311",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "541172",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "541919",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "545964",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552344",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "552389",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "553162",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "556042",
+      "bankname": "HDFC BANK"
+    },
+    {
+      "binNumber": "558983",
+      "bankname": "HDFC BANK"
+    }
+  ],
+  "paymentUPI": [
+    {
+      "UPIname": "BHIM",
+      "UPIimg": "../../assets/EV mart/BHIMupi.png"
+    },
+    {
+      "UPIname": "Google Pay",
+      "UPIimg": "../../assets/EV mart/googlepayupi.png"
+    },
+    {
+      "UPIname": "Phone Pay",
+      "UPIimg": "../../assets/EV mart/phonepayupi.png"
+    },
+    {
+      "UPIname": "Paytm",
+      "UPIimg": "../../assets/EV mart/paytmupi.png"
     }
   ]
 }

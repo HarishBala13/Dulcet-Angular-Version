@@ -6,7 +6,7 @@
   <div class="flexPlaylistHeads">
     <a (click)="openLEOPlaylist()">LEO</a>
     <a (click)="openVikramPlaylist()">Vikram - II</a>
-    <a (click)="createPlaylist()">Create a new Playlist</a>
+    <a (click)="openPlaylist()">Playlists</a>
   </div>
   <hr>
   <div class="singlePlaylist" *ngIf="openLEODiv">
@@ -29,20 +29,23 @@
       </div>
     </div>
   </div>
+  <div class="singlePlaylist" *ngIf="openUserPlaylistDiv">
+    <div *ngFor="let songs of leoSongsAssets">
+      <div class="card">
+        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,leoSongsAssets)"></i>
+        <small class="maintitle">{{songs['movie_name']}}</small>
+        <small class="subtitle">{{songs['song_name']}}</small>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-<!-- <div class="playlist_container">
-  <div *ngFor="let songs of allPlaylistSongs">
-    <div class="card">
-      <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
-      <i class="fa fa-play" id="playicon">Add</i>
-      <small class="maintitle">{{songs['movie_name']}}</small>
-      <small class="subtitle">{{songs['song_name']}}</small>
-    </div>
-  </div>
-</div> -->
-<div *ngIf="userPlaylist">No songs added</div>
+<div *ngIf="openPlaylistDiv" class="playlistDiv">
+  <a (click)="createPlaylist()">Create a new one</a><br><br>
+  <a (click)="openUserPlaylist()">Open My Playlist</a>
+</div>
 <div class="slidePlaylistDIV" *ngIf="openNewPlaylist">
   <div class="close" (click)="closePlaylist()">&nbsp;&times;</div>
   <div class="gridPlaylistDiv">
@@ -62,7 +65,7 @@
    </div>
    <div id="">{{source.duration}}</div>
    <div class="gridColumnsCenter">
-    <button>Add</button>
+    <button (click)="addSongsToPlaylist(source)">Add</button>
     <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source,i)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
   </div>
   </div>
@@ -72,39 +75,35 @@
 <div *ngIf="openSongTracker">
   <div class="master_play" >
     <div class="box1">
-        <div class="notwave" id="masterplay">
-          <div class="wave1"></div>
-          <div class="wave1"></div>
-          <div class="wave1"></div>
-        </div>
-        <div>
-          <img src="{{imagepath}}" alt="" id="poster_master_play">
-        </div>
-        <div>
-          <h5 id="title">{{maintitle}}<br>
-            <div class="subtitle">{{subtitle}}</div>
-          </h5>
-        </div>
-        <!-- <div>
-          <i class="fa-solid fa-heart"
-          (click)="addToLike()"  [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
-        </div> -->
+      <div class="notwave" id="masterplay">
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+      </div>
+      <div>
+        <img src="{{imagepath}}" alt="" id="poster_master_play">
+      </div>
+      <div class="flexs">
+        <p class="title">{{maintitle}}</p>
+        <p class="subtitle">{{subtitle}}</p>
+      </div>
+      <i class="fa-solid fa-heart" (click)="addToLike()"  [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
     </div>
     <div class="box2">
       <div class="icon">
-        <button (click)="playAI()"id="previous"><i class="bi bi-play-fill" id="masterPlay"></i></button>
-        <button (click)="pauseAI()"id="previous"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
-        <button (click)="nextSongAI()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
-        <button (click)="previousSongAI()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
+        <button (click)="playSong()"id="previous"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+        <button (click)="pauseSong()"id="previous"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
+        <button (click)="nextSong()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
+        <button (click)="previousSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
       </div>
-      <div>
-        <span id="currentStart">0:00</span>
+      <div class="box1">
+        <div id="currentStart">0:00</div>
         <div class="bar">
             <input type="range" id="seek" min="0" value="0" max="100">
             <div class="bar2" id="bar2"></div>
             <div class="dot"></div>
         </div>
-        <span id="currentEnd">0:00</span>
+        <div id="currentEnd">0:00</div>
       </div>
   </div>
 

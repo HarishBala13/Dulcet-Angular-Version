@@ -13,7 +13,6 @@ import { PremiumComponent } from './premium/premium.component';
 import { AdminupdateComponent } from './adminupdate/adminupdate.component';
 import { SearchComponent } from './search/search.component';
 import { AccountsComponent } from './accounts/accounts.component';
-import { PodcastsComponent } from './libraries/podcasts/podcasts.component';
 import { TopsongsComponent } from './libraries/topsongs/topsongs.component';
 import { MixedsongsComponent } from './libraries/mixedsongs/mixedsongs.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
   //   pathMatch:'full'
   // },
   {path:'',component:HomeComponent},
-  {path:'podcasts',component:PodcastsComponent},
   {path:'topsongs',component:TopsongsComponent},
   {path:'mixedsongs',component:MixedsongsComponent},
   {path:'playlist',component:PlaylistComponent,
@@ -42,7 +40,8 @@ const routes: Routes = [
   {path:'forgotpass',component:ForgotpassComponent},
   {path:'register',component:RegisterComponent},
   {path:'premium',component:PremiumComponent},
-  {path:'payment',component:PaymentComponent},
+  {path:'payment',component:PaymentComponent,
+  canActivate:[UserAuthorizationGuard]},
   {path:'admin',component:AdminComponent},
   {path:'admin/adminupdate/:id',component:AdminupdateComponent},
   {path:'',children:[

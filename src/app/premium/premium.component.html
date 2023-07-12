@@ -3,17 +3,17 @@
   <div class="div1">
       <span>Introducing Premium Feliq</span>
       <p>Starts from ₹25/- per day</p>
-      <a routerLink="/payment">Get Feliq</a>
+      <a id="plans">Get Feliq</a>
   </div>
   <div class="div2">
       <span>Get Premium free for 1 month</span>
       <p>Just ₹150/-month..Grab it soon</p>
-      <a routerLink="/payment">Get Started</a>
+      <a id="plans">Get Started</a>
   </div>
   <div class="div3">
     <div class="premiumPlansContainer">
       <p>Pick your Premium Plan</p>
-      <div class="gridRow">
+      <div class="gridRow" #plans>
         <div *ngFor="let premium of premiumPlansJSON">
           <div class="gridPremiumPlanContainer">
             <div class="box1"><b>{{premium.plans['title']}}</b><br>{{premium.plans['offer']}}<br>{{premium.plans['info']}}<hr></div>

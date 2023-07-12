@@ -7,12 +7,19 @@ import { Injectable } from '@angular/core';
 export class SongsService {
 
   likedSongsProperty:any='';
-  myLikedSongsArray:any='';
-  myPremiumPlansArray:any='';
+  userAddSongsProperty:any='';
   subscribedPlansProperty:any='';
-  y:any='';
 
-  constructor(private http:HttpClient) {  }
+  myLikedSongsArray:any = [];
+  userExistingPlaylist:any = [];
+  myPremiumPlansArray:any =[];
+
+  y:any='';
+  jsonID:any='';
+
+  constructor(private http:HttpClient) {
+    this.jsonID = sessionStorage.getItem("currentUserJSONID");
+   }
   dulcetassets(){
     return this.http.get("http://localhost:3000/songs_list");
   }
@@ -65,7 +72,7 @@ export class SongsService {
     })
   }
 
-  subscribePremiumPlans(premiumPlan:any,id:any){
+  userSubscribingPremiumPlans(premiumPlan:any,id:any){
     this.myPremiumPlansArray = {
       plans: {
         title: premiumPlan.plans.title,
@@ -98,7 +105,31 @@ export class SongsService {
     })
   }
 
-  userSubscribedPremiumPlan(id:any){
-    return this.http.get("http://localhost:3000/usersregister/"+id).subscribe();
+  userSubscribedPremiumPlan(){
+    return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
+  }
+
+  addSongsToUserPlaylist(playlistObject:any, JSONID:any){
+
+    this.userAddSongsProperty = {
+      movie_name : playlistObject.movie_name,
+      song_name : playlistObject.song_name,
+      images : playlistObject.images,
+      audios : playlistObject.audios,
+      id : playlistObject.id
+    };
+
+    // console.log(this.userAddSongsProperty);
+    this.http.get("http://localhost:3000/usersregister/"+JSONID).subscribe(y => {
+      this.userExistingPlaylist = y;
+    });
+    console.log(this.userExistingPlaylist)
+      if(this.userExistingPlaylist.myPlaylist_1 != null){
+        this.userExistingPlaylist.myPlaylist_1.push(this.userAddSongsProperty)
+        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_1: this.userExistingPlaylist.myPlaylist_1 }).subscribe(values => {});
+      }
+      else{
+        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_1: [this.userAddSongsProperty]}).subscribe(values => {});
+      }
   }
 }

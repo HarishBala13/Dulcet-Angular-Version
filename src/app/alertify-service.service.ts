@@ -20,7 +20,7 @@ export class AlertifyServiceService {
     alertifyjs.alert('Hey '+ username +'!'+'  You have Successfully Registered your Dulcet Account', message);
   }
   AlertUser(message:any){
-    alertifyjs.set("notifier","position","top");
+    alertifyjs.set("notifier","position","center");
     alertifyjs.alert(message);
   }
   ADService(){
