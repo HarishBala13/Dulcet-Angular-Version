@@ -18,6 +18,9 @@ export class TopsongsComponent implements OnInit{
   songID:number=0;
   toggle = true;
   status = 'Enable';
+  movie : any = [];
+  playlistSongsArray : any = [];
+  allPlaylistSongs : any = [];
 
   private audioPlayer:HTMLAudioElement;
   private playlist : string[] = [
@@ -40,7 +43,17 @@ export class TopsongsComponent implements OnInit{
     this.audioPlayer = new Audio();
     this.audioPlayer.src = this.playlist[this.currentTrackIndex];
     console.log(this.playlist);
-    this.songService.topSongsAssets().subscribe(topSongsCollections=>{  this.topSongs = topSongsCollections;   });
+    songService.topSongsAssets().subscribe((values:any)=>{
+      for(var i=0;i<values.length;i++){
+        this.movie[i]=values[i].movieName;
+        var movieString = this.movie[i].toString();
+        var moviesSongs = values[i][movieString];
+        for(var j=0;j<moviesSongs.length;j++){
+          this.playlistSongsArray.push(moviesSongs[j]);
+        }
+      }
+      this.allPlaylistSongs = this.playlistSongsArray.slice(1, 17);
+    })
   }
 
   ngOnInit() {

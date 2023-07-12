@@ -10,6 +10,7 @@ export class ProfileComponent {
   profileName:string | null | undefined ='';
   JSONID:any='';
   editProfile:boolean = false;
+  isMenuOpened : boolean = false;
 
   constructor(){
     this.profileName = sessionStorage.getItem('currentUserName');
@@ -18,5 +19,16 @@ export class ProfileComponent {
 
   editUserProfile(){
     this.editProfile = true;
+  }
+
+
+  clickedOutside(){
+    this.isMenuOpened=false;
+    // console.log("clicked clickedOutside");
+  }
+
+  toggle(){
+    this.isMenuOpened =! this.isMenuOpened;
+    // console.log("clicked toggle");
   }
 }

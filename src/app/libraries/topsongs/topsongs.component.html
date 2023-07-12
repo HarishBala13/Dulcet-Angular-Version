@@ -8,7 +8,7 @@
   </div>
 
   <div class="cards">
-      <div *ngFor="let songs of topSongs">
+      <div *ngFor="let songs of allPlaylistSongs">
         <div class="card" (click)="loadAudio(songs)">
           <img  class="image" src="{{songs.images}}" loading="lazy" alt="">
           <i class="fa fa-play" id="playicon" (click)="playAI()"></i>

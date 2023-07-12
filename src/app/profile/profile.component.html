@@ -2,10 +2,23 @@
 <div class="profileContainer">
   <div class="profileBox">
     <div class="profileImage"><img src="/assets/images/person.png" alt="userimage" (click)="editUserProfile()"></div>
-    <div class="profileName" (click)="editUserProfile()"><p>Harish</p></div>
+    <div class="profileName" (click)="editUserProfile()"><p>{{profileName}}</p></div>
   </div>
 </div>
 <div class="profileEditor" *ngIf="editProfile">
   <div class="background"></div>
 </div>
 <app-footer></app-footer>
+
+
+<!-- <div class="navbar">
+  <div class="profile_container" clickOutside  (click)="toggle()">
+    <div><img src="/assets/images/person.png" title="{{profileName}}" style="height: 40px; width: 40px;" alt="userImage"></div>
+    <div title="{{profileName}}">{{profileName}}</div>
+    <div><i class="fa fa-caret-down"></i></div>
+  </div>
+  <div class="menu" *ngIf="isMenuOpened">
+    <a routerLink="/accounts">Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+    <a routerLink="/profile">Profile</a>
+  </div>
+  </div> -->

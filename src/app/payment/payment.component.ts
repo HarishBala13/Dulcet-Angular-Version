@@ -11,21 +11,28 @@ export class PaymentComponent {
   id:any='';
   date:any='';
   today:any='';
+  check:any=''
 
-  upiDivBoolean = true;
+  upiDivBoolean = false;
   cardDivBoolean = false;
 
   constructor(userService:UserregisterService){
     this.name = sessionStorage.getItem("currentUserName");
-    this.id = userService.currentUserJSONID;
+    this.id = sessionStorage.getItem("currentUserJSONID");
     this.date = new Date();
     this.today = this.date.toDateString();
+    this.check = document.getElementById("check");
   }
+
 
   upiDivToggleOpen(){
     this.upiDivBoolean = true;
+
+    this.check?.classList.add("checkedCheckbox");
   }
   cardDivToggleOpen(){
     this.cardDivBoolean = true;
+    this.check?.classList.remove("checkedCheckbox");
+    this.check?.classList.add("checkedCheckbox");
   }
 }

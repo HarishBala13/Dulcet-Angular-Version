@@ -1,15 +1,40 @@
 .paymentContainer{
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
 }
  .paymentHeader{
+  display: grid;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: black;
+}
+.paymentHeader .userDetails{
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 1rem;
-  background-color: black;
+}
+.paymentHeader .gridPremiumPlanCard .planDetails{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rem;
+}
+.paymentHeader .gridPremiumPlanCard .planDetails div p{
+  font-size: 1.5rem;
+  font-size: 700;
+  color: #fff;
+}
+.paymentHeader .gridPremiumPlanCard .planDetails div a{
+  text-decoration: none;
+  font-size: 15px;
+  font-size: bolder;
+  color: #fff;
+  cursor: pointer;
+}
+.paymentHeader .gridPremiumPlanCard .planDetails div a:hover{
+  text-decoration: underline;
 }
  .paymentHeader a img{
   width: 150px;
@@ -25,50 +50,57 @@
   font-weight: 500;
   color: white;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard{
-  height: 30vh;
-  width: 40vw;
-  background-color: lime;
-  padding: 1rem;
-  border-radius: 40px;
-  box-shadow: 5px 5px 8px 4px  rgba(199, 182, 182, 0.874);
+.gridPremiumPlanCard{
+  display: grid;
+  place-items: center;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexSpacearound{
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem;
-  border-radius: 40px;
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard{
+  height: 35vh;
+  width: 33vw;
   background-color: white;
+  border-radius: 40px;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox1,
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox2{
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .flexSpacearound{
   display: flex;
   justify-content: space-around;
-  padding: 0.5rem;
+  padding: 0.4rem;
+  background-color: #a5bbd1;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
-
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .bold,
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox1 .bold,
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox2 .bold{
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .gridColumnCenter{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  padding: 2px;
+  gap: 10rem;
+}
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .bold,
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .gridColumnCenter .bold{
   font-weight: 700;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .bolder{
-  font-size: 30px;
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .bolder{
+  font-size: 25px;
   font-weight: 900;
   color: black;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard img{
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard img{
   width: 50px;
   height: 50px;
   border-radius: 40px;
 }
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .normal,
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox1 .normal,
-.paymentContainer .gridPremiumPlanCard .premiumPlanCard .flexBox2 .normal{
-  font-size: 15px;
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .flexSpacearound .normal,
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard .gridColumnCenter .normal{
+  font-size: 13px;
   color: black;
+}
+.paymentHeader .gridPremiumPlanCard .premiumPlanCard ul{
+  display: flex;
+  flex-direction: column;
 }
 .paymentContainer .paymentBox{
   display: grid;
@@ -79,14 +111,12 @@
   background-color: #fff;
 }
 .paymentContainer .paymentBox .paymentMethod{
+  display: grid;
+  gap: 2rem;
   padding: 2rem;
   width: 25vw;
   box-shadow: 5px 5px 8px 4px  rgba(199, 182, 182, 0.874);
   cursor: pointer;
-}
-.paymentContainer .paymentBox .paymentMethod{
-  display: grid;
-  gap: 2rem;
 }
 .paymentContainer .paymentBox .paymentMethod .flexContent,
 .paymentContainer .paymentBox .paymentMethod .flexImage{
@@ -100,11 +130,12 @@
   padding: 0.5rem;
 }
 .paymentContainer .paymentBox .paymentMethod .upiID span{
+  font-size: 20px;
   font-weight: 900;
-  font-size: 25px;
 }
-.paymentContainer .paymentBox .paymentMethod .upiID span{
-  font-size: 9px;
+.paymentContainer .paymentBox .paymentMethod .upiID p{
+  font-weight: 500;
+  font-size: 15px;
 }
 .paymentContainer .paymentBox .paymentMethod .upiID button{
   background-color: lime;
@@ -118,6 +149,12 @@
   width: 15px;
   border: 1px solid black;
   border-radius: 30px;
+}
+.paymentContainer .paymentBox .paymentMethod .flexContent .checkedCheckbox{
+  height: 10px;
+  width: 10px;
+  background-color: lime;
+  border-radius: 20px;
 }
 .paymentContainer .paymentBox p{
   font-size: 25px;
@@ -140,4 +177,35 @@
 }
 .paymentContainer .paymentBox .upiPaymentMethod span{
   color: white;
+}
+.premiumPlanCard:hover{
+  cursor: pointer;
+  box-shadow: 8px 2px 5px 8px  rgba(63, 63, 63, 0.84);
+}
+
+.paymentContainer .paymentBox .cardPaymentMethod {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.paymentContainer .paymentBox .cardPaymentMethod .flexSpacearound{
+  display: flex;
+  justify-content: space-between;
+}
+.paymentContainer .paymentBox .cardPaymentMethod .flexSpacearound p,
+.paymentContainer .paymentBox .cardPaymentMethod div p{
+  font-size: 16px;
+}
+.paymentContainer .paymentBox .cardPaymentMethod  .cardNumber .cardNumberInput,
+.paymentContainer .paymentBox .cardPaymentMethod .flexSpacearound input{
+  padding: 8px;
+  border: 2px solid #a5bbd1;
+  border-radius: 10px;
+}
+.paymentContainer .paymentBox .cardPaymentMethod  .cardNumber .cardNumberInput input{
+  border: none;
+}
+.paymentContainer .paymentBox .cardPaymentMethod  .cardNumber .cardNumberInput input::placeholder{
+  line-height: 3px;
 }

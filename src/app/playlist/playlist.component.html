@@ -1,38 +1,158 @@
-
 <app-navigationbar></app-navigationbar>
 
-<div class="playlist_container">
-  <div class="navbar">
-    <div class="profile_container" clickOutside  (click)="toggle()">
-      <div><img src="/assets/images/person.png" title="{{profileName}}" style="height: 40px; width: 40px;" alt="userImage"></div>
-      <!-- <div title="{{profileName}}">{{profileName}}</div> -->
-      <div><i class="fa fa-caret-down"></i></div>
-    </div>
-    <div class="menu" *ngIf="isMenuOpened">
-      <a routerLink="/accounts">Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
-      <a routerLink="/profile">Profile</a>
-      <a routerLink="/premium">Premium</a>
-      <a (click)="logout()">Logout&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
+<div class="playlist-container">
+  <div class="playlistHead"><span>Playlists we offer you</span></div>
+  <hr>
+  <div class="flexPlaylistHeads">
+    <a (click)="openLEOPlaylist()">LEO</a>
+    <a (click)="openVikramPlaylist()">Vikram - II</a>
+    <a (click)="createPlaylist()">Create a new Playlist</a>
+  </div>
+  <hr>
+  <div class="singlePlaylist" *ngIf="openLEODiv">
+    <div *ngFor="let songs of leoSongsAssets">
+      <div class="card">
+        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,leoSongsAssets)"></i>
+        <small class="maintitle">{{songs['movie_name']}}</small>
+        <small class="subtitle">{{songs['song_name']}}</small>
+      </div>
     </div>
   </div>
+  <div class="singlePlaylist" *ngIf="openVikramIIDiv">
+    <div *ngFor="let songs of vikramSongsAssets">
+      <div class="card">
+        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,vikramSongsAssets)"></i>
+        <small class="maintitle">{{songs['movie_name']}}</small>
+        <small class="subtitle">{{songs['song_name']}}</small>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div class="songs-container">
+
+<!-- <div class="playlist_container">
+  <div *ngFor="let songs of allPlaylistSongs">
+    <div class="card">
+      <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+      <i class="fa fa-play" id="playicon">Add</i>
+      <small class="maintitle">{{songs['movie_name']}}</small>
+      <small class="subtitle">{{songs['song_name']}}</small>
+    </div>
+  </div>
+</div> -->
+<div *ngIf="userPlaylist">No songs added</div>
+<div class="slidePlaylistDIV" *ngIf="openNewPlaylist">
+  <div class="close" (click)="closePlaylist()">&nbsp;&times;</div>
+  <div class="gridPlaylistDiv">
+    <div><p>#</p></div>
+    <div><p>Title</p></div>
+    <div><p>Time</p></div>
+    <div><p>Action</p></div>
+  </div>
+  <div class="horizontalLine"></div>
+  <div class="gridPlaylistDiv"  *ngFor="let source of allPlaylistSongs; let i = index;">
+   <div>
+    <span class="number">{{i+1}}</span>
+   </div>
+   <div class="gridColumns">
+    <img src="{{source.images}}" alt="">
+    <span class="maintitle">{{source.song_name}}</span>
+   </div>
+   <div id="">{{source.duration}}</div>
+   <div class="gridColumnsCenter">
+    <button>Add</button>
+    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source,i)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
+  </div>
+  </div>
+</div>
+
+
+<div *ngIf="openSongTracker">
+  <div class="master_play" >
+    <div class="box1">
+        <div class="notwave" id="masterplay">
+          <div class="wave1"></div>
+          <div class="wave1"></div>
+          <div class="wave1"></div>
+        </div>
+        <div>
+          <img src="{{imagepath}}" alt="" id="poster_master_play">
+        </div>
+        <div>
+          <h5 id="title">{{maintitle}}<br>
+            <div class="subtitle">{{subtitle}}</div>
+          </h5>
+        </div>
+        <!-- <div>
+          <i class="fa-solid fa-heart"
+          (click)="addToLike()"  [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
+        </div> -->
+    </div>
+    <div class="box2">
+      <div class="icon">
+        <button (click)="playAI()"id="previous"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+        <button (click)="pauseAI()"id="previous"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
+        <button (click)="nextSongAI()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
+        <button (click)="previousSongAI()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
+      </div>
+      <div>
+        <span id="currentStart">0:00</span>
+        <div class="bar">
+            <input type="range" id="seek" min="0" value="0" max="100">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
+        </div>
+        <span id="currentEnd">0:00</span>
+      </div>
+  </div>
+
+
+
+  <div class="vol">
+      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+      <input type="range" id="vol" min="0" value="30" max="100">
+      <div class="vol_bar"></div>
+      <div class="dot" id="vol_dot"></div>
+  </div>
+  </div>
+</div>
+
+<!-- <div *ngFor="let source of allPlaylistSongs; let i = index;">
+  <div class="songs_container">
+    <span class="number">{{i+1}}</span>
+    <img src="{{source.images}}" alt="">
+    <div class="flexContainer">
+      <span class="maintitle">{{source.movie_name}}</span>
+      <span class="maintitle">{{source.song_name}}</span>
+    </div>
+    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
+    <button>Add</button>
+</div>
+</div> -->
+
+<!-- <div class="songs-container" *ngIf="openNewPlaylist">
+  <div class="songsContainerHead">
     <div class="headTitle">#</div>
     <div class="headTitle">Image</div>
     <div class="headTitle">Title</div>
     <div class="headTitle">Song</div>
-    <div class="headTitle">Liked Songs</div>
   </div>
+
   <div class="horizontalLine"></div>
-  <div *ngFor="let source of assets">
+
+  <div *ngFor="let source of allPlaylistSongs">
     <div class="songs_container">
-    <span class="number">{{source.id}}</span>
-    <img src="{{source.images}}" alt="">
-    <span class="maintitle">{{source.movie_name}}</span>
-    <span class="maintitle">{{source.song_name}}</span>
-    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)"
-    [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
-    <a>Add to Playlist</a>
+      <span class="number">{{source.id}}</span>
+      <img src="{{source.images}}" alt="">
+      <div class="flexContainer">
+        <span class="maintitle">{{source.movie_name}}</span>
+        <span class="maintitle">{{source.song_name}}</span>
+      </div>
+      <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
+      <button>Add</button>
+  </div>
 </div>
-</div>
-</div>
+</div> -->
+

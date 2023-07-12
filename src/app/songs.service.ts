@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { find } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +10,7 @@ export class SongsService {
   myLikedSongsArray:any='';
   myPremiumPlansArray:any='';
   subscribedPlansProperty:any='';
+  y:any='';
 
   constructor(private http:HttpClient) {  }
   dulcetassets(){
@@ -18,11 +18,15 @@ export class SongsService {
   }
 
   mixedSongsAssets(){
-    return this.http.get("http://localhost:3000/Vibes");
+    return this.http.get("http://localhost:3000/mixedSongs");
+  }
+
+  podcastsAssets(){
+    return this.http.get("http://localhost:3000/podcasts");
   }
 
   topSongsAssets(){
-    return this.http.get("http://localhost:3000/NewSongs");
+    return this.http.get("http://localhost:3000/topSongs");
   }
 
   searchBoxes(){
@@ -92,5 +96,9 @@ export class SongsService {
         }
       }
     })
+  }
+
+  userSubscribedPremiumPlan(id:any){
+    return this.http.get("http://localhost:3000/usersregister/"+id).subscribe();
   }
 }

@@ -1,42 +1,51 @@
 <div class="paymentHeader">
-  <a routerLink="/"><img src="/assets/images/blacklogo.png" alt="brandLogo"></a>
-  <p>Welcome ! {{name}}</p>
+  <div class="userDetails">
+    <a routerLink="/"><img src="/assets/images/blacklogo.png" alt="brandLogo"></a>
+    <p>Welcome ! {{name}}</p>
+  </div>
+
+  <div class="gridPremiumPlanCard">
+    <div class="planDetails">
+      <div><p>Your plan</p></div>
+      <div><a routerLink="/premium">Review plan</a></div>
+    </div>
+    <div class="premiumPlanCard">
+      <div class="gridColumnCenter">
+        <div>
+          <p class="bold">Premium</p>
+          <p class="normal">Plan : </p>
+        </div>
+        <div>
+          <p class="bolder">Free</p>
+          <p class="normal">For 1 month</p>
+        </div>
+      </div>
+      <div class="gridColumnCenter">
+        <p class="normal">Start Free month</p>
+        <p class="bold">Today</p>
+      </div>
+      <div class="gridColumnCenter">
+        <p class="normal">Start billing date</p>
+        <p class="bold">{{today}}</p>
+      </div>
+      <ul>
+        <li>Only 119 will be charged</li>
+        <li>You won't be charged until {{today}}</li>
+        <li>We will remind you 7 days before you get changed</li>
+      </ul>
+    </div>
+   </div>
 </div>
 
+
+
 <div class="paymentContainer">
-
- <div class="gridPremiumPlanCard">
-
-  <p>Your plan</p>
-
-  <div class="premiumPlanCard">
-    <div class="flexSpacearound">
-      <img src="/assets/images/logo.png" alt="brandLogo">
-      <div>
-        <p class="bold">Premium</p>
-        <p class="normal">1 Premium account</p>
-      </div>
-      <div>
-        <p class="bolder">Free</p>
-        <p class="normal">For 1 month</p>
-      </div>
-    </div>
-    <div class="flexBox1">
-      <p class="normal">Start Free month</p>
-      <p class="bold">Today</p>
-    </div>
-    <div class="flexBox2">
-      <p class="normal">Start billing date</p>
-      <p class="bold">{{today}}</p>
-    </div>
-  </div>
- </div>
 
 <div class="paymentBox">
   <p>Choose a payment method</p>
     <div class="paymentMethod">
       <div class="flexContent">
-        <div class="checkbox" clickOutside (click)="upiDivToggleOpen()"></div>
+        <div class="checkbox" id="check" clickOutside (click)="upiDivToggleOpen()"></div>
         <span>UPI</span>
       </div>
       <div class="flexImage">
@@ -57,7 +66,7 @@
     </div>
     <div class="paymentMethod">
       <div class="flexContent">
-        <div class="checkbox" clickOutside (click)="cardDivToggleOpen()"></div>
+        <div class="checkbox" id="check" clickOutside (click)="cardDivToggleOpen()"></div>
         <span>Credit or debit card</span>
       </div>
       <div class="flexImage">
@@ -66,9 +75,29 @@
         <img src="https://paymentsdk.spotifycdn.com/svg/cards/amex.svg">
         <img src="https://paymentsdk.spotifycdn.com/svg/cards/diners.svg">
       </div>
-    </div>
-    <div class="cardPaymentMethod" *ngIf="cardDivBoolean">
-
+      <div class="cardPaymentMethod" *ngIf="cardDivBoolean">
+        <div class="flexSpacearound">
+          <p>Payment details</p>
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="cardNumber">
+          <p>Card Number</p>
+          <div class="cardNumberInput">
+            <img src="data:image/svg+xml,%3Csvg%20width%3D%2234%22%20height%3D%2224%22%20viewBox%3D%220%200%2034%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2233%22%20height%3D%2223%22%20rx%3D%222.5%22%20fill%3D%22white%22%20stroke%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2218%22%20width%3D%2212%22%20height%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2211%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2218%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2225%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3C%2Fsvg%3E%0A" >
+            <input type="text" placeholder="0000 0000 0000" maxlength="16">
+          </div>
+        </div>
+        <div class="flexSpacearound">
+          <div>
+            <p>Expiry Date</p>
+            <input type="text" placeholder="MM/YY" size="10" maxlength="4">
+          </div>
+          <div>
+            <p>CVV</p>
+            <input type="text" placeholder="" size="10" maxlength="4">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

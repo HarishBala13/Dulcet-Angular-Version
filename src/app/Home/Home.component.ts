@@ -9,12 +9,13 @@ import { AlertifyServiceService } from '../alertify-service.service';
   encapsulation:ViewEncapsulation.None
 })
 
+
 export class HomeComponent implements OnInit {
   logout=false;
   login=true;
   vibes_value:any="";
   new_songs_values:any='';
-  openSongTracker:boolean | string | null= false;
+  openSongTracker:any = '';
   audiosrc:string='';
   imagepath:string='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqivTclWTRsA-05BfrWrWb6Q0IJv3TW2RWgg&usqp=CAU';
   maintitle:string='OCEANIC SPACE';
@@ -24,8 +25,7 @@ export class HomeComponent implements OnInit {
   currentTrackIndex:number=0;
   toggle = true;
   status = 'Enable';
-
-  public item:any="";
+  item:any="";
 
   ngOnInit() {
     if(sessionStorage.getItem("loggedin")=="true"){
@@ -38,7 +38,9 @@ export class HomeComponent implements OnInit {
     }
 
   }
-  private audioPlayer:HTMLAudioElement;
+
+
+  public audioPlayer:HTMLAudioElement;
   private playlist : string[] = [
     '/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3',
     '/assets/images/audio/JD-The-Alcoholic-MassTamilan.io.mp3',
@@ -55,14 +57,13 @@ export class HomeComponent implements OnInit {
     '/assets/images/audio/5.mp3'
   ];
   constructor(private songService:SongsService, private AL:AlertifyServiceService) {
-      this.audioPlayer = new Audio();
-      this.audioPlayer.src = this.playlist[this.currentTrackIndex];
-      console.log(this.playlist);
+    this.audioPlayer = new Audio();
+    this.audioPlayer.src = this.playlist[this.currentTrackIndex];
+    console.log(this.audioPlayer.src);
 
-      this.songService.dulcetassets().subscribe((values=>{  this.item=values;  }));
-      this.songService.mixedSongsAssets().subscribe(vibesvalues=>{  this.vibes_value = vibesvalues; });
-      this.songService.topSongsAssets().subscribe(newsongsvalue=>{  this.new_songs_values = newsongsvalue;   });
-
+    this.songService.dulcetassets().subscribe((values=>{  this.item=values;  }));
+    this.songService.mixedSongsAssets().subscribe(vibesvalues=>{  this.vibes_value = vibesvalues; });
+    this.songService.topSongsAssets().subscribe(newsongsvalue=>{  this.new_songs_values = newsongsvalue;   });
   }
 
   playAI(){
@@ -86,10 +87,10 @@ export class HomeComponent implements OnInit {
     this.audioPlayer.play();
   }
   loadAudio(audioObject:any){
-    if(localStorage.getItem("loggedin")=="true"){
-      localStorage.setItem("songTrackLocalStorage","true");
-      console.log(localStorage.getItem("songTrackLocalStorage"));
-      this.openSongTracker=localStorage.getItem("songTrackLocalStorage");
+    if(sessionStorage.getItem("loggedin")=="true"){
+      sessionStorage.setItem("songTrackLocalStorage","true");
+      console.log(sessionStorage.getItem("songTrackLocalStorage"));
+      this.openSongTracker = sessionStorage.getItem("songTrackLocalStorage");
       this.audiosrc=audioObject.audios;
       this.imagepath=audioObject.images;
       this.maintitle=audioObject.maintitle;
@@ -108,7 +109,7 @@ export class HomeComponent implements OnInit {
     this.status = this.toggle ? 'Enable' : 'Disable';
   }
 
-  currentSong(event:any){
+  currentSong(){
     let counting=this.count++;
     console.log(counting);
     let masterPlay=document.getElementById("masterplay");
@@ -117,7 +118,7 @@ export class HomeComponent implements OnInit {
     audio.src=this.audiosrc;
     console.log(audio.paused);
 
-    if(audio.paused==true){
+    if(audio.paused == true){
       audio.play();
       masterPlay?.classList.add("wave");
       icons?.classList.add("bi-pause-fill");
@@ -134,3 +135,4 @@ export class HomeComponent implements OnInit {
   nextSong(){}
   previousSong(){}
 }
+
