@@ -67,12 +67,14 @@
   width: 80px;
 }
 .accounts_left a{
+  color: #7f7f7f;
   border: 1px solid #7f7f7f;
   border-top: none;
   border-left: none;
   border-right: none;
   padding: 1rem;
   font-size: 0.6cm;
+  text-decoration: none;
 }
 .accounts_left i{
   font-size: 0.5cm;
@@ -83,67 +85,23 @@
   color: white;
   cursor: pointer;
 }
-.accounts_left:active, .active-link{
+.accounts_left a .active{
   border-left: 6px solid lime;
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 .accounts_right{
   background-color: #fff;
   color: #7f7f7f;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   width: 50vw;
   height: 60vh;
   padding: 1rem;
 }
-.accounts_right .account_overview{
-  text-align: center;
-  font-size: 0.6cm;
-  font-weight: 900;
-  color: #000;
-  padding: 20px 30px;
-}
-.accounts_right .profile{
-  font-size: 0.50cm;
-  font-weight: 500;
-  color: #000;
-  padding: 20px 30px;
-}
-.accounts_right table{
-  font-size: 20px;
-  border-spacing: 20px;
-}
-.accounts_right .input_fields{
-  display: flex;
-  justify-content: space-between;
-}
-.accounts_right .input_fields .values{
-  color: #000;
-}
-.accounts_right .input_fields input[type="text"]{
-  width: 20%;
-  box-shadow: 0px 4px 4px 3px  rgba(199, 182, 182, 0.874);
+.accounts_right .paymentCard{
+  background-color: black;
   border-radius: 20px;
-  padding: 10px;
-  border: none;
-  margin-right: 40px;
-}
-.accounts_right form .saveInfoButton{
-  display: flex;
-  justify-content: center;
-}
-.accounts_right form .saveInfo{
-  border: 1px solid #000;
-  background-color: #fff;
-  color: #000;
-  font-size: medium;
-  border-radius: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
-.accounts_right .input_fields span{
-  font-size: 0.6cm;
-  font-weight: 500;
-  padding: 20px 30px;
+  height: 30vh;
+  width: 50vh;
 }

@@ -30,6 +30,10 @@ import { TopsongsComponent } from './libraries/topsongs/topsongs.component';
 import { MixedsongsComponent } from './libraries/mixedsongs/mixedsongs.component';
 import { SearchFilterPipe } from './search/searchFilter.pipe';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SubscribedplanComponent } from './subscribedplan/subscribedplan.component';
+import { PaymentcardComponent } from './paymentcard/paymentcard.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { ProfileComponent } from './profile/profile.component';
     TopsongsComponent,
     MixedsongsComponent,
     SearchFilterPipe,
-    ProfileComponent
+    ProfileComponent,
+    PaymentSuccessComponent,
+    EditprofileComponent,
+    SubscribedplanComponent,
+    PaymentcardComponent
    ],
   imports: [
     BrowserModule,

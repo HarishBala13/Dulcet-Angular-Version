@@ -132,4 +132,8 @@ export class SongsService {
         this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_1: [this.userAddSongsProperty]}).subscribe(values => {});
       }
   }
+
+  getUserPlaylist(){
+    return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
+  }
 }

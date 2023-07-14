@@ -4,6 +4,7 @@ import { AlertifyServiceService } from '../alertify-service.service';
 import { SongsService } from '../songs.service';
 import { PaymentService } from '../payment.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -22,14 +23,17 @@ export class PaymentComponent {
   getCurrentYear:any=[];
   userEnteredMonth:any='';
   userEnteredYear:any='';
-  check:any=''
   userPremiumPlan:any='';
   newvalues:any='';
   planTitle:any='';
   planOffer:any='';
+  checkboxUPI:any='';
+  checkboxCard:any='';
   expiryDateMessage:any='';
+  expiryDateMessageColor:any='';
   cardNumberMessage:any='';
-  expiryDateString:any = [];
+  cardMessageColor:any='';
+  expiryDateString:any = '';
   price:any='';
   cardImage:any='data:image/svg+xml,%3Csvg%20width%3D%2234%22%20height%3D%2224%22%20viewBox%3D%220%200%2034%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2233%22%20height%3D%2223%22%20rx%3D%222.5%22%20fill%3D%22white%22%20stroke%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2218%22%20width%3D%2212%22%20height%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2211%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2218%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2225%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3C%2Fsvg%3E%0A';
   i:number=0;
@@ -45,8 +49,10 @@ export class PaymentComponent {
   upiDivBoolean : boolean = false;
   cardDivBoolean : boolean = true;
   expiryDateBoolean : boolean = false;
+  cardNUmberTrue : boolean = false;
+  cvvNumberTrue : boolean = false;
 
-  constructor(private AL:AlertifyServiceService,
+  constructor(private AL:AlertifyServiceService,private router:Router,
     songSerice:SongsService,
     paymentServices:PaymentService,
     private formBuilder:FormBuilder){
@@ -83,64 +89,92 @@ export class PaymentComponent {
     cvv:['',Validators.required]
   })
 
-  submitCardInfo(){
-
-  }
-
   notifyAddressInfo(){
     this.AL.AlertUser(`Why do you need my address? We need this information to comply with applicable laws in your country, like determining the tax we collect based on where you live.`);
   }
 
   upiDivToggleOpen(){
     this.upiDivBoolean = true;
+    this.checkboxUPI = document.getElementById("checkboxUPI");
+    this.checkboxUPI?.classList.add("checkedCheckbox");
   }
+
   cardDivToggleOpen(){
     this.cardDivBoolean = true;
-    this.check?.classList.add("checkedCheckbox");
+    this.checkboxUPI?.classList.remove("checkedCheckbox")
+    this.checkboxCard = document.getElementById("checkboxCard");
+    this.checkboxCard?.classList.add("checkedCheckbox");
   }
 
-  checkCardValid(x:any){
-
-    this.cards = x.target.value;
+  checkCardValid(cardNumberInput:any){
+    this.cards = cardNumberInput.target.value;
     this.cards.toString(this.cards);
 
     if(this.cards[0] == "4"){
-      console.log("Visa");
+      this.cardNumberMessage = "Visa";
+      this.cardMessageColor = 'green';
+      this.cardNUmberTrue = true;
+      // console.log("Visa");
       this.cardImage = 'https://paymentsdk.spotifycdn.com/svg/cards/visa.svg';
 
-      if(this.cards.length >= 2){
-        for(this.index1 = 0; this.index1 < this.visaCardsArray.length; this.index1++){
-          this.visaCardsArray.toString(this.visaCardsArray[this.index1]);
+      // for(this.index2 = 0; this.index2 < 6; this.index2++){
+      //   console.log(this.cards[this.index2].toString(this.cards[this.index2]));
+      // }
+      // console.log(typeof this.cards)
 
-          if(this.cards.includes(this.visaCardsArray[this.index1])){
-            console.log(this.visaCardsArray[this.index1])
-          }
-        }
-      }
+      // if(this.cards.length == 6){
+      //   console.log(typeof this.visaCardsArray[0].binNumber);
+      //   for(this.index1 = 0; this.index1 < this.visaCardsArray.length; this.index1++){
+
+      //     if(JSON.parse(this.cards) == JSON.parse(this.visaCardsArray[this.index1].binNumber)){
+      //       console.log(typeof JSON.parse(this.visaCardsArray[this.index1].banknumber));
+      //       console.log(this.visaCardsArray[this.index1].binNumber);
+      //       this.cardNumberMessage = [{message:this.visaCardsArray[this.index1].banknumber},{color:'green'}];
+      //       break;
+      //     }
+      //     else{
+      //       this.cardNumberMessage = [{message:"Provided BINNUMBER is incorrect"},{color:'red'}];
+      //     }
+
+      //   }
+      // }
     }
     else if(this.cards[0] == "5"){
+      this.cardNumberMessage = "Mastercard";
+      this.cardMessageColor = 'green';
+      this.cardNUmberTrue = true;
       this.cardImage = 'https://paymentsdk.spotifycdn.com/svg/cards/mastercard.svg';
-      console.log("Master Card");
+      // console.log("Master Card");
     }
+    else if(this.cards[0] == null){
+      this.cardNumberMessage = "Please provide any cardnumber";
+      this.cardMessageColor = 'red';
+      this.cardImage = 'data:image/svg+xml,%3Csvg%20width%3D%2234%22%20height%3D%2224%22%20viewBox%3D%220%200%2034%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2233%22%20height%3D%2223%22%20rx%3D%222.5%22%20fill%3D%22white%22%20stroke%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2218%22%20width%3D%2212%22%20height%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2211%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2218%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2225%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3C%2Fsvg%3E%0A';
+    }
+    // else if(this.cards.length == 6){
+    //   console.log(this.cards);
+    //   this.masterCardsArray.push(this.visaCardsArray);
+    //   console.log(this.masterCardsArray);
+    //   for(this.index1 = 0; this.index1 < this.visaCardsArray.length; this.index1++){
+    //     this.visaCardsArray.toString(this.visaCardsArray[this.index1]);
+
+    //     if(this.cards.includes(this.visaCardsArray[this.index1])){
+    //       console.log(this.visaCardsArray[this.index1])
+    //     }
+    //   }
+    //   console.log(this.cards.length);
+    // }
     else{
       this.cardImage = 'data:image/svg+xml,%3Csvg%20width%3D%2234%22%20height%3D%2224%22%20viewBox%3D%220%200%2034%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2233%22%20height%3D%2223%22%20rx%3D%222.5%22%20fill%3D%22white%22%20stroke%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2218%22%20width%3D%2212%22%20height%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2211%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2218%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%2225%22%20y%3D%2215%22%20width%3D%225%22%20height%3D%221.5%22%20fill%3D%22%237F7F7F%22%2F%3E%0A%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%226%22%20height%3D%224%22%20rx%3D%221%22%20fill%3D%22%23B3B3B3%22%2F%3E%0A%3C%2Fsvg%3E%0A';
-      console.log("Wrong details");
-    }
-
-
-
-    console.log(x.target.value);
-    for(this.index1 = 0; this.index1 < this.visaCardsArray.length; this.index1++){
-      if(x.target.value == this.visaCardsArray[this.index1].binNumber[this.nonIncremented]){
-        console.log(this.visaCardsArray[this.index1].bankname);
-      }
+      this.cardNumberMessage = "Wrong Details";
+      this.cardMessageColor = 'red';
     }
   }
 
-  expiryCardCheck(y:any){
+  expiryCardCheck(expiryDateInput:any){
     // console.log(typeof y);
     // y.target.value.toString(y);
-    this.expiryDateString = y.target.value;
+    this.expiryDateString = expiryDateInput.target.value;
     this.userEnteredMonth = this.expiryDateString.slice(0,2);
     this.userEnteredYear = this.expiryDateString.slice(3,5);
     // this.getCurrentYear = this.getCurrentYear.slice(2,4);
@@ -152,21 +186,35 @@ export class PaymentComponent {
     else{
       this.currentMonth = this.getCurrentMonth;
     }
-    if(this.currentMonth <= this.userEnteredMonth){
+    if(this.currentMonth <= this.userEnteredMonth || this.currentMonth >= this.userEnteredMonth){
       if(this.userEnteredYear >= this.getCurrentYear){
-        this.expiryDateMessage = "Success",{color:'green'};
-        console.log("success");
+        if(this.currentMonth < this.userEnteredMonth){
+          this.expiryDateMessage = "Success";
+          this.expiryDateMessageColor = 'green';
+          this.cvvNumberTrue = true;
+        }
       }
       else if(this.userEnteredYear < this.getCurrentYear){
-        console.log("yaer expired");
+        if(this.userEnteredMonth > this.currentMonth){
+          this.expiryDateMessage = "Expired";
+          this.expiryDateMessageColor = 'red';
+          // this.expiryDateMessage = [{message:"Expired"},{color:'red'}];//year expired
+        }
       }
     }
     else{
-      console.log("month expired")
+      this.expiryDateMessage = "Expired";
+      this.expiryDateMessageColor = 'red';
+      // this.expiryDateMessage = [{message:"Expired"},{color:'red'}];//month expired
     }
-    // console.log(Object.keys(y).length);
-    // if(this.userEnteredMonth <= this.currentMonth){
-    //     console.log("Invalid month");
-    //   }
+  }
+
+  checkPaymentValid(){
+    if(this.cardNUmberTrue == true && this.cvvNumberTrue == true){
+      this.router.navigate(['paymentsuccess']);
+    }
+    else{
+      this.AL.Error("Please fill all details");
+    }
   }
 }

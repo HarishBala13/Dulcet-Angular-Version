@@ -9,10 +9,22 @@
     <a (click)="openPlaylist()">Playlists</a>
   </div>
   <hr>
+  <div class="flexPlaylistHeads" *ngIf="openLEODiv">
+    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
+    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+  </div>
+  <div class="flexPlaylistHeads" *ngIf="openVikramIIDiv">
+    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
+    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+  </div>
+  <div class="flexPlaylistHeads" *ngIf="userPlaylist">
+    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
+    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+  </div>
   <div class="singlePlaylist" *ngIf="openLEODiv">
     <div *ngFor="let songs of leoSongsAssets">
       <div class="card">
-        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <img  class="image" src="{{songs['images']}}" alt="{{songs['movie_name']}}">
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,leoSongsAssets)"></i>
         <small class="maintitle">{{songs['movie_name']}}</small>
         <small class="subtitle">{{songs['song_name']}}</small>
@@ -22,20 +34,20 @@
   <div class="singlePlaylist" *ngIf="openVikramIIDiv">
     <div *ngFor="let songs of vikramSongsAssets">
       <div class="card">
-        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <img  class="image" src="{{songs['images']}}" alt="{{songs['movie_name']}}">
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,vikramSongsAssets)"></i>
         <small class="maintitle">{{songs['movie_name']}}</small>
         <small class="subtitle">{{songs['song_name']}}</small>
       </div>
     </div>
   </div>
-  <div class="singlePlaylist" *ngIf="openUserPlaylistDiv">
-    <div *ngFor="let songs of leoSongsAssets">
+  <div class="singlePlaylist" *ngIf="userPlaylist">
+    <div *ngFor="let songs of usersPlaylist">
       <div class="card">
-        <img  class="image" src="{{songs['images']}}" loading="lazy" alt="">
+        <img  class="image" src="{{songs.images}}" alt="{{songs.movie_name}}">
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs,leoSongsAssets)"></i>
-        <small class="maintitle">{{songs['movie_name']}}</small>
-        <small class="subtitle">{{songs['song_name']}}</small>
+        <small class="maintitle">{{songs.movie_name}}</small>
+        <small class="subtitle">{{songs.song_name}}</small>
       </div>
     </div>
   </div>
@@ -43,9 +55,10 @@
 
 
 <div *ngIf="openPlaylistDiv" class="playlistDiv">
-  <a (click)="createPlaylist()">Create a new one</a><br><br>
+  <a (click)="createPlaylist()">Create a new one</a>
   <a (click)="openUserPlaylist()">Open My Playlist</a>
 </div>
+
 <div class="slidePlaylistDIV" *ngIf="openNewPlaylist">
   <div class="close" (click)="closePlaylist()">&nbsp;&times;</div>
   <div class="gridPlaylistDiv">
@@ -66,7 +79,7 @@
    <div id="">{{source.duration}}</div>
    <div class="gridColumnsCenter">
     <button (click)="addSongsToPlaylist(source)">Add</button>
-    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source,i)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
+    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
   </div>
   </div>
 </div>
@@ -106,8 +119,6 @@
         <div id="currentEnd">0:00</div>
       </div>
   </div>
-
-
 
   <div class="vol">
       <i class="bi bi-volume-down-fill" id="vol_icon"></i>

@@ -1,7 +1,35 @@
 <app-navigationbar></app-navigationbar>
 <div class="background">
+<div class="accounts_container">
+    <div class="accounts_left">
+      <a routerLinkActive="active-link" routerLink="/accounts" class="active-link"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
+      <a routerLinkActive="active-link"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
+      <a routerLinkActive="active-link"><i class="fa-solid fa-lock"></i>Premium Plan</a>
+      <a routerLinkActive="active-link"><i class="fa-sharp fa-solid fa-circle-play"></i>Playlists</a>
+      <a routerLinkActive="active-link"><i class="fa-solid fa-credit-card"></i>Payment Card</a>
+    </div>
+    <div class="accounts_right">
+      <span class="account_overview">Account Overview</span>
+      <!-- <span class="profile">Profile</span> -->
+        <table cellPadding="30px">
+          <thead>
+            <tr>
+              <td>Username</td>
+              <th style="color: black;">{{currentUserProfileName}}</th>
+            </tr>
+            <tr>
+              <td>Email I'd</td>
+              <th style="color: black;">{{currentUserEmailID}}</th>
+            </tr>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
 
-<div *ngIf="premiumPopupBoolean">
+
+<app-footer></app-footer>
+<!-- <div *ngIf="premiumPopupBoolean">
 
   <div class="premiumContent">
     <div class="mainQuote">Get Premium for 1 month</div><br><br>
@@ -15,45 +43,4 @@
       <button (click)="closePremiumPopup()">Close</button>
     </div>
   </div>
-</div>
-
-<div class="accounts_container">
-  <div class="accounts_page">
-    <!-- <div class="accounts_left">
-      <img src="/assets/images/person.png" title="{{currentUserProfileName}}"/>
-      <a routerLinkActive="active-link" routerLink="/accounts" (click)="account()" class="active-link"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-lock"></i>Update Password</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-arrow-rotate-right"></i>Recover Playlists</a>
-    </div> -->
-    <div class="accounts_right">
-      <span class="account_overview">Account Overview</span>
-      <span class="profile">Profile</span>
-      <form [formGroup]="accountInfo" (ngSubmit)="submitAccountInfo()">
-
-        <table cellPadding="30px">
-          <thead>
-            <tr>
-              <td>Username</td>
-              <th style="color: black;">{{currentUserProfileName}}</th>
-            </tr>
-            <tr>
-              <td>Email I'd</td>
-              <th style="color: black;">{{currentUserEmailID}}</th>
-            </tr>
-            <tr>
-              <td>Date of Birth</td>
-              <th><input type="text" formControlName="dateOfBirth">
-                <small *ngIf="accountInfo.controls['dateOfBirth'].errors?.['pattern']">Error occured</small></th>
-            </tr>
-          </thead>
-        </table>
-        <div class="saveInfoButton"><button [disabled]="!accountInfo.valid" class="saveInfo">Save info</button></div>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<app-footer></app-footer>
+</div> -->

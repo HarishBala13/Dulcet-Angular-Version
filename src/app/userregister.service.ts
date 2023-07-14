@@ -89,6 +89,7 @@ logoutUser(){
     console.log(userData);
     return this.client.post(URL,userData);
   }
+
   sendRegisterEmail(urL:any,userData:any){
     return this.client.post(urL,userData);
   }

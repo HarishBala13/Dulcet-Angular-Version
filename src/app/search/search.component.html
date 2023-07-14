@@ -18,7 +18,7 @@
   <div class="searchBox">
   <div *ngFor="let src of searchBoxes">
     <div>
-      <a class="box" routerLink="/searchedPlaylist" style="background-color: {{src.backgroundColor}}">
+      <a class="box" routerLink="/searchedPlaylist" [style.backgroundColor]="src.backgroundColor">
       <p>{{src.title}}</p>
       <img class="scaledImage" src="{{src.image}}">
     </a></div>

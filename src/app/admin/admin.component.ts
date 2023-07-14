@@ -19,7 +19,8 @@ export class AdminComponent implements OnInit{
   newsongsboolean:boolean=false;
   usersboolean:boolean=false;
   currentUser:number=0;
-  songsAssets = [];
+  images = [];
+  audios = [];
 
   constructor(private formBuild:FormBuilder, private API:ApiService, private client:HttpClient) {  }
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class AdminComponent implements OnInit{
   }
 
   songsEntry=this.formBuild.group({
+    audios:['',Validators.required],
     assets:['',Validators.required],
     maintitle:['',Validators.required],
     subtitle:['',Validators.required]
@@ -50,40 +52,52 @@ export class AdminComponent implements OnInit{
     this.API.fetchNewSongs().subscribe(values=>{  this.newsongs_data=values;  });
    }
 
-   selectSongAssets(event:any){
+   selectAudios(event:any){
     if(event.target.files.length > 0){
       const file = event.target.files;
-      this.songsAssets = file;
+      this.audios = file;
+    }
+   }
+
+   selectImages(event:any){
+    if(event.target.files.length > 0){
+      const file = event.target.files;
+      this.images = file;
     }
    }
 
    addSongs(add:any){
-    const formData = new FormData();
-    for(let img of this.songsAssets){
-      formData.append('files', img);
+    const audioFormData = new FormData();
+    for(let audio of this.audios){
+      audioFormData.append('audioFiles', audio);
+      console.log(this.audios);
     }
-    console.log(this.songsAssets);
 
-    this.client.post<any>("http://localhost:1999/multipleFileUpload", formData).subscribe(
-      (res) => console.log(res)
-    )
+    const imageFormData = new FormData();
+    for(let img of this.images){
+      imageFormData.append('imageFiles',img)
+    }
+
+    this.client.post<any>("http://localhost:1999/audioUpload", audioFormData).subscribe((res) => console.log(res));
+
+    this.client.post<any>("http://localhost:1999/imageUpload", imageFormData).subscribe((res) => console.log(res));
 
     this.API.addSongsServ(add).subscribe((values)=>{
       console.log(values);
     })
    }
 
-    onSubmit(){
-      const formData = new FormData();
-      for(let img of this.songsAssets){
-        formData.append('files', img);
-      }
-      console.log(this.songsAssets);
+    // onSubmit(){
+    //   const formData = new FormData();
+    //   for(let img of this.songsAssets){
+    //     formData.append('files', img);
+    //   }
+    //   console.log(this.songsAssets);
 
-      this.client.post<any>("http://localhost:1999/multipleFileUpload", formData).subscribe(
-        (res) => console.log(res)
-      )
-    }
+    //   this.client.post<any>("http://localhost:1999/multipleFileUpload", formData).subscribe(
+    //     (res) => console.log(res)
+    //   )
+    // }
 
    deleteSongs(ID:number){
     this.API.deleteSongsServ(ID).subscribe(()=>{});

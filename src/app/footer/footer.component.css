@@ -1,57 +1,60 @@
-footer{
+.footer{
   background-color: #121212;
   color: #9a9a9a;
-  padding: 10px;
   font-size: 0.50cm;
 }
-footer .footerflex{
+.footer .copyrights{
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
   align-items: center;
 }
-footer .footerflex div p a{
+.footer .copyrights div p a{
   text-decoration: none;
   color: #fff;
 }
 .bottom-contents{
-  display: flex;
-  justify-content: space-around;
+ display: grid;
+ grid-template-columns: repeat(4,1fr);
+ padding: 10px;
 }
-.firstbox{
-  display: flex;
-  justify-content: space-between;
-}
-.firstbox .box1,.firstbox .box2{
+.company,.communities{
   display: flex;
   flex-direction: column;
 }
-.firstbox .box1 p,.firstbox .box2 p{
+.company p,.communities p{
   padding-top: 20px;
   color: #fff;
   font-weight: 500;
   font-size: 0.7cm;
 }
-.firstbox .box1 a,.firstbox .box2 a{
+.company a,.communities a{
   font-size: 0.5cm;
   color: #9a9a9a;
   text-decoration: none;
   padding: 1rem;
 }
-.firstbox .box1 a:hover,.firstbox .box2 a:hover{
+.company a:hover,.communities a:hover{
   cursor: pointer;
   text-decoration: underline;
 }
-.secondbox{
+.social-media-links{
   display: flex;
   flex-direction: column;
 }
-.bottom-contents .secondbox a{
+.brandlogo{
+  display: grid;
+  place-items: center;
+}
+.brandlogo img{
+  width: 250px;
+  height: 150px;
+}
+.bottom-contents .social-media-links a{
   text-decoration: none;
   color: #9a9a9a;
   font-size: 0.5cm;
 }
-.bottom-contents .secondbox i{
+.bottom-contents .social-media-links i{
   border-radius: 50%;
   padding: 15px;
   font-size: 0.7cm;

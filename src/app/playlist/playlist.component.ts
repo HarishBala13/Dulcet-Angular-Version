@@ -10,7 +10,7 @@ import { SongsService } from '../songs.service';
 })
 export class PlaylistComponent {
 
-  openSongTracker : boolean | string | null= false;
+  openSongTracker : string | null | undefined= "";
   openNewPlaylist : boolean = false;
   openUserPlaylistDiv : boolean = false;
   openLEODiv : boolean = false;
@@ -50,9 +50,13 @@ export class PlaylistComponent {
   leoAudios = [];
   vikramAudios = [];
   allAudios = [];
-  playlistTracks = [];
+  playlistTracks:any = [];
+  usersPlaylist:any = [];
 
   audioPlayer:HTMLAudioElement | undefined;
+
+  public leoSongs = ['/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3','/assets/images/audio/Bloody-Sweet-MassTamilan.dev.mp3'];
+  public vikramSongs = [];
 
 
   constructor(private AL:AlertifyServiceService,private router:Router,private songService:SongsService){
@@ -93,7 +97,8 @@ export class PlaylistComponent {
       this.vikramSongsAssets = this.allLibrariesSongs.slice(2, 15);
 
       this.audioPlayer = new Audio();
-      this.audioPlayer.src = "/assests/images/audio/2.mp3";
+      this.audioPlayer.src = this.allAudios[this.currentTrackIndex];
+      // this.audioPlayer.src = "/assests/images/audio/2.mp3";
 
     });
 
@@ -104,20 +109,19 @@ export class PlaylistComponent {
       // console.log(this.movie);
       loadAudio(audioObject:any,object:any){
 
-        if(object.length == this.leoAudios.length){
-          this.playlistTracks = this.leoAudios;
-        }
-        else{
-          this.playlistTracks = this.vikramAudios;
-        }
+        // if(object.length == this.leoAudios.length){
+        //   this.playlistTracks = this.leoAudios;
+        // }
+        // else{
+        //   this.playlistTracks = this.vikramAudios;
+        // }
 
         if(sessionStorage.getItem("loggedin")=="true"){
-          // sessionStorage.setItem("songTrackLocalStorage","true");
+          sessionStorage.setItem("songTrackLocalStorage","true");
           console.log(sessionStorage.getItem("songTrackLocalStorage"));
 
-          this.openSongTracker = sessionStorage.getItem("songTracker");
-
-
+          this.openSongTracker = sessionStorage.getItem("songTrackLocalStorage");
+          console.log(this.openSongTracker);
 
           // this.audioPlayer?.src = audioObject.audios;
           this.audiosrc = audioObject.audios;
@@ -133,50 +137,77 @@ export class PlaylistComponent {
 
 
   playSong(){
-    this.audioPlayer?.play();
-    let masterPlay=document.getElementById("masterplay");
-    masterPlay?.classList.add("wave");
+    // console.log(this.allAudios);
+    // console.log(this.audioPlayer?.src)
+
+    if(this.audioPlayer?.src){
+      const currentSongClicked = this.audiosrc;
+      this.audioPlayer.src = currentSongClicked;
+      this.audioPlayer?.play();
+      let masterPlay=document.getElementById("masterplay");
+      masterPlay?.classList.add("wave");
+    }
   }
   pauseSong(){
-    this.audioPlayer?.pause();
-    let masterPlay=document.getElementById("masterplay");
-    masterPlay?.classList.remove("wave");
+    if(this.audioPlayer?.src){
+      const currentSongClicked = this.audiosrc;
+      this.audioPlayer.src = currentSongClicked;
+      this.audioPlayer?.pause();
+      let masterPlay=document.getElementById("masterplay");
+      masterPlay?.classList.remove("wave");
+    }
+    // this.audioPlayer?.pause();
+    // let masterPlay=document.getElementById("masterplay");
+    // masterPlay?.classList.remove("wave");
   }
   nextSong(){
-    // this.currentTrackIndex = (this.currentTrackIndex + 1) % this.playlist.length;
-    // this.audioPlayer.src = this.playlist[this.currentTrackIndex];
-    this.audioPlayer?.play();
-  }
+
+    if(this.openLEODiv == true){
+      this.currentTrackIndex = (this.currentTrackIndex + 1) % this.leoAudios.length;
+      console.log( this.currentTrackIndex = (this.currentTrackIndex + 1) % this.leoAudios.length)
+      this.playSong();
+    }
+    else if(this.openVikramIIDiv == true){
+      this.currentTrackIndex = (this.currentTrackIndex + 1) % this.vikramAudios.length;
+      this.playSong();
+     }
+}
+
+    // this.currentTrackIndex = (this.currentTrackIndex + 1) % this.allAudios.length;
+
+
   previousSong(){
-    // this.currentTrackIndex = (this.currentTrackIndex - 1 + this.playlist.length) % this.playlist.length;
-    // this.audioPlayer.src = this.playlist[this.currentTrackIndex];
+    this.currentTrackIndex = (this.currentTrackIndex - 1 + this.allAudios.length) % this.allAudios.length;
+    if(this.audioPlayer?.src){
+      this.audioPlayer.src = this.allAudios[this.currentTrackIndex];
     this.audioPlayer?.play();
-  }
-
-
-  currentSong(){
-    let counting=this.count++;
-    console.log(counting);
-    let masterPlay=document.getElementById("masterplay");
-    let icons=document.getElementById("masterPlay");
-    let audio = new Audio();
-    audio.src=this.audiosrc;
-    console.log(audio.paused);
-
-    if(audio.paused == true){
-      audio.play();
-      masterPlay?.classList.add("wave");
-      icons?.classList.add("bi-pause-fill");
-      icons?.classList.remove("bi-play-fill");
-    }
-    else {
-      audio.pause();
-      masterPlay?.classList.remove("wave");
-      masterPlay?.classList.add("notwave");
-      icons?.classList.remove("bi-pause-fill");
-      icons?.classList.add("bi-play-fill");
     }
   }
+
+
+  // currentSong(){
+  //   let counting=this.count++;
+  //   console.log(counting);
+  //   let masterPlay=document.getElementById("masterplay");
+  //   let icons=document.getElementById("masterPlay");
+  //   let audio = new Audio();
+  //   audio.src=this.audiosrc;
+  //   console.log(audio.paused);
+
+  //   if(audio.paused == true){
+  //     audio.play();
+  //     masterPlay?.classList.add("wave");
+  //     icons?.classList.add("bi-pause-fill");
+  //     icons?.classList.remove("bi-play-fill");
+  //   }
+  //   else {
+  //     audio.pause();
+  //     masterPlay?.classList.remove("wave");
+  //     masterPlay?.classList.add("notwave");
+  //     icons?.classList.remove("bi-pause-fill");
+  //     icons?.classList.add("bi-play-fill");
+  //   }
+  // }
 
   // ngOnInit() {
   //   if(sessionStorage.getItem("loggedin")=="true"){
@@ -198,28 +229,48 @@ export class PlaylistComponent {
 
   openPlaylist(){
     this.openPlaylistDiv = true;
+    this.openVikramIIDiv = false;
+    this.openLEODiv = false;
   }
 
   openUserPlaylist(){
-    this.userPlaylist = true;
+    this.songService.getUserPlaylist().subscribe(values => {
+      this.playlistTracks = values;
+      this.usersPlaylist = this.playlistTracks.myPlaylist_1;
+      // console.log(this.playlistTracks.myPlaylist_1[0].movie_name);
+      if(this.playlistTracks.myPlaylist_1 == undefined){
+        this.userPlaylist = false;
+        this.AL.Error("No Playlist available Create a new one")
+      }
+      else{
+        this.userPlaylist = true;
+        this.openPlaylistDiv = false;
+        this.openVikramIIDiv = false;
+        this.openLEODiv = false;
+        this.openNewPlaylist = false;
+      }
+    })
   }
 
   closePlaylist(){
     this.openNewPlaylist = false;
     this.openVikramIIDiv = false;
     this.openLEODiv = false;
+    this.openPlaylistDiv = false;
   }
 
   openLEOPlaylist(){
     this.openLEODiv = true;
     this.openVikramIIDiv = false;
     this.openNewPlaylist = false;
+    this.openPlaylistDiv = false;
   }
 
   openVikramPlaylist(){
     this.openVikramIIDiv = true;
     this.openLEODiv = false;
     this.openNewPlaylist = false;
+    this.openPlaylistDiv = false;
   }
 
   addToLike() {
@@ -227,8 +278,7 @@ export class PlaylistComponent {
     this.statuses = this.toggle ? 'Enable' : 'Disable';
   }
 
-  addToFavouritesSongs(songsObject:any,i:any){
-    console.log(i);
+  addToFavouritesSongs(songsObject:any){
     this.toggled = ! this.toggled;
     this.status = this.toggled ? 'Enable' : 'Disable';
     this.songService.addToFavouritesSongsFromPlaylist(songsObject,this.JSONID);

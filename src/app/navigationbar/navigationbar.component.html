@@ -1,9 +1,9 @@
 <header>
-  <a routerLink=""><img src="../../assets/images/blacklogo.png" alt="" class="brandlogo"></a>
+  <a routerLink=""><img src="../../assets/images/whiteBGBrandLogo.png" alt="" class="brandlogo"></a>
   <a routerLink="/search">Search</a>
   <a routerLink="/playlist">Playlist</a>
   <a routerLink="/premium">Premium</a>
-  <a routerLink="/register" *ngIf="!loggedinNavBar">Register</a>
+  <!-- <a routerLink="/register" *ngIf="!loggedinNavBar">Register</a> -->
   <a routerLink="/login" *ngIf="login" class="loginButton">Login</a>
   <a *ngIf="loggedinNavBar" routerLink="/profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a>
   <a (click)="logout()" *ngIf="loggedinNavBar" class="loginButton">Logout</a>

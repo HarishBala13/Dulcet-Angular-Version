@@ -1,6 +1,6 @@
 <div class="paymentHeader">
   <div class="userDetails">
-    <a routerLink="/"><img src="/assets/images/blacklogo.png" alt="brandLogo"></a>
+    <a routerLink="/"><img src="/assets/images/blackBGBrandLogo.png" alt="brandLogo"></a>
     <p>Welcome ! {{name}}</p>
   </div>
  <hr style="color: white;">
@@ -51,7 +51,7 @@
       <p>Choose a payment method</p>
         <div class="paymentMethod">
           <div class="flexContent">
-            <div class="checkbox" id="check" clickOutside (click)="upiDivToggleOpen()"></div>
+            <div class="checkbox" id="checkboxUPI" (click)="upiDivToggleOpen()"></div>
             <span>UPI</span>
           </div>
           <div class="flexImage">
@@ -66,12 +66,12 @@
             <p>
               If you don't cancel your subscription before the trial ends on {{today}}, you agree that you are making the payment directly with your entered UPI ID.
             </p>
-            <button>Pay {{price}}</button>
+            <button>Pay&nbsp;{{price}}</button>
           </div>
         </div>
         <div class="paymentMethod">
           <div class="flexContent">
-            <div class="checkbox" id="check" clickOutside (click)="cardDivToggleOpen()"></div>
+            <div class="checkbox" id="checkboxCard" (click)="cardDivToggleOpen()"></div>
             <span>Credit or debit card</span>
           </div>
           <div class="flexImage">
@@ -81,7 +81,7 @@
             <img src="https://paymentsdk.spotifycdn.com/svg/cards/diners.svg"> -->
           </div>
           <div class="cardPaymentMethod" *ngIf="cardDivBoolean">
-            <form [formGroup]="cardValidationForm" (ngSubmit)="submitCardInfo()">
+            <form [formGroup]="cardValidationForm">
               <div class="flexSpacearound">
                 <p>Payment details</p>
                 <i class="fa-solid fa-lock"></i>
@@ -90,9 +90,9 @@
                 <p>Card Number</p>
                 <div class="cardNumberInput">
                   <img src="{{cardImage}}" >
-                  <input type="text" placeholder="0000 0000 0000" maxlength="16" size="16" (keyup)="checkCardValid($event)" id="cardNumber" formControlName="cardNumber" pattern="^[0-9]+*$">
+                  <input type="text" placeholder="0000 0000 0000" maxlength="16" size="16" (keyup)="checkCardValid($event)" id="cardNumber" formControlName="cardNumber">
                 </div>
-                <small style="color: red; font-size: 12px; font-weight: bold;" *ngIf="cardValidationForm.controls['cardNumber'].errors?.['required'] && cardValidationForm.controls['cardNumber'].dirty">* Invalid details</small>
+                <small [style.color]="cardMessageColor" style="font-size: 12px; font-weight: bold;">{{cardNumberMessage}} </small>
               </div>
               <div class="flexSpacearound">
                 <div>
@@ -101,13 +101,12 @@
                 </div>
                 <div>
                   <p>CVV</p>
-                  <input type="text" placeholder="****" size="10" maxlength="4" formControlName="cvv">
+                  <input type="text" placeholder="****" size="10" maxlength="4">
                 </div>
               </div>
-              <small style="color: red; font-size: 12px; font-weight: bold;" *ngIf="cardValidationForm.controls['expiryDate'].errors?.['required'] && cardValidationForm.controls['expiryDate'].dirty">* Invalid Date</small>
-              <small style="color: red; font-size: 12px; font-weight: bold;">{{expiryDateMessage}} </small>
+              <small [style.color]="expiryDateMessageColor" style="font-size: 12px; font-weight: bold;">{{expiryDateMessage}} </small>
               <div class="cardButton">
-                <button [disabled]="!cardValidationForm.valid">Pay {{price}}</button>
+                <button [disabled]="!cardValidationForm.valid" (click)="checkPaymentValid()">Pay&nbsp;{{price}}</button>
               </div>
             </form>
           </div>

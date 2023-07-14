@@ -7,13 +7,15 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
-  profileName:string | null | undefined ='';
+  profileName:any ='';
+  currentUserEmailID:any ='';
   JSONID:any='';
-  editProfile:boolean = false;
+  editProfile:boolean = true;
   isMenuOpened : boolean = false;
 
   constructor(){
     this.profileName = sessionStorage.getItem('currentUserName');
+    this.currentUserEmailID = sessionStorage.getItem('currentUserEmail');
     this.JSONID = sessionStorage.getItem('currentUserJSONID');
   }
 

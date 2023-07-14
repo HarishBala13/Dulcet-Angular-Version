@@ -23,8 +23,11 @@
       <div class="modal-body">
         <form [formGroup]="songsEntry">
 
-        <label for="formFile" class="form-label">Choose the audio and image</label>
-        <input type="file" class="form-control" formControlName="assets" id="formFile" name="assets" multiple (change)="selectSongAssets($event)">
+        <label for="formFile" class="form-label">Choose the audio</label>
+        <input type="file" class="form-control" formControlName="audios" id="formFile" name="audios" single (change)="selectAudios($event)">
+
+        <label for="formFile" class="form-label">Choose the image</label>
+        <input type="file" class="form-control" formControlName="assets" id="formFile" name="assets" single (change)="selectImages($event)">
 
         <label for="exampleInputEmail1" class="form-label">Enter Movie Name</label>
         <input type="text" class="form-control" formControlName="maintitle" id="exampleInputEmail1">

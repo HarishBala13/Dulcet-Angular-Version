@@ -9,15 +9,24 @@
       "subscribedPlans": [
         {
           "plans": {
-            "title": "Individual",
-            "offer": "₹240/year",
-            "info": "Play as your wish"
+            "title": "Duo",
+            "offer": "₹365/year",
+            "info": "More number of Podcasts"
           },
           "benefits": {
-            "one": "Ad-free music listening",
-            "two": "Download 50 songs"
+            "one": "Group session",
+            "two": "For couples who live together"
           },
-          "id": 3
+          "id": 4
+        }
+      ],
+      "myPlaylist_1": [
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Agent Amar Theme",
+          "images": "/assets/images/album/Agent-Amar.jpg",
+          "audios": "/assets/images/audio/Amar-Theme-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 5
         }
       ]
     },
@@ -98,7 +107,7 @@
       "id": 5
     },
     {
-      "regname": "JeevaArav",
+      "regname": "Jeeva_Arav",
       "regemail": "2k19me070@kiot.ac.in",
       "regpassword": "Jeeva@2001",
       "regconfirmpassword": "Jeeva@2001",
@@ -140,7 +149,8 @@
           "audios": "/assets/images/audio/Porkanda-Singam-EDM-Version-(Additional-Song)-MassTamilan.dev.mp3",
           "id": 8
         }
-      ]
+      ],
+      "profilePicture": "/assets/images/IMG_20230327_195943 - Jeeva Aravinth J V.jpg"
     }
   ],
   "songs_list": [

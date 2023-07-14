@@ -16,6 +16,10 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { TopsongsComponent } from './libraries/topsongs/topsongs.component';
 import { MixedsongsComponent } from './libraries/mixedsongs/mixedsongs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SubscribedplanComponent } from './subscribedplan/subscribedplan.component';
+import { PaymentcardComponent } from './paymentcard/paymentcard.component';
 
 const routes: Routes = [
   // {
@@ -30,6 +34,12 @@ const routes: Routes = [
       canActivate:[UserAuthorizationGuard]},
   {path:'accounts',component:AccountsComponent},
   {path:'profile',component:ProfileComponent},
+  {path:'',children:[
+    {path:'profile/editprofile',component:EditprofileComponent},
+    {path:'profile/subscribedplan',component:SubscribedplanComponent},
+    {path:'profile/paymentcard',component:PaymentcardComponent},
+    {path:'profile/playlist',component:PlaylistComponent}
+  ]},
   {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},
   {path:'',children:[
@@ -42,6 +52,7 @@ const routes: Routes = [
   {path:'premium',component:PremiumComponent},
   {path:'payment',component:PaymentComponent,
   canActivate:[UserAuthorizationGuard]},
+  {path:'paymentsuccess',component:PaymentSuccessComponent},
   {path:'admin',component:AdminComponent},
   {path:'admin/adminupdate/:id',component:AdminupdateComponent},
   {path:'',children:[

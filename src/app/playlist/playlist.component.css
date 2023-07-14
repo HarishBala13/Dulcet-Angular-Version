@@ -166,6 +166,11 @@
   text-decoration: none;
   cursor: pointer;
 }
+.playlistDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .playlistDiv a{
   font-size: 22px;
   font-weight: 500;
@@ -187,6 +192,7 @@
   padding: 1rem;
   font-family: 'Space Grotesk', sans-serif;
   position: relative;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
   /* box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35); */
 }
 .card .image{

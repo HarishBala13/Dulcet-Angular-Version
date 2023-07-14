@@ -3,7 +3,7 @@ header{
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  background: #000;
+  background: #fff;
   width: 100%;
   z-index: 1;
   top: 0;
@@ -12,18 +12,21 @@ header{
   opacity: 0.9;
 }
 .brandlogo{
-  height: 80px;
-  width: 150px;
+  height: 70px;
+  width: 130px;
 }
 header a{
-  color: #fff;
+  color: #000;
   font-size: 0.6cm;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
 }
 header a:hover{
   color: #00ff00;
   cursor: pointer;
+}
+header a img{
+  border-radius: 20px;
 }
 header .loginButton{
   background-color: #00ff00;

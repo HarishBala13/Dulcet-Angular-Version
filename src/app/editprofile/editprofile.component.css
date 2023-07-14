@@ -1,0 +1,111 @@
+.background{
+  display: grid;
+  place-items: center;
+  padding: 3rem;
+  background-color: rgb(179, 245, 245);
+}
+.accounts_container{
+  display: flex;
+  /* background-color: antiquewhite; */
+}
+.accounts_left{
+  background-color: #282828;
+  color: #7f7f7f;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #7f7f7f;
+  height: 60vh;
+}
+.accounts_left img{
+  height: 80px;
+  width: 80px;
+}
+.accounts_left a{
+  color: #fff;
+  border: 1px solid #7f7f7f;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 1rem;
+  font-size: 0.6cm;
+  text-decoration: none;
+}
+.accounts_left i{
+  font-size: 0.5cm;
+  padding: 15px;
+}
+.accounts_left a:hover{
+  border-left: 6px solid lime;
+  color: white;
+  cursor: pointer;
+}
+.accounts_left a .active{
+  border-left: 6px solid lime;
+  color: #fff;
+  text-decoration: none;
+}
+.accounts_right{
+  background-color: #fff;
+  color: #7f7f7f;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 60vh;
+  padding: 1rem;
+}
+
+.accounts_right .profileContainer{
+  padding: 1rem;
+}
+.accounts_right .profileContainer .profileBox{
+  /* background-color: rgb(54, 49, 49); */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.accounts_right .profileContainer .profileBox .profileImage img{
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+.accounts_right .profileContainer .profileBox .profileName{
+  font-size: 40px;
+  font-weight: bolder;
+  color: rgb(142, 140, 137);
+  cursor: pointer;
+}
+.accounts_right .profileContainer .profileBox .profileName:hover{
+  color: #000;
+}
+.accounts_right .profileEditor{
+  background-color: rgba(142, 140, 137,0.2);
+  border-radius: 20px;
+}
+.accounts_right .profileHeads{
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.accounts_right .profileEditor .profileForm .small{
+  color: #c80d0d;
+  font-size: 0.34cm;
+  font-weight: bolder;
+}
+.accounts_right .profileEditor .profileForm, .accounts_right .profileEditor .profileButton{
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.accounts_right .profileEditor .profileButton button{
+  background-color: #00ff00;
+  color: black;
+  border-radius: 30px;
+  border: none;
+  width: 80px;
+  height: 40px;
+}
+.accounts_right .profileHeads .name, .accounts_right .profileHeads .fa-solid{
+  font-size: 20px;
+  color: black;
+  font-weight: 400;
+}
