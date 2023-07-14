@@ -31,7 +31,7 @@
       <ul>
         <li>{{planOffer}}</li>
         <li>You won't be charged until {{today}}</li>
-        <li>We will remind you 7 days before you get changed</li>
+        <li>We will remind you 7 days before your plan get expired</li>
       </ul>
     </div>
    </div>
@@ -45,7 +45,10 @@
       <span>Address</span>
       <p><a (click)="notifyAddressInfo()">Learn more</a>&nbsp;about why we need this information.</p>
       <span>State</span>
-      <select></select>
+      <select name="state">
+        <option selected disabled>Choose your State</option>
+        <option *ngFor="let states of newStateArray" value="{{states}}" (change)="userState($event)">{{states}}</option>
+    </select>
     </div>
     <div class="paymentBox">
       <p>Choose a payment method</p>
@@ -86,6 +89,12 @@
                 <p>Payment details</p>
                 <i class="fa-solid fa-lock"></i>
               </div>
+              <div class="cardHolder">
+                <p>Card Holder Name</p>
+                <input type="text" id="cardHolderName" placeholder="Enter your name" formControlName="cardHolderName" (keyup)="changeCardHolderName($event)">
+                <small *ngIf="cardValidationForm.controls['cardHolderName'].errors?.['required']">* Name is Required</small>
+                <small *ngIf="cardValidationForm.controls['cardHolderName'].errors?.['pattern']"></small>
+              </div>
               <div class="cardNumber">
                 <p>Card Number</p>
                 <div class="cardNumberInput">
@@ -106,7 +115,7 @@
               </div>
               <small [style.color]="expiryDateMessageColor" style="font-size: 12px; font-weight: bold;">{{expiryDateMessage}} </small>
               <div class="cardButton">
-                <button [disabled]="!cardValidationForm.valid" (click)="checkPaymentValid()">Pay&nbsp;{{price}}</button>
+                <button (click)="checkPaymentValid()">Pay&nbsp;{{price}}</button>
               </div>
             </form>
           </div>

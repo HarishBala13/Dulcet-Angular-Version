@@ -33,9 +33,56 @@ export class PremiumPlanServiceService {
   customerDetails:any=[];
   OrderDetails:any=[];
 
-
   intervalId:any;
-  constructor(private http:HttpClient) { }
+
+  subscribedPlansProperty:any='';
+  myPremiumPlansArray:any =[];
+  jsonID:any='';
+
+  constructor(private http:HttpClient) {
+    this.jsonID = sessionStorage.getItem("currentUserJSONID");
+  }
+
+  premiumPlansService(){
+    return this.http.get("http://localhost:3000/premium");
+  }
+
+  userSubscribingPremiumPlans(premiumPlan:any,id:any){
+    this.myPremiumPlansArray = {
+      plans: {
+        title: premiumPlan.plans.title,
+        offer: premiumPlan.plans.offer,
+        info: premiumPlan.plans.info
+      },
+      benefits: {
+        one: premiumPlan.benefits.one,
+        two: premiumPlan.benefits.two
+      },
+      id: premiumPlan.id
+    }
+    this.http.get("http://localhost:3000/premium").subscribe((values:any) => {
+      const findPremiumPlan = values.find( (newvalues:any) => {
+        if(newvalues.id == premiumPlan.id){
+          this.subscribedPlansProperty = newvalues;
+          return this.subscribedPlansProperty;
+        }
+      })
+      if(findPremiumPlan){
+        if(this.subscribedPlansProperty.subscribedPlans != null){
+          this.subscribedPlansProperty.subscribedPlans.push(this.myPremiumPlansArray);
+          console.log(this.subscribedPlansProperty.subscribedPlans.push(this.myPremiumPlansArray));
+          this.http.patch("http://localhost:3000/usersregister/"+id,{subscribedPlans:this.subscribedPlansProperty.subscribedPlans}).subscribe(values => {});
+        }
+        else{
+          this.http.patch("http://localhost:3000/usersregister/"+id,{subscribedPlans:[this.myPremiumPlansArray]}).subscribe(values => {});
+        }
+      }
+    })
+  }
+
+  userSubscribedPremiumPlan(){
+    return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
+  }
 
 
 getTime(ordereddate:any){

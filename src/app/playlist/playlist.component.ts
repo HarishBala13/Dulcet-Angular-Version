@@ -11,6 +11,7 @@ import { SongsService } from '../songs.service';
 export class PlaylistComponent {
 
   openSongTracker : string | null | undefined= "";
+  openAnotherPlaylist : boolean = false;
   openNewPlaylist : boolean = false;
   openUserPlaylistDiv : boolean = false;
   openLEODiv : boolean = false;
@@ -52,6 +53,7 @@ export class PlaylistComponent {
   allAudios = [];
   playlistTracks:any = [];
   usersPlaylist:any = [];
+  toBeShuffledPlaylist:any=[];
 
   audioPlayer:HTMLAudioElement | undefined;
 
@@ -184,6 +186,30 @@ export class PlaylistComponent {
     }
   }
 
+  shufflePlaylist(){
+
+    if(this.openLEODiv == true){
+      this.toBeShuffledPlaylist = this.leoSongsAssets;
+    }
+    else if(this.openVikramIIDiv == true){
+      this.toBeShuffledPlaylist = this.vikramSongsAssets;
+      console.log(this.toBeShuffledPlaylist);
+    }
+    else if(this.userPlaylist == true){
+      this.toBeShuffledPlaylist = this.userPlaylist;
+    }
+    for(var i=this.toBeShuffledPlaylist.length-1; i>0; i--){
+      let j = Math.floor(Math.random() * (i+1));
+      let temp = this.toBeShuffledPlaylist[i];
+      this.toBeShuffledPlaylist[i] = this.toBeShuffledPlaylist[j];
+      this.toBeShuffledPlaylist[j] = temp;
+    }
+    console.log(this.toBeShuffledPlaylist);
+  }
+
+  unShufflePlaylist(){
+
+  }
 
   // currentSong(){
   //   let counting=this.count++;
@@ -227,6 +253,10 @@ export class PlaylistComponent {
     this.openLEODiv = false;
   }
 
+  createAnotherPlaylist(){
+    this.openAnotherPlaylist = true;
+  }
+
   openPlaylist(){
     this.openPlaylistDiv = true;
     this.openVikramIIDiv = false;
@@ -237,7 +267,7 @@ export class PlaylistComponent {
     this.songService.getUserPlaylist().subscribe(values => {
       this.playlistTracks = values;
       this.usersPlaylist = this.playlistTracks.myPlaylist_1;
-      // console.log(this.playlistTracks.myPlaylist_1[0].movie_name);
+
       if(this.playlistTracks.myPlaylist_1 == undefined){
         this.userPlaylist = false;
         this.AL.Error("No Playlist available Create a new one")
@@ -253,6 +283,14 @@ export class PlaylistComponent {
   }
 
   closePlaylist(){
+    this.openNewPlaylist = false;
+    this.openVikramIIDiv = false;
+    this.openLEODiv = false;
+    this.openPlaylistDiv = false;
+  }
+
+  closeAnotherPlaylist(){
+    this.openAnotherPlaylist = false;
     this.openNewPlaylist = false;
     this.openVikramIIDiv = false;
     this.openLEODiv = false;

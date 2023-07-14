@@ -1,62 +1,48 @@
-<app-navigationbar></app-navigationbar>
-<div class="background">
-  <div class="accounts_container">
-      <div class="accounts_left">
-        <a routerLinkActive="active" routerLink="profile"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
-        <a routerLinkActive="active" routerLink="editprofile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-        <a routerLinkActive="active" routerLink="subscribedplan"><i class="fa-solid fa-lock"></i>Premium Plan</a>
-        <a routerLinkActive="active" routerLink="playlists"><i class="fa-sharp fa-solid fa-circle-play"></i>Playlists</a>
-        <a routerLinkActive="active" routerLink="paymentcard"><i class="fa-solid fa-credit-card"></i>Payment Card</a>
+<div class="accounts_right">
+  <div class="profileContainer">
+    <div class="profileBox">
+      <div class="profileImage">
+        <img src="{{userProfileImage}}" alt="userimage" (click)="openEditUserProfileDiv()">
       </div>
-      <div class="accounts_right">
-        <div class="profileContainer">
-          <div class="profileBox">
-            <div class="profileImage">
-              <img src="{{userProfileImage}}" alt="userimage" (click)="openEditUserProfileDiv()">
-            </div>
-            <div class="profileName" (click)="openEditUserProfileDiv()"><p>{{profileName}}</p></div>
-          </div>
-        </div>
-        <div class="profileEditor" *ngIf="editProfile">
-          <div class="profileHeads">
-            <p class="name">Profile Name</p>
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <div class="profileForm">
-            <form #editProfileForm="ngForm">
-
-              <input type="file" name="userProfileImage" ngModel #userProfileImage="ngModel" required  single (change)="userProfile($event)">
-              <div *ngIf="userProfileImage.touched">
-                <small class="small" *ngIf="userProfileImage.errors?.['reqiured']">* Profile photo is required</small>
-              </div>
-
-              <!-- <input type="file" class="userProfileImage" formControlName="userProfileImage" single (change)="userProfile($event)">
-              <small class="small" *ngIf="editProfileForm.controls['userProfileImage'].errors?.['required'] && editProfileForm.controls['userProfileImage'].dirty">* Name is required</small> -->
-
-              <input type="text" ngModel #editProfileName="ngModel" name="editProfileName" required pattern="^(?!.(.).\\1{2})[a-zA-Z][a-zA-Z0-9_-]{3,15}$">
-
-              <div *ngIf="editProfileName.touched">
-                <small class="small" *ngIf="editProfileName.errors?.['required']">* Name is required</small>
-                <small class="small" *ngIf="editProfileName.errors?.['pattern']">* Please provide a proper name</small>
-              </div>
-
-              <!-- <input type="text" class="editProfileName" formControlName="editProfileName">
-              <small class="small" *ngIf="editProfileForm.controls['editProfileName'].errors?.['required'] && editProfileForm.controls['editProfileName'].dirty">* Name is required</small>
-              <small class="small" *ngIf="editProfileForm.controls['editProfileName'].errors?.['pattern']">* Please provide a proper Name</small> -->
-
-              <div class="profileButton">
-                <button (click)="editUsersProfile(editProfileName.value)">Update</button>
-              </div>
-
-
-            </form>
-          </div>
-          <!-- <div class="profileButton">
-            <button [disabled]="!editProfileForm.valid" (click)="editUsersProfile()">Update</button>
-          </div> -->
-        </div>
-      </div>
+      <div class="profileName" (click)="openEditUserProfileDiv()"><p>{{profileName}}</p></div>
     </div>
   </div>
-<app-footer></app-footer>
+  <div class="profileEditor" *ngIf="editProfile">
+    <div class="profileHeads">
+      <p class="name">Profile Name</p>
+      <i class="fa-solid" (click)="closeEditUserProfileDiv()">&times;</i>
+    </div>
+    <div class="profileForm">
+      <form #editProfileForm="ngForm">
 
+        <input type="file" name="userProfileImage" ngModel #userProfileImage="ngModel" required  single (change)="userProfile($event)">
+        <div *ngIf="userProfileImage.touched">
+          <small class="small" *ngIf="userProfileImage.errors?.['reqiured']">* Profile photo is required</small>
+        </div>
+
+        <!-- <input type="file" class="userProfileImage" formControlName="userProfileImage" single (change)="userProfile($event)">
+        <small class="small" *ngIf="editProfileForm.controls['userProfileImage'].errors?.['required'] && editProfileForm.controls['userProfileImage'].dirty">* Name is required</small> -->
+
+        <input type="text" ngModel #editProfileName="ngModel" name="editProfileName" required pattern="^(?!.(.).\\1{2})[a-zA-Z][a-zA-Z0-9_-]{3,15}$">
+
+        <div *ngIf="editProfileName.touched">
+          <small class="small" *ngIf="editProfileName.errors?.['required']">* Name is required</small>
+          <small class="small" *ngIf="editProfileName.errors?.['pattern']">* Please provide a proper name</small>
+        </div>
+
+        <!-- <input type="text" class="editProfileName" formControlName="editProfileName">
+        <small class="small" *ngIf="editProfileForm.controls['editProfileName'].errors?.['required'] && editProfileForm.controls['editProfileName'].dirty">* Name is required</small>
+        <small class="small" *ngIf="editProfileForm.controls['editProfileName'].errors?.['pattern']">* Please provide a proper Name</small> -->
+
+        <div class="profileButton">
+          <button (click)="editUsersProfile(editProfileName.value)">Update</button>
+        </div>
+
+
+      </form>
+    </div>
+    <!-- <div class="profileButton">
+      <button [disabled]="!editProfileForm.valid" (click)="editUsersProfile()">Update</button>
+    </div> -->
+  </div>
+</div>

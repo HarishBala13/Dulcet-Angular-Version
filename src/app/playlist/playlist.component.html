@@ -8,19 +8,42 @@
     <a (click)="openVikramPlaylist()">Vikram - II</a>
     <a (click)="openPlaylist()">Playlists</a>
   </div>
+
   <hr>
+
   <div class="flexPlaylistHeads" *ngIf="openLEODiv">
-    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
-    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i>
+      <p>Shuffle</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i>
+      <p>Un-shuffle</p>
+    </div>
   </div>
+
   <div class="flexPlaylistHeads" *ngIf="openVikramIIDiv">
-    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
-    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i>
+      <p>Shuffle</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i>
+      <p>Un-shuffle</p>
+    </div>
   </div>
+
   <div class="flexPlaylistHeads" *ngIf="userPlaylist">
-    <i class="fa-solid fa-shuffle">&nbsp;Shuffle</i>
-    <i class="fa-solid fa-shuffle">&nbsp;Un-shuffle</i>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i>
+      <p>Shuffle</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i>
+      <p>Un-shuffle</p>
+    </div>
   </div>
+
   <div class="singlePlaylist" *ngIf="openLEODiv">
     <div *ngFor="let songs of leoSongsAssets">
       <div class="card">
@@ -31,6 +54,7 @@
       </div>
     </div>
   </div>
+
   <div class="singlePlaylist" *ngIf="openVikramIIDiv">
     <div *ngFor="let songs of vikramSongsAssets">
       <div class="card">
@@ -41,6 +65,7 @@
       </div>
     </div>
   </div>
+
   <div class="singlePlaylist" *ngIf="userPlaylist">
     <div *ngFor="let songs of usersPlaylist">
       <div class="card">
@@ -53,14 +78,41 @@
   </div>
 </div>
 
-
 <div *ngIf="openPlaylistDiv" class="playlistDiv">
-  <a (click)="createPlaylist()">Create a new one</a>
+  <a (click)="createPlaylist()">Create a new playlist</a>
+  <a (click)="createAnotherPlaylist()">Create another playlist</a>
   <a (click)="openUserPlaylist()">Open My Playlist</a>
 </div>
 
 <div class="slidePlaylistDIV" *ngIf="openNewPlaylist">
-  <div class="close" (click)="closePlaylist()">&nbsp;&times;</div>
+  <div class="close" (click)="closePlaylist()">&nbsp;&nbsp;&times;</div>
+  <p class="heading">About to create a new playlist like #myPlaylist_1</p>
+  <div class="gridPlaylistDiv">
+    <div><p>#</p></div>
+    <div><p>Title</p></div>
+    <div><p>Time</p></div>
+    <div><p>Action</p></div>
+  </div>
+  <div class="horizontalLine"></div>
+  <div class="gridPlaylistDiv"  *ngFor="let source of allPlaylistSongs; let i = index;">
+   <div>
+    <span class="number">{{i+1}}</span>
+   </div>
+   <div class="gridColumns">
+    <img src="{{source.images}}" alt="">
+    <span class="maintitle">{{source.song_name}}</span>
+   </div>
+   <div id="">{{source.duration}}</div>
+   <div class="gridColumnsCenter">
+    <button (click)="addSongsToPlaylist(source)">Add</button>
+    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
+  </div>
+  </div>
+</div>
+
+<div class="slidePlaylistDIV" *ngIf="openAnotherPlaylist">
+  <div class="close" (click)="closeAnotherPlaylist()">&nbsp;&nbsp;&times;</div>
+  <p class="heading">About to create a another playlist like #myPlaylist_2</p>
   <div class="gridPlaylistDiv">
     <div><p>#</p></div>
     <div><p>Title</p></div>

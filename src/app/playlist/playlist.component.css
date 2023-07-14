@@ -239,19 +239,27 @@
   z-index: 1;
   position: fixed;
   top: 0;
-
   right: 0;
   overflow-x: auto;
-  background-color: #fefefe;
+  background-color: #121212;
   width: 50%;
   height: 100%;
 }
+.slidePlaylistDIV .heading{
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 14px;
+}
 .slidePlaylistDIV .close{
   display: flex;
-  font-size: 0.75cm;
+  font-size: 1cm;
   color: #fefefe;
   background-color: #121212;
   cursor: pointer;
+  padding: 5px;
 }
 .slidePlaylistDIV .gridPlaylistDiv div p{
   font-size: 15px;
@@ -259,8 +267,8 @@
   color: #b3b3b3;
 }
 .slidePlaylistDIV .horizontalLine{
-  background-color: #b3b3b3;;
-  height: 2px;
+  background-color: #7e7e7e;;
+  height: 3px;
   width: auto;
 }
 .slidePlaylistDIV .gridPlaylistDiv{
@@ -314,8 +322,26 @@
   padding-bottom: 6px;
   border-bottom: 3px solid #00ff00;
 }
-
-
+.playlist-container .flexPlaylistHeads .fa-solid{
+  background-color: lime;
+  color: #121212;
+  padding: 1.4rem;
+  border-radius: 30px;
+  opacity: 0.75;
+  border: none;
+  font-size: 0.5cm;
+  transition: 800ms ease;
+}
+.playlist-container .flexPlaylistHeads .fa-solid:hover{
+  opacity: 1;
+  box-shadow: 2px 3px 0px 1px rgb(76, 75, 75);
+  transition: 800ms ease;
+  cursor: pointer;
+}
+.playlist-container .flexPlaylistHeads p{
+  font-size: 0.5cm;
+  font-weight: 400;
+}
 .master_play {
   position: fixed;
   bottom: 0;

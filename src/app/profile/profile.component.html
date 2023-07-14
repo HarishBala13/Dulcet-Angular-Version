@@ -2,55 +2,15 @@
 <div class="background">
   <div class="accounts_container">
       <div class="accounts_left">
-        <a routerLinkActive="active" routerLink="/profile"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
+        <a routerLinkActive="active" routerLink="accounts"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
         <a routerLinkActive="active" routerLink="editprofile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
         <a routerLinkActive="active" routerLink="subscribedplan"><i class="fa-solid fa-lock"></i>Premium Plan</a>
-        <a routerLinkActive="active" routerLink="/playlist"><i class="fa-sharp fa-solid fa-circle-play"></i>Playlists</a>
+        <a routerLinkActive="active" routerLink="myplaylist"><i class="fa-sharp fa-solid fa-circle-play"></i>My Playlist</a>
         <a routerLinkActive="active" routerLink="paymentcard"><i class="fa-solid fa-credit-card"></i>Payment Card</a>
       </div>
       <div class="accounts_right">
-        <span class="account_overview">Account Overview</span>
-        <span class="profile">Profile</span>
-          <table cellPadding="30px">
-            <thead>
-              <tr>
-                <td>Username</td>
-                <th style="color: black;">{{profileName}}</th>
-              </tr>
-              <tr>
-                <td>Email I'd</td>
-                <th style="color: black;">{{currentUserEmailID}}</th>
-              </tr>
-            </thead>
-          </table>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-
-
-<!-- <div class="profileContainer">
-  <div class="profileBox">
-    <div class="profileImage"><img src="/assets/images/person.png" alt="userimage" (click)="editUserProfile()"></div>
-    <div class="profileName" (click)="editUserProfile()"><p>{{profileName}}</p></div>
-  </div>
-</div>
-<div class="profileEditor" *ngIf="editProfile">
-  <div class="background">
-
-    <input type="text" value="{{profileName}}">
-  </div>
-</div> -->
 <app-footer></app-footer>
-
-
-<!-- <div class="navbar">
-  <div class="profile_container" clickOutside  (click)="toggle()">
-    <div><img src="/assets/images/person.png" title="{{profileName}}" style="height: 40px; width: 40px;" alt="userImage"></div>
-    <div title="{{profileName}}">{{profileName}}</div>
-    <div><i class="fa fa-caret-down"></i></div>
-  </div>
-  <div class="menu" *ngIf="isMenuOpened">
-    <a routerLink="/accounts">Account&nbsp;&nbsp;<i class="fa fa-external-link"></i></a>
-    <a routerLink="/profile">Profile</a>
-  </div>
-  </div> -->

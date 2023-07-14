@@ -1,34 +1,19 @@
-<app-navigationbar></app-navigationbar>
-<div class="background">
-<div class="accounts_container">
-    <div class="accounts_left">
-      <a routerLinkActive="active-link" routerLink="/accounts" class="active-link"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-lock"></i>Premium Plan</a>
-      <a routerLinkActive="active-link"><i class="fa-sharp fa-solid fa-circle-play"></i>Playlists</a>
-      <a routerLinkActive="active-link"><i class="fa-solid fa-credit-card"></i>Payment Card</a>
-    </div>
-    <div class="accounts_right">
-      <span class="account_overview">Account Overview</span>
-      <!-- <span class="profile">Profile</span> -->
-        <table cellPadding="30px">
-          <thead>
-            <tr>
-              <td>Username</td>
-              <th style="color: black;">{{currentUserProfileName}}</th>
-            </tr>
-            <tr>
-              <td>Email I'd</td>
-              <th style="color: black;">{{currentUserEmailID}}</th>
-            </tr>
-          </thead>
-        </table>
-    </div>
-  </div>
+<div class="accounts_right">
+  <span class="account_overview">Account Overview</span>
+  <span class="profile">Profile</span>
+    <table cellPadding="30px">
+      <thead>
+        <tr>
+          <td>Username</td>
+          <th style="color: black;">{{currentUserProfileName}}</th>
+        </tr>
+        <tr>
+          <td>Email I'd</td>
+          <th style="color: black;">{{currentUserEmailID}}</th>
+        </tr>
+      </thead>
+    </table>
 </div>
-
-
-<app-footer></app-footer>
 <!-- <div *ngIf="premiumPopupBoolean">
 
   <div class="premiumContent">

@@ -20,6 +20,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SubscribedplanComponent } from './subscribedplan/subscribedplan.component';
 import { PaymentcardComponent } from './paymentcard/paymentcard.component';
+import { MyplaylistComponent } from './myplaylist/myplaylist.component';
 
 const routes: Routes = [
   // {
@@ -32,13 +33,13 @@ const routes: Routes = [
   {path:'mixedsongs',component:MixedsongsComponent},
   {path:'playlist',component:PlaylistComponent,
       canActivate:[UserAuthorizationGuard]},
-  {path:'accounts',component:AccountsComponent},
-  {path:'profile',component:ProfileComponent},
-  {path:'',children:[
-    {path:'profile/editprofile',component:EditprofileComponent},
-    {path:'profile/subscribedplan',component:SubscribedplanComponent},
-    {path:'profile/paymentcard',component:PaymentcardComponent},
-    {path:'profile/playlist',component:PlaylistComponent}
+  {path:'profile',component:ProfileComponent,
+    children:[
+    {path:'editprofile',component:EditprofileComponent},
+    {path:'subscribedplan',component:SubscribedplanComponent},
+    {path:'paymentcard',component:PaymentcardComponent},
+    {path:'myplaylist',component:MyplaylistComponent},
+    {path:'accounts',component:AccountsComponent}
   ]},
   {path:'search',component:SearchComponent},
   {path:'login',component:LoginComponent},

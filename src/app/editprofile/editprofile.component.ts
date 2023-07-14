@@ -61,4 +61,8 @@ export class EditprofileComponent {
     this.editProfile = true;
   }
 
+  closeEditUserProfileDiv(){
+    this.editProfile = false;
+  }
+
 }

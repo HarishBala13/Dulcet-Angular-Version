@@ -1,18 +1,23 @@
-<app-navigationbar></app-navigationbar>
-<div class="background">
-  <div class="accounts_container">
-      <div class="accounts_left">
-        <a routerLinkActive="active" routerLink="profile"><i class="fa-solid fa-regular fa-house"></i>Account Overview</a>
-        <a routerLinkActive="active" routerLink="editprofile"><i class="fa-solid fa-user-pen"></i>Edit Profile</a>
-        <a routerLinkActive="active" routerLink="subscribedplan"><i class="fa-solid fa-lock"></i>Premium Plan</a>
-        <a routerLinkActive="active" routerLink="playlists"><i class="fa-sharp fa-solid fa-circle-play"></i>Playlists</a>
-        <a routerLinkActive="active" routerLink="paymentcard"><i class="fa-solid fa-credit-card"></i>Payment Card</a>
-      </div>
-      <div class="accounts_right">
-        <div class="paymentCard">
-          harish
-        </div>
-      </div>
-    </div>
+
+<div class="accounts_right">
+  <div class="noPaymentCard" *ngIf="noPaymentCardDiv">
+    <p>You don't linked any cards here if you buy premium plans it will be shown here</p>
   </div>
-  <app-footer></app-footer>
+  <div class="paymentCard" *ngIf="paymentCardDiv">
+    <i class="fa-solid fa-wifi fa-rotate-90"></i>
+    <div class="simImage">
+      <img src="/assets/images/cardSim.jpg">
+    </div>
+    <div class="cardDetails">
+      <p>{{userCardNumber}}</p>
+      <p>{{expiryDate}}</p>
+    </div>
+    <div class="cardType">
+      <p>{{cardHolderName}}</p>
+      <img src="{{cardImage}}">
+    </div>
+</div>
+<div class="cancelCard" *ngIf="paymentCardDiv">
+  <button (click)="removeUserPaymentCard()">Cancel</button>
+</div>
+</div>

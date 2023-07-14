@@ -34,6 +34,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SubscribedplanComponent } from './subscribedplan/subscribedplan.component';
 import { PaymentcardComponent } from './paymentcard/paymentcard.component';
+import { MyplaylistComponent } from './myplaylist/myplaylist.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PaymentcardComponent } from './paymentcard/paymentcard.component';
     PaymentSuccessComponent,
     EditprofileComponent,
     SubscribedplanComponent,
-    PaymentcardComponent
+    PaymentcardComponent,
+    MyplaylistComponent
    ],
   imports: [
     BrowserModule,

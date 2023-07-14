@@ -1,107 +1,67 @@
-.background{
-  display: grid;
-  place-items: center;
-  padding: 3rem;
-  background-color: rgb(45, 47, 47);
-}
-
-.premiumContent{
-  display: grid;
-  place-items: center;
-  gap: 0.75rem;
-  padding: 3rem;
-  width: 50vw;
-  background-color: rgb(27, 255, 34);
-}
-.premiumContent .mainQuote{
-  font-size: 0.6cm;
-  font-weight: bold;
-}
-.premiumContent .subQuote{
-  font-size: 20px;
-}
-.premiumContent .buttons{
- display: flex;
- padding: 10px;
-}
-.premiumContent .buttons button{
-  border: none;
-  padding: 20px;
-  border-radius: 40px;
-  background-color: transparent;
-  font-size: 0.4cm;
-  width: 10vw;
-  scale: 1;
-}
-.premiumContent .buttons button:hover{
-  scale: 1.15;
-}
-.premiumContent .buttons button:nth-child(1), .premiumContent .buttons button:nth-child(2){
-  background-color: #000000;
-  color: #fff;
-}
-
-.premiumImage img{
-  width: 350px;
-  height: 200px;
-  border-radius: 40px;
-}
-.fa-solid{
-  font-size: 0.6cm;
-  cursor:pointer;
-}
-.accounts_container{
-  display: flex;
-  /* background-color: antiquewhite; */
-}
-.accounts_left{
-  background-color: #282828;
-  color: #7f7f7f;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #7f7f7f;
-  height: 60vh;
-}
-.accounts_left img{
-  height: 80px;
-  width: 80px;
-}
-.accounts_left a{
-  color: #7f7f7f;
-  border: 1px solid #7f7f7f;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding: 1rem;
-  font-size: 0.6cm;
-  text-decoration: none;
-}
-.accounts_left i{
-  font-size: 0.5cm;
-  padding: 15px;
-}
-.accounts_left a:hover{
-  border-left: 6px solid lime;
-  color: white;
-  cursor: pointer;
-}
-.accounts_left a .active{
-  border-left: 6px solid lime;
-  color: #fff;
-  text-decoration: none;
-}
 .accounts_right{
   background-color: #fff;
   color: #7f7f7f;
   display: grid;
   place-items: center;
-  width: 50vw;
-  height: 60vh;
   padding: 1rem;
 }
+.accounts_right .noPaymentCard p{
+  font-size: 25px;
+  font-weight: 400;
+  color: black;
+  line-height: 30px;
+}
 .accounts_right .paymentCard{
-  background-color: black;
+  background: linear-gradient(to right, deeppink, rgb(244, 10, 244));
   border-radius: 20px;
   height: 30vh;
   width: 50vh;
+  color: #7f7f7f;
+}
+.accounts_right .paymentCard .fa-solid{
+  margin-top: 8px;
+  margin-left: 270px;
+  font-size: 0.6cm;
+  color: #fff;
+}
+.accounts_right .paymentCard .simImage img{
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+}
+.accounts_right .paymentCard .cardDetails{
+  margin-top: 8px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.accounts_right .paymentCard .cardDetails p, .accounts_right .paymentCard .cardType p{
+  margin-left: 20px;
+  font-size: 0.45cm;
+  color: #fff;
+}
+.accounts_right .paymentCard .cardType{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.accounts_right .paymentCard .cardType img{
+  margin-top: -10px;
+  width: 70px;
+  height: 50px;
+}
+.accounts_right .cancelCard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+.accounts_right .cancelCard button{
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 14px;
+  background-color: #0ff00f;
+  color: black;
+  font-size: 0.6cm;
+  font-weight: 400;
 }

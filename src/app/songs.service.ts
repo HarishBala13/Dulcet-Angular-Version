@@ -40,10 +40,6 @@ export class SongsService {
     return this.http.get("http://localhost:3000/searchBoxes");
   }
 
-  premiumPlansService(){
-    return this.http.get("http://localhost:3000/premium");
-  }
-
   addToFavouritesSongsFromPlaylist(songsObject:any,JSONID:any){
     this.myLikedSongsArray = {
       movie_name:songsObject.movie_name,
@@ -72,43 +68,6 @@ export class SongsService {
     })
   }
 
-  userSubscribingPremiumPlans(premiumPlan:any,id:any){
-    this.myPremiumPlansArray = {
-      plans: {
-        title: premiumPlan.plans.title,
-        offer: premiumPlan.plans.offer,
-        info: premiumPlan.plans.info
-      },
-      benefits: {
-        one: premiumPlan.benefits.one,
-        two: premiumPlan.benefits.two
-      },
-      id: premiumPlan.id
-    }
-    this.http.get("http://localhost:3000/premium").subscribe((values:any) => {
-      const findPremiumPlan = values.find( (newvalues:any) => {
-        if(newvalues.id == premiumPlan.id){
-          this.subscribedPlansProperty = newvalues;
-          return this.subscribedPlansProperty;
-        }
-      })
-      if(findPremiumPlan){
-        if(this.subscribedPlansProperty.subscribedPlans != null){
-          this.subscribedPlansProperty.subscribedPlans.push(this.myPremiumPlansArray);
-          console.log(this.subscribedPlansProperty.subscribedPlans.push(this.myPremiumPlansArray));
-          this.http.patch("http://localhost:3000/usersregister/"+id,{subscribedPlans:this.subscribedPlansProperty.subscribedPlans}).subscribe(values => {});
-        }
-        else{
-          this.http.patch("http://localhost:3000/usersregister/"+id,{subscribedPlans:[this.myPremiumPlansArray]}).subscribe(values => {});
-        }
-      }
-    })
-  }
-
-  userSubscribedPremiumPlan(){
-    return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
-  }
-
   addSongsToUserPlaylist(playlistObject:any, JSONID:any){
 
     this.userAddSongsProperty = {
@@ -117,23 +76,48 @@ export class SongsService {
       images : playlistObject.images,
       audios : playlistObject.audios,
       id : playlistObject.id
-    };
+    }
 
-    // console.log(this.userAddSongsProperty);
-    this.http.get("http://localhost:3000/usersregister/"+JSONID).subscribe(y => {
+    this.http.get("http://localhost:3000/usersregister/"+this.jsonID).subscribe(y => {
       this.userExistingPlaylist = y;
-    });
-    console.log(this.userExistingPlaylist)
+
       if(this.userExistingPlaylist.myPlaylist_1 != null){
         this.userExistingPlaylist.myPlaylist_1.push(this.userAddSongsProperty)
-        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_1: this.userExistingPlaylist.myPlaylist_1 }).subscribe(values => {});
+        this.http.patch("http://localhost:3000/usersregister/"+this.jsonID,{ myPlaylist_1: this.userExistingPlaylist.myPlaylist_1 }).subscribe(values => {});
       }
       else{
-        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_1: [this.userAddSongsProperty]}).subscribe(values => {});
+        this.http.patch("http://localhost:3000/usersregister/"+this.jsonID,{ myPlaylist_1: [this.userAddSongsProperty]}).subscribe(values => {});
       }
+    });
+  }
+
+  addSongsToAnotherPlaylist(playlistSongsObject:any, JSONID:any){
+
+    this.userAddSongsProperty = {
+      movie_name : playlistSongsObject.movie_name,
+      song_name : playlistSongsObject.song_name,
+      images : playlistSongsObject.images,
+      audios : playlistSongsObject.audios,
+      id : playlistSongsObject.id
+    };
+
+    this.http.get("http://localhost:3000/usersregister/"+JSONID).subscribe(y => {
+      this.userExistingPlaylist = y;
+      if(this.userExistingPlaylist.myPlaylist_2 != null){
+        this.userExistingPlaylist.myPlaylist_2.push(this.userAddSongsProperty)
+        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_2: this.userExistingPlaylist.myPlaylist_2 }).subscribe(values => {});
+      }
+      else{
+        this.http.patch("http://localhost:3000/usersregister/"+JSONID,{ myPlaylist_2: [this.userAddSongsProperty]}).subscribe(values => {});
+      }
+    });
   }
 
   getUserPlaylist(){
     return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
+  }
+
+  userPlayedSongsHistory(songDetails:any,time:any){
+
   }
 }
