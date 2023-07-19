@@ -1,22 +1,67 @@
 <app-navigationbar></app-navigationbar>
 
-<div class="card-container first">
+<div class="card-contner first">
   <div class="titlehead">
     <a routerLink="/topsongs" routerLinkActive="active">Top Songs</a>
     <a routerLink="/mixedsongs" routerLinkActive="active">Discovered for you</a>
-    <a routerLink="/podcasts" routerLinkActive="active">Podcasts</a>
   </div>
 
   <div class="cards">
-      <div *ngFor="let songs of mixedSongs">
-        <div class="card" (click)="loadAudio(songs)">
+      <div *ngFor="let songs of mixedSongsAssets">
+        <div class="card">
           <img  class="image" src="{{songs.images}}" loading="lazy" alt="">
-          <i class="fa fa-play" id="playicon" (click)="playAI()"></i>
+          <i class="fa fa-play" id="playicon" (click)="loadAudio(songs)"></i>
           <small class="maintitle">{{songs.movie_name}}</small>
           <small class="subtitle">{{songs.song_name}}</small>
         </div>
     </div>
   </div>
 </div>
+
+
+<div *ngIf="openSongTracker">
+  <div class="master_play" >
+    <div class="box1">
+      <div class="notwave" id="masterplay">
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+      </div>
+      <div>
+        <img src="{{imagepath}}" alt="" id="poster_master_play">
+      </div>
+      <div class="flexs">
+        <p class="title">{{maintitle}}</p>
+        <p class="subtitle">{{subtitle}}</p>
+      </div>
+      <i class="fa-solid fa-heart" (click)="addToLike()"  [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
+    </div>
+    <div class="box2">
+      <div class="icon">
+        <button (click)="playSong()" id="previous"><i class="bi bi-play-fill" id="masterPlay"></i></button>
+        <button (click)="pauseSong()" id="previous"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
+        <button (click)="previousSong()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
+        <button (click)="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
+      </div>
+      <div class="box1">
+        <div id="currentStart">0:00</div>
+        <div class="bar">
+            <input type="range" id="seek" min="0" value="0" max="100" style="color: white;">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
+        </div>
+        <div id="currentEnd"></div>
+      </div>
+  </div>
+
+  <div class="vol">
+      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+      <input type="range" id="vol" min="0" value="30" max="100">
+      <div class="vol_bar"></div>
+      <div class="dot" id="vol_dot"></div>
+  </div>
+  </div>
+</div>
+
 
 <app-footer></app-footer>

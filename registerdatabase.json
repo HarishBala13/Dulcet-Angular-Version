@@ -1,7 +1,7 @@
 {
   "usersregister": [
     {
-      "regname": "HARISH B 13",
+      "regname": "HARISH B",
       "regemail": "balahkharish@gmail.com",
       "regpassword": "Harish@2002",
       "regconfirmpassword": "Harish@2002",
@@ -9,20 +9,80 @@
       "subscribedPlans": [
         {
           "plans": {
-            "title": "Feliq",
-            "offer": "₹107/month",
-            "info": "Local Files Feature"
+            "title": "Individual",
+            "offer": "₹240/year",
+            "info": "Play as your wish"
           },
           "benefits": {
             "one": "Ad-free music listening",
-            "two": "Downolad 30 songs"
+            "two": "Download 50 songs"
           },
-          "id": 1
+          "id": 3
         }
       ],
       "userPlaylist": [],
-      "paymentCard": [],
-      "profilePicture": "/assets/images/HARISH B UPDATED.JPG"
+      "paymentCard": [
+        {
+          "cardExpiryDate": "12/25",
+          "cardType": "Visa",
+          "cardNumber": "XXXX XXXX 5785",
+          "cardHolderName": "HARISH B",
+          "cardImage": "https://paymentsdk.spotifycdn.com/svg/cards/visa.svg",
+          "premiumPlanPurchasedDate": "Sat Jul 15 2023",
+          "premiumPlanPurchasedDateWithTime": "2023-07-15T05:30:45.124Z",
+          "premiumPlanTitle": "Individual",
+          "premiumPlanOffers": "₹240/year",
+          "premiumPlanPrice": "₹240",
+          "userState": ""
+        }
+      ],
+      "profilePicture": "/assets/images/HARISH B UPDATED.JPG",
+      "myPlaylist_1": [
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Name is Vikram",
+          "images": "/assets/images/album/The Name is Vikram.jpg",
+          "audios": "/assets/images/audio/The-Name-is-Vikram-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 12
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Ghost Unmasked",
+          "images": "/assets/images/album/Ghost Unmasked.jpg",
+          "audios": "/assets/images/audio/Ghost-Unmasked-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 6
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Rolex's Theme",
+          "images": "/assets/images/album/Rolex-Theme.jpg",
+          "audios": "/assets/images/audio/Rolex-Theme-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 9
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Agent Tina Theme",
+          "images": "/assets/images/album/Agent-Tina.jpg",
+          "audios": "/assets/images/audio/Agent-Tina-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 2
+        },
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Sandhanam's Theme",
+          "images": "/assets/images/album/Sandhanam-Vikram.png",
+          "audios": "/assets/images/audio/Sandhanam-Theme-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 10
+        }
+      ],
+      "likedSongs": [
+        {
+          "movie_name": "Vikram - II",
+          "song_name": "Agent Vikram",
+          "images": "/assets/images/album/Agent-Vikram.jpg",
+          "audios": "/assets/images/audio/Agent-Vikram-(Background-Score)-MassTamilan.dev.mp3",
+          "id": 3
+        }
+      ]
     },
     {
       "regname": "Jeeva122",
@@ -105,7 +165,7 @@
       "userPlaylist": []
     },
     {
-      "regname": "Jeeva_Arav",
+      "regname": "JEEVA",
       "regemail": "2k19me070@kiot.ac.in",
       "regpassword": "Jeeva@2001",
       "regconfirmpassword": "Jeeva@2001",
@@ -114,45 +174,51 @@
       "subscribedPlans": [
         {
           "plans": {
-            "title": "Mini",
-            "offer": "₹190/month",
-            "info": "Enjoy without Ads"
+            "title": "Individual",
+            "offer": "₹240/year",
+            "info": "Play as your wish"
           },
           "benefits": {
             "one": "Ad-free music listening",
-            "two": "Downolad 30 songs"
+            "two": "Download 50 songs"
           },
-          "id": 2
+          "id": 3
         }
       ],
-      "profilePicture": "/assets/images/IMG_20230327_195943 - Jeeva Aravinth J V.jpg",
-      "userPlaylist": []
-    }
-  ],
-  "songs_list": [
-    {
-      "albums": "/assets/images/album/1.jpg",
-      "audio": "/assets/images/audio/1.mp3",
-      "singers_name": "A.R.Rahman",
-      "movie_name": "Ponniyin Selvan -I",
-      "song_name": "Chola Chola",
-      "id": 1
+      "profilePicture": "/assets/images/IMG_20220815_201146.jpg",
+      "userPlaylist": [],
+      "paymentCard": [
+        {
+          "cardExpiryDate": "12/26",
+          "cardType": "Visa",
+          "cardNumber": "XXXX XXXX 4325",
+          "cardHolderName": "JEEVA ARAVINTH J V",
+          "cardImage": "https://paymentsdk.spotifycdn.com/svg/cards/visa.svg",
+          "premiumPlanPurchasedDate": "Sun Oct 16 2023",
+          "premiumPlanPurchasedDateWithTime": "2023-07-16T13:15:56.909Z",
+          "premiumPlanTitle": "Individual",
+          "premiumPlanOffers": "₹240/year",
+          "premiumPlanPrice": "₹240",
+          "userState": "Delhi"
+        }
+      ],
+      "likedSongs": [
+        {
+          "movie_name": "LEO",
+          "song_name": "Naa Ready Dhaan",
+          "images": "/assets/images/album/LEO-Naa-Ready-Song.png",
+          "audios": "/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3",
+          "id": 1
+        }
+      ]
     },
     {
-      "albums": "/assets/images/album/2.jpg",
-      "audio": "/assets/images/audio/2.mp3",
-      "singers_name": "Karthik",
-      "movie_name": "Navarasa",
-      "song_name": "Thooriga",
-      "id": 2
-    },
-    {
-      "albums": "/assets/images/album/3.jpg",
-      "audio": "/assets/images/audio/3.mp3",
-      "singers_name": "Sai Vignesh",
-      "movie_name": "Sita Ramam",
-      "song_name": "Kurumugil",
-      "id": 3
+      "regname": "HarishTestUser",
+      "regemail": "balahkharish@gmail.com",
+      "regpassword": "Harish@2002",
+      "regconfirmpassword": "Harish@2002",
+      "UserRegisterTime": "17-07-2023 10:28:10 AM",
+      "id": 7
     }
   ],
   "Vibes": [
@@ -490,43 +556,6 @@
       "color": "",
       "title": "Gibberish",
       "image": "/assets/images/album/Gibberish-Anirudh.jpg"
-    }
-  ],
-  "posts": [
-    {
-      "songspath": "assets/2.mp3",
-      "albumpath": "assets/2.jpg",
-      "songsname": "JD Alcoholic",
-      "artistsname": "Anirudh",
-      "id": 1
-    },
-    {
-      "songspath": "assets/3.mp3",
-      "albumpath": "assets/3.jpg",
-      "songsname": "Kaadhal Kappal",
-      "artistsname": "Santhosh Narayanan",
-      "id": 2
-    },
-    {
-      "songspath": "assets/4.mp3",
-      "albumpath": "assets/4.jpg",
-      "songsname": "Aval Kuzhal",
-      "artistsname": "Pradeep  Ranganathan",
-      "id": 3
-    },
-    {
-      "songspath": "assets/5.mp3",
-      "albumpath": "assets/5.jpg",
-      "songsname": "Kaadhal Rojavae",
-      "artistsname": "S.P.B",
-      "id": 4
-    },
-    {
-      "songspath": "assets/1.mp3",
-      "albumpath": "assets/1.jpg",
-      "songsname": "Un thunaikku naandhaan",
-      "artistsname": "Ilayaraja",
-      "id": 5
     }
   ],
   "premium": [

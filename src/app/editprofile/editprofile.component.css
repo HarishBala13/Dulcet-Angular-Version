@@ -1,13 +1,4 @@
-.background{
-  display: grid;
-  place-items: center;
-  padding: 3rem;
-  background-color: rgb(179, 245, 245);
-}
-.accounts_container{
-  display: flex;
-  /* background-color: antiquewhite; */
-}
+
 .accounts_left{
   background-color: #282828;
   color: #7f7f7f;
@@ -102,9 +93,12 @@
   width: 80px;
   height: 40px;
 }
+.accounts_right .profileEditor .profileButton button:hover{
+  box-shadow: 0px 2px 3px 5px rgb(76, 75, 75);
+}
 .accounts_right .profileHeads .name, .accounts_right .profileHeads .fa-solid{
-  font-size: 20px;
+  font-size: 25px;
   color: black;
-  font-weight: 400;
+  font-weight: 600;
   cursor: pointer;
 }

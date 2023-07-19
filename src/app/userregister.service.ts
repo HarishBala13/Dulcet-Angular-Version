@@ -16,9 +16,9 @@ export class UserregisterService {
   currentUserEmailID:any ='';
   currentUserJSONID:any = '';
 
-  constructor(private client:HttpClient, private routes:Router, private AL:AlertifyServiceService) {  }
+  constructor(private _client:HttpClient, private routes:Router, private AL:AlertifyServiceService) {  }
   addUser(body:any){
-    return this.client.post("http://localhost:3000/usersregister",body);
+    return this._client.post("http://localhost:3000/usersregister",body);
   }
 
   routingGuardPath(URL:any){
@@ -27,13 +27,12 @@ export class UserregisterService {
   }
 
   loginCheckUser(userEmail:any,userPass:any,returl:any){
-    this.client.get<any>("http://localhost:3000/usersregister").subscribe(values=>{
+    this._client.get<any>("http://localhost:3000/usersregister").subscribe(values=>{
       const user = values.find((result:any)=>{
         return result.regemail == userEmail && result.regpassword == userPass
   });
 
   if(user){
-    console.log(this.returnURL);
     sessionStorage.setItem('loggedin','true');
     sessionStorage.setItem("currentUserName",user.regname);
     sessionStorage.setItem("currentUserJSONID",user.id);
@@ -54,8 +53,6 @@ export class UserregisterService {
     this.AL.Success("Login Success");
   }
   else if(userEmail="dulcetonline2023@gmail.com" && userPass=="@dulcet123"){
-
-
     if(prompt("Enter your I'D: ") == "123"){
       this.AL.Success("Admin Login Success");
       this.routes.navigateByUrl('admin').then(()=>{
@@ -70,7 +67,7 @@ export class UserregisterService {
     this.AL.Error("User not Found");
     console.log("User not found");
   }
-  })
+  });
 }
 
 logoutUser(){
@@ -82,15 +79,14 @@ logoutUser(){
     return this.isLoggedIn;
   }
   updateUser(password:any,repassword:any,length:any){
-    return this.client.patch("http://localhost:3000/usersregister/"+length,{regpassword:password,regconfirmpassword:repassword,summa:password});
+    return this._client.patch("http://localhost:3000/usersregister/"+length,{regpassword:password,regconfirmpassword:repassword,summa:password});
   }
 
   sendPasswordRecoveryEmail(URL:any, userData:any){
-    console.log(userData);
-    return this.client.post(URL,userData);
+    return this._client.post(URL,userData);
   }
 
   sendRegisterEmail(urL:any,userData:any){
-    return this.client.post(urL,userData);
+    return this._client.post(urL,userData);
   }
 }

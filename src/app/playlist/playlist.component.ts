@@ -33,13 +33,13 @@ export class PlaylistComponent {
   i : number = 0;
   j : number = 0;
   index : number = 0;
-  currentTrackIndex = 0;
+  songIndex : number = 0;
+  currentTrackIndex : number = 0;
 
-  audiosrc:string='';
+  audiosrc:any='';
   imagepath:string='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqivTclWTRsA-05BfrWrWb6Q0IJv3TW2RWgg&usqp=CAU';
   maintitle:string='OCEANIC SPACE';
   subtitle:string='A Breath of Fresh Air';
-  songID:number=0;
 
   allPlaylistSongs : any = [];
   allLibrariesSongs : any = [];
@@ -51,97 +51,63 @@ export class PlaylistComponent {
   leoAudios = [];
   vikramAudios = [];
   allAudios = [];
-  playlistTracks:any = [];
-  usersPlaylist:any = [];
-  toBeShuffledPlaylist:any=[];
+  playlistTracks : any = [];
+  usersPlaylist : any = [];
+  toBeShuffledPlaylist : any = [];
 
-  audioPlayer:HTMLAudioElement | undefined;
-
-  public leoSongs = ['/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3','/assets/images/audio/Bloody-Sweet-MassTamilan.dev.mp3'];
-  public vikramSongs = [];
-
+  audioPlayer  : HTMLAudioElement | undefined;
 
   constructor(private AL:AlertifyServiceService,private router:Router,private songService:SongsService){
     this.profileName = sessionStorage.getItem('currentUserName');
     this.JSONID = sessionStorage.getItem('currentUserJSONID');
 
+/**********************************Audio play,pause and shuffling of src values Starts here******************************/
+
     songService.topSongsAssets().subscribe((values:any)=>{
       for(this.i=0; this.i < values.length; this.i++){
         this.movie[this.i] = values[this.i].movieName;
-        // this.moviesongs=values[i].this.movie;
-        // console.log(this.movie[i]);
 
         var movieString = this.movie[this.i].toString();
         var moviesSongs = values[this.i][movieString];
-        // console.log(moviesSongs);
         for(this.j = 0; this.j < moviesSongs.length; this.j++){
           this.allLibrariesSongs.push(moviesSongs[this.j]);
-          // console.log(moviesSongs[this.j].images);
         }
       }
       for(this.index=0; this.index<this.allLibrariesSongs.length; this.index++){
         this.allSongsArray[this.index] = this.allLibrariesSongs[this.index].audios;
       }
 
-      // console.log(this.allSongsArray);
 
       this.allAudios = this.allSongsArray;
       this.leoAudios = this.allSongsArray.slice(0, 2);
       this.vikramAudios = this.allSongsArray.slice(2, 15);
 
-      // console.log(this.allAudios);
-      // console.log(this.leoAudios);
-      // console.log(this.vikramAudios);
-
       this.allPlaylistSongs = this.allLibrariesSongs.slice(0, 17);
-      // console.log(this.allPlaylistSongs);
       this.leoSongsAssets = this.allLibrariesSongs.slice(0, 2);
       this.vikramSongsAssets = this.allLibrariesSongs.slice(2, 15);
 
       this.audioPlayer = new Audio();
       this.audioPlayer.src = this.allAudios[this.currentTrackIndex];
-      // this.audioPlayer.src = "/assests/images/audio/2.mp3";
-
     });
-
   }
-      // console.log(this.vikramSongsAssets);
-      // console.log(this.allPlaylistSongs);
-      // console.log(values[0][movieString]);
-      // console.log(this.movie);
-      loadAudio(audioObject:any,object:any){
 
-        // if(object.length == this.leoAudios.length){
-        //   this.playlistTracks = this.leoAudios;
-        // }
-        // else{
-        //   this.playlistTracks = this.vikramAudios;
-        // }
+  loadAudio(audioObject:any){
 
-        if(sessionStorage.getItem("loggedin")=="true"){
-          sessionStorage.setItem("songTrackLocalStorage","true");
-          console.log(sessionStorage.getItem("songTrackLocalStorage"));
-
-          this.openSongTracker = sessionStorage.getItem("songTrackLocalStorage");
-          console.log(this.openSongTracker);
-
-          // this.audioPlayer?.src = audioObject.audios;
-          this.audiosrc = audioObject.audios;
-          this.imagepath = audioObject.images;
-          this.maintitle = audioObject.movie_name;
-          this.subtitle = audioObject.song_name;
-          this.songID = audioObject.id;
-        }
-        else{
-          this.AL.Error("You can't hear this song right now. Please login to hear the song");
-        }
-      }
+    if(sessionStorage.getItem("loggedin")=="true"){
+      sessionStorage.setItem("songTrackLocalStorage","true");
+      this.openSongTracker = sessionStorage.getItem("songTrackLocalStorage");
+      this.audiosrc = audioObject.audios;
+      this.imagepath = audioObject.images;
+      this.maintitle = audioObject.movie_name;
+      this.subtitle = audioObject.song_name;
+    }
+    else{
+      this.AL.Error("You can't hear this song right now. Please login to hear the song");
+    }
+  }
 
 
   playSong(){
-    // console.log(this.allAudios);
-    // console.log(this.audioPlayer?.src)
-
     if(this.audioPlayer?.src){
       const currentSongClicked = this.audiosrc;
       this.audioPlayer.src = currentSongClicked;
@@ -150,6 +116,7 @@ export class PlaylistComponent {
       masterPlay?.classList.add("wave");
     }
   }
+
   pauseSong(){
     if(this.audioPlayer?.src){
       const currentSongClicked = this.audiosrc;
@@ -158,25 +125,28 @@ export class PlaylistComponent {
       let masterPlay=document.getElementById("masterplay");
       masterPlay?.classList.remove("wave");
     }
-    // this.audioPlayer?.pause();
-    // let masterPlay=document.getElementById("masterplay");
-    // masterPlay?.classList.remove("wave");
   }
+
   nextSong(){
 
     if(this.openLEODiv == true){
-      this.currentTrackIndex = (this.currentTrackIndex + 1) % this.leoAudios.length;
-      console.log( this.currentTrackIndex = (this.currentTrackIndex + 1) % this.leoAudios.length)
-      this.playSong();
+
+      if(this.audioPlayer?.src){
+        const nextSongLoad = this.allAudios[this.audiosrc + 1];
+        this.audioPlayer.src = nextSongLoad;
+        this.audioPlayer?.play();
+        let masterPlay=document.getElementById("masterplay");
+        masterPlay?.classList.add("wave");
+      }
+
     }
     else if(this.openVikramIIDiv == true){
       this.currentTrackIndex = (this.currentTrackIndex + 1) % this.vikramAudios.length;
-      this.playSong();
+      console.log(this.currentTrackIndex);
+      console.log( this.currentTrackIndex = (this.currentTrackIndex + 1) % this.leoAudios.length)
+
      }
 }
-
-    // this.currentTrackIndex = (this.currentTrackIndex + 1) % this.allAudios.length;
-
 
   previousSong(){
     this.currentTrackIndex = (this.currentTrackIndex - 1 + this.allAudios.length) % this.allAudios.length;
@@ -193,7 +163,6 @@ export class PlaylistComponent {
     }
     else if(this.openVikramIIDiv == true){
       this.toBeShuffledPlaylist = this.vikramSongsAssets;
-      console.log(this.toBeShuffledPlaylist);
     }
     else if(this.userPlaylist == true){
       this.toBeShuffledPlaylist = this.userPlaylist;
@@ -204,48 +173,25 @@ export class PlaylistComponent {
       this.toBeShuffledPlaylist[i] = this.toBeShuffledPlaylist[j];
       this.toBeShuffledPlaylist[j] = temp;
     }
-    console.log(this.toBeShuffledPlaylist);
   }
 
   unShufflePlaylist(){
+    if(this.openLEODiv == true){
+      this.leoSongsAssets = this.leoSongsAssets;
+    }
+    else if(this.openVikramIIDiv == true){
+      this.vikramSongsAssets = this.vikramSongsAssets;
+    }
+    else if(this.userPlaylist == true){
+      this.userPlaylist = this.userPlaylist;
+    }
 
   }
 
-  // currentSong(){
-  //   let counting=this.count++;
-  //   console.log(counting);
-  //   let masterPlay=document.getElementById("masterplay");
-  //   let icons=document.getElementById("masterPlay");
-  //   let audio = new Audio();
-  //   audio.src=this.audiosrc;
-  //   console.log(audio.paused);
+  /**********************************Audio play,pause and shuffling of src values Ends here***********************************/
 
-  //   if(audio.paused == true){
-  //     audio.play();
-  //     masterPlay?.classList.add("wave");
-  //     icons?.classList.add("bi-pause-fill");
-  //     icons?.classList.remove("bi-play-fill");
-  //   }
-  //   else {
-  //     audio.pause();
-  //     masterPlay?.classList.remove("wave");
-  //     masterPlay?.classList.add("notwave");
-  //     icons?.classList.remove("bi-pause-fill");
-  //     icons?.classList.add("bi-play-fill");
-  //   }
-  // }
 
-  // ngOnInit() {
-  //   if(sessionStorage.getItem("loggedin")=="true"){
-  //     sessionStorage.setItem("songTracker","true");
-  //     console.log(sessionStorage.getItem("songTracker"));
-  //     this.openSongTracker=sessionStorage.getItem("songTracker");
-  //   }
-  //   else if(sessionStorage.getItem("loggedin")=="false"){
-  //     sessionStorage.removeItem("songTracker")
-  //   }
-
-  // }
+  /******************************* Boolean DIVs Open and Close Methods Starts here*******************************/
 
   createPlaylist(){
     this.openNewPlaylist = true;
@@ -255,6 +201,8 @@ export class PlaylistComponent {
 
   createAnotherPlaylist(){
     this.openAnotherPlaylist = true;
+    this.openVikramIIDiv = false;
+    this.openLEODiv = false;
   }
 
   openPlaylist(){
@@ -302,6 +250,7 @@ export class PlaylistComponent {
     this.openVikramIIDiv = false;
     this.openNewPlaylist = false;
     this.openPlaylistDiv = false;
+    this.userPlaylist = false;
   }
 
   openVikramPlaylist(){
@@ -309,7 +258,11 @@ export class PlaylistComponent {
     this.openLEODiv = false;
     this.openNewPlaylist = false;
     this.openPlaylistDiv = false;
+    this.userPlaylist = false;
   }
+
+  /**********************************Boolean DIVs Open and Close Methods Ends here**************************************/
+
 
   addToLike() {
     this.toggle = !this.toggle;
@@ -326,12 +279,41 @@ export class PlaylistComponent {
     this.songService.addSongsToUserPlaylist(playlistSongs,this.JSONID);
   }
 
-  logout(){
-      this.AL.AlertUser(`Are You sure want to Logout ${sessionStorage.getItem("currentUserName")} ?`);
-      sessionStorage.setItem("loggedin","false");
-      sessionStorage.removeItem("currentUserName");
-      this.router.navigateByUrl('login').then(()=>{
-        location.reload();
-      })
-    }
-  }
+  // currentSong(){
+  //   let counting=this.count++;
+  //   console.log(counting);
+  //   let masterPlay=document.getElementById("masterplay");
+  //   let icons=document.getElementById("masterPlay");
+  //   let audio = new Audio();
+  //   audio.src=this.audiosrc;
+  //   console.log(audio.paused);
+
+  //   if(audio.paused == true){
+  //     audio.play();
+  //     masterPlay?.classList.add("wave");
+  //     icons?.classList.add("bi-pause-fill");
+  //     icons?.classList.remove("bi-play-fill");
+  //   }
+  //   else {
+  //     audio.pause();
+  //     masterPlay?.classList.remove("wave");
+  //     masterPlay?.classList.add("notwave");
+  //     icons?.classList.remove("bi-pause-fill");
+  //     icons?.classList.add("bi-play-fill");
+  //   }
+  // }
+
+  // ngOnInit() {
+  //   if(sessionStorage.getItem("loggedin")=="true"){
+  //     sessionStorage.setItem("songTracker","true");
+  //     console.log(sessionStorage.getItem("songTracker"));
+  //     this.openSongTracker=sessionStorage.getItem("songTracker");
+  //   }
+  //   else if(sessionStorage.getItem("loggedin")=="false"){
+  //     sessionStorage.removeItem("songTracker")
+  //   }
+
+  // }
+
+
+}

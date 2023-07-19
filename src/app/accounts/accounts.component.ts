@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-accounts',
@@ -9,9 +10,15 @@ export class AccountsComponent {
   currentUserProfileName : any = '';
   currentUserEmailID : any = '';
   cuurentUserJSONID : any = '';
+  profiles : any = '';
 
-  constructor(){
-    this.currentUserProfileName = sessionStorage.getItem('currentUserName');
+  constructor(private profileService:ProfileService){
+
+    profileService.getUserProfileDetails().subscribe(values => {
+      this.profiles = values;
+      this.currentUserProfileName = this.profiles.regname;
+    });
+
     this.currentUserEmailID=sessionStorage.getItem('currentUserEmail');
     this.cuurentUserJSONID = sessionStorage.getItem('currentUserJSONID');
   }

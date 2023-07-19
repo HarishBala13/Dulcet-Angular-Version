@@ -49,56 +49,6 @@
   </div>
 </div>
 
-<div *ngIf="openSongTracker">
-  <div class="master_play" >
-    <div class="box1">
-        <div class="notwave" id="masterplay">
-          <div class="wave1"></div>
-          <div class="wave1"></div>
-          <div class="wave1"></div>
-        </div>
-        <div>
-          <img src="{{imagepath}}" alt="" id="poster_master_play">
-        </div>
-        <div>
-          <h5 id="title">{{maintitle}}<br>
-            <div class="subtitle">{{subtitle}}</div>
-          </h5>
-        </div>
-        <div>
-          <i class="fa-solid fa-heart"
-          (click)="addToLike()"
-          [ngClass]="{'liked' : !toggle, 'untouched': toggle}"></i>
-        </div>
-    </div>
-    <div class="box2">
-      <div class="icon">
-        <button (click)="playAI()"id="previous"><i class="bi bi-play-fill" id="back"></i></button>
-        <button (click)="pauseAI()"id="previous"><i class="bi bi-pause-fill" id="back"></i></button>
-        <button (click)="nextSongAI()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
-        <button (click)="previousSongAI()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
-      </div>
-      <div>
-        <span id="currentStart">0:00</span>
-        <div class="bar">
-            <input type="range" id="seek" min="0" value="0" max="100" onclick="changeDuration()">
-            <div class="bar2" id="bar2"></div>
-            <div class="dot"></div>
-        </div>
-        <span id="currentEnd">0:00</span>
-      </div>
-  </div>
-
-
-
-  <div class="vol">
-      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
-      <input type="range" id="vol" min="0" value="30" max="100">
-      <div class="vol_bar"></div>
-      <div class="dot" id="vol_dot"></div>
-  </div>
-  </div>
-</div>
 
 <app-footer></app-footer>
 

@@ -11,19 +11,14 @@ export class UserAuthorizationGuard implements CanActivate, CanActivateChild, Ca
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if(sessionStorage.getItem('loggedin')=="false"){
       this.router.navigate(['login'],{queryParams:{returl:route.url}});
-      // this.userService.routingGuardPath(route.url);
-      console.log("Guard Console "+route.url)
-      console.log("1")
       return false;
     }
     else if(sessionStorage.getItem('loggedin')=='true'){
-      console.log("2");
       return true;
     }
     else if(!sessionStorage.getItem("currentUserName")){
       // console.log("Another tab SessionStorage works");
       this.router.navigate(['login'], {queryParams: {returl: route.url}});
-      console.log("Guard Console"+route.url)
       return false;
     }
     else{
@@ -34,11 +29,6 @@ export class UserAuthorizationGuard implements CanActivate, CanActivateChild, Ca
         return true;
       }
     }
-    // if(this.userService.isLoggedIn == false){
-    // return true;
-    // }
-    // this.router.navigate(['/'],{queryParams: { }})
-    // return true;
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,

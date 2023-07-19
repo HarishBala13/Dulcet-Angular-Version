@@ -15,9 +15,9 @@ export class IndexComponent {
   public item:any="";
   constructor(private songService:SongsService, private userService:UserregisterService,private client:HttpClient) {
 
-    this.songService.dulcetassets().subscribe((values=>{
-      this.item=values;
-    }));
+    // this.songService.dulcetassets().subscribe((values=>{
+    //   this.item=values;
+    // }));
 
     songService.mixedSongsAssets().subscribe(vibesvalues=>{
       this.vibes_value=vibesvalues;

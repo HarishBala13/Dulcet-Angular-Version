@@ -47,7 +47,7 @@
       <span>State</span>
       <select name="state">
         <option selected disabled>Choose your State</option>
-        <option *ngFor="let states of newStateArray" value="{{states}}" (change)="userState($event)">{{states}}</option>
+        <option *ngFor="let states of newStateArray" value="{{states}}" (click)="userState($event)">{{states}}</option>
     </select>
     </div>
     <div class="paymentBox">
@@ -64,10 +64,20 @@
             <img src="https://paymentsdk.spotifycdn.com/svg/providers/upi/bhim.svg">
           </div>
           <div class="upiID" *ngIf="upiDivBoolean">
+
+            <span>UPI Method</span>
+            <select name="paymentMethod">
+              <option selected disabled>Choose any UPI Gateway</option>
+              <option value="googlepay">Google Pay</option>
+              <option value="paytm">PayTM</option>
+              <option value="amazonpay">Amazon Pay</option>
+              <option value="bhim">BHIM</option>
+            </select>
+
             <span>UPI ID</span>
             <input type="text" placeholder="user@upihandle">
             <p>
-              If you don't cancel your subscription before the trial ends on {{today}}, you agree that you are making the payment directly with your entered UPI ID.
+              If you don't cancel your subscription before the trial ends on {{today}}, you agree that you are making the payment directly with your entered UPI ID. <b style="color: red;">It will redirect you to the selected UPI Gateway.</b>
             </p>
             <button>Pay&nbsp;{{price}}</button>
           </div>

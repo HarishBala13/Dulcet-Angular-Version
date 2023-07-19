@@ -55,7 +55,7 @@ export class RegisterComponent {
         registeredtime:this.userRegisterTime
       }
 
-      this.userService.sendRegisterEmail("http://localhost:1999/sendEmail",users).subscribe((data)=>{});
+      this.userService.sendRegisterEmail("http://localhost:1999/sendRegisterEmail",users).subscribe((data)=>{});
 
     }
     else if(this.registerForm.value.regpassword != this.registerForm.value.regconfirmpassword){

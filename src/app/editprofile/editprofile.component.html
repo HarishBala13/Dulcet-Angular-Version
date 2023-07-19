@@ -1,5 +1,5 @@
 <div class="accounts_right">
-  <div class="profileContainer">
+  <div class="profileContainer" *ngIf="userProfileDiv">
     <div class="profileBox">
       <div class="profileImage">
         <img src="{{userProfileImage}}" alt="userimage" (click)="openEditUserProfileDiv()">
@@ -27,7 +27,7 @@
 
         <div *ngIf="editProfileName.touched">
           <small class="small" *ngIf="editProfileName.errors?.['required']">* Name is required</small>
-          <small class="small" *ngIf="editProfileName.errors?.['pattern']">* Please provide a proper name</small>
+          <!-- <small class="small" *ngIf="editProfileName.errors?.['pattern']">* Please provide a proper name</small> -->
         </div>
 
         <!-- <input type="text" class="editProfileName" formControlName="editProfileName">

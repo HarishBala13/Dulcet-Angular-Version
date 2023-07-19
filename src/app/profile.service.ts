@@ -9,21 +9,22 @@ export class ProfileService {
 
   JSONID:any='';
 
-  constructor(private http:HttpClient,private router:Router) {
+  constructor(private _http:HttpClient,private router:Router) {
     this.JSONID = sessionStorage.getItem("currentUserJSONID");
+    console.log(this.JSONID);
   }
+
   updateUserProfile(path:any,userName:any){
     console.log(path);
     console.log(userName);
-    this.http.patch("http://localhost:3000/usersregister/"+this.JSONID , {profilePicture:path, regname:userName}).subscribe(values => {
-      console.log(values);
+    this._http.patch("http://localhost:3000/usersregister/"+this.JSONID , {profilePicture:path, regname:userName}).subscribe( () => {
       this.router.navigate(['profile/editprofile']).then(() =>{
         location.reload();
       })
     });
   }
 
-  getUserProfileImage(){
-    return this.http.get("http://localhost:3000/usersregister/"+this.JSONID);
+  getUserProfileDetails(){
+    return this._http.get("http://localhost:3000/usersregister/"+this.JSONID);
   }
 }

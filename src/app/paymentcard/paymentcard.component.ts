@@ -16,10 +16,11 @@ export class PaymentcardComponent {
   cardHolderName:any=' ';
   paymentCardDiv : boolean = false;
   noPaymentCardDiv : boolean = false;
+  cardCancelConfirmation : boolean = false;
 
   constructor(private paymentService:PaymentService){
     console.log(paymentService.paymentInfo);
-    paymentService.getUserPaymentCardDetails().subscribe(values => {
+    paymentService.getUserDetails().subscribe(values => {
       this.cardDetails = values;
       console.log(this.cardDetails.paymentCard)
 
@@ -27,6 +28,7 @@ export class PaymentcardComponent {
     if(this.cardDetails.paymentCard.length == 0){
       this.paymentCardDiv = false;
       this.noPaymentCardDiv = true;
+      this.cardCancelConfirmation = false;
     }
     else{
       this.expiryDate = this.cardDetails.paymentCard[0].cardExpiryDate;
@@ -39,6 +41,16 @@ export class PaymentcardComponent {
       this.noPaymentCardDiv = false;
     }
     });
+  }
+
+  openCardCancelConfirmation(){
+    this.cardCancelConfirmation = true;
+    this.paymentCardDiv = false;
+    this.noPaymentCardDiv = false;
+  }
+  closeCardCancelConfirmation(){
+    this.cardCancelConfirmation = false;
+    this.paymentCardDiv = true;
   }
 
   removeUserPaymentCard(){

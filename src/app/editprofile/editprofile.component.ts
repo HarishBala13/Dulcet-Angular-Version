@@ -12,24 +12,27 @@ import { ProfileService } from '../profile.service';
 })
 export class EditprofileComponent {
 
-  profileName:any ='';
-  JSONID:any='';
-  editProfile:boolean = false;
-  userProfileFile:any='';
-  profileImagePath:any='';
-  userProfileImage:any='/assets/images/person.png';
-  profiles:any='';
+  profileName : any ='';
+  JSONID : any='';
+  editProfile : boolean = false;
+  userProfileDiv : boolean = true;
+  userProfileFile : any='';
+  profileImagePath : any='';
+  userProfileImage : any='/assets/images/person.png';
+  profiles : any='';
+  date : any = '';
+  today : any = '';
 
-  constructor(private formbuilder:FormBuilder, private profileService:ProfileService, private http:HttpClient){
-    // this.profileName = sessionStorage.getItem('currentUserName');
+  constructor(private formbuilder:FormBuilder, private profileService:ProfileService, private _http:HttpClient){
     this.JSONID = sessionStorage.getItem('currentUserJSONID');
 
-    profileService.getUserProfileImage().subscribe( values => {
+    this.date = new Date();
+    this.today = this.date.toDateString();
+
+    profileService.getUserProfileDetails().subscribe( values => {
       this.profiles = values;
-      console.log(this.profiles);
       this.profileName = this.profiles.regname;
       this.userProfileImage = this.profiles.profilePicture;
-      console.log(this.userProfileImage);
     })
   }
 
@@ -38,7 +41,6 @@ export class EditprofileComponent {
       const file = event.target.files;
       this.userProfileFile = file;
     }
-    // console.log(this.userProfileFile);
   }
 
   editUsersProfile(userName:any){
@@ -47,22 +49,22 @@ export class EditprofileComponent {
     for(let userProfile of this.userProfileFile){
       userProfileformData.append('userProfile',userProfile);
     }
-    console.log(userName);
 
-    this.http.post("http://localhost:1999/userProfileUpload", userProfileformData).subscribe( values => {console.log(values)});
+    this._http.post("http://localhost:1999/userProfileUpload", userProfileformData).subscribe( values => {console.log(values)});
 
     this.profileImagePath = '/assets/images/'+this.userProfileFile[0].name;
-    // console.log(this.profileImagePath);
-      this.profileService.updateUserProfile(this.profileImagePath,userName)
+    this.profileService.updateUserProfile(this.profileImagePath,userName)
 
   }
 
   openEditUserProfileDiv(){
     this.editProfile = true;
+    this.userProfileDiv = false;
   }
 
   closeEditUserProfileDiv(){
     this.editProfile = false;
+    this.userProfileDiv = true;
   }
 
 }

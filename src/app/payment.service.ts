@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +8,25 @@ import { Injectable } from '@angular/core';
 export class PaymentService {
 
   jsonID:any='';
+  emailID:any='';
+  userName:any='';
   paymentDetails:any=[];
+  paymentDetailsEmail:any='';
   paymentInfo:any='';
   paymentValues:any='';
 
-  constructor(private http:HttpClient) {
+  constructor(private _http:HttpClient,private router:Router) {
+    this.emailID = sessionStorage.getItem("currentUserEmail");
+    this.userName = sessionStorage.getItem("currentUserName");
     this.jsonID = sessionStorage.getItem("currentUserJSONID");
-    console.log("paymentservie "+this.jsonID)
   }
 
   getVisaCardBINNumber(){
-    return this.http.get("http://localhost:3000/Visa");
+    return this._http.get("http://localhost:3000/Visa");
   }
 
   getMasterCardsBINNumber(){
-    return this.http.get("http://localhost:3000/Mastercard")
+    return this._http.get("http://localhost:3000/Mastercard")
   }
 
   userPaymentDetails(expiryDate:any,cardName:any,cardNumber:any,cardHolderName:any,cardImage:any,purchasedDate:any,planTitle:any,plansOffer:any,planPrice:any,state:any,premiumPurchasedDateWithTime:any){
@@ -38,18 +43,37 @@ export class PaymentService {
       premiumPlanPrice: planPrice,
       userState: state
     }
-    this.http.patch("http://localhost:3000/usersregister/"+this.jsonID, {paymentCard: [this.paymentDetails]}).subscribe(values => {console.log(values)});
+    this._http.patch("http://localhost:3000/usersregister/"+this.jsonID, {paymentCard: [this.paymentDetails]}).subscribe( () => {});
+
+    this.paymentDetailsEmail = {
+      userEmail : this.emailID,
+      userName : this.userName,
+      premiumPlanPurchasedDateWithTime : premiumPurchasedDateWithTime,
+      premiumPlanTitle : planTitle,
+      premiumPlanOffers : plansOffer,
+      premiumPlanPrice : planPrice
+    }
+
+    this.sendRegisteredPremiumPlanEmail("http://localhot:1999/sendRegisteredPremiumPlanEmail",this.paymentDetailsEmail);
   }
 
-  getUserPaymentCardDetails(){
-    return this.http.get("http://localhost:3000/usersregister/"+this.jsonID);
+  getUserDetails(){
+    return this._http.get("http://localhost:3000/usersregister/"+this.jsonID);
   }
 
   getStates(){
-    return this.http.get("http://localhost:3000/states");
+    return this._http.get("http://localhost:3000/states");
+  }
+
+  sendRegisteredPremiumPlanEmail(url:any, userData:any){
+    return this._http.post(url,userData);
   }
 
   deleteUserPaymentCard(){
-    return this.http.patch("http://localhost:3000/usersregister/"+this.jsonID, {paymentCard: []}).subscribe(values => {});
+    return this._http.patch("http://localhost:3000/usersregister/"+this.jsonID, {paymentCard: []}).subscribe( () => {
+    this.router.navigateByUrl('profile/paymentcard').then( () => {
+      location.reload();
+    })
+    });
   }
 }

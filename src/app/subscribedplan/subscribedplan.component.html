@@ -16,16 +16,20 @@
         </div>
       </div>
       <div class="gridColumnCenter">
-        <p class="normal">Start Free month</p>
-        <p class="bold">Today</p>
+        <p class="normal">Today</p>
+        <p class="green">{{today}}</p>
       </div>
       <div class="gridColumnCenter">
-        <p class="normal">Start billing date</p>
-        <p class="bold">{{today}}</p>
+        <p class="normal">Plan billed date</p>
+        <p class="green">{{userSubscribedDate}}</p>
+      </div>
+      <div class="gridColumnCenter">
+        <p class="normal">Plan expiry date</p>
+        <p class="red">{{expiryDate}}</p>
       </div>
       <ul>
         <li>{{planOffer}}</li>
-        <li>You won't be charged until {{today}}</li>
+        <li>You won't be charged until {{userSubscribedDate}}</li>
         <li>We will remind you 7 days before your plan get expired</li>
       </ul>
     </div>

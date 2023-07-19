@@ -42,7 +42,7 @@ export class ForgotComponent {
         localStorage.setItem("ForgotEmail",JSON.stringify(users.userEmail));
         console.log(localStorage.getItem("ForgotEmail"));
         localStorage.removeItem("ForgotEmail");
-        this.userService.sendPasswordRecoveryEmail("http://localhost:1999/sendEmail",users).subscribe((data)=>{
+        this.userService.sendPasswordRecoveryEmail("http://localhost:1999/sendForgotPassEmail",users).subscribe((data)=>{
           console.log(data)
         });
       }

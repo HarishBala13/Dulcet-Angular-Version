@@ -1,3 +1,33 @@
+.accounts_right .backgroundBlur{
+  background-color: rgba(247, 236, 26, 0.5);
+  z-index: 2;
+  border-radius: 20px;
+}
+.accounts_right .backgroundBlur .paymentCardCancel{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.accounts_right .backgroundBlur .paymentCardCancel p{
+  font-size: 0.65cm;
+  color: black;
+  line-height: 25px;
+}
+.accounts_right .backgroundBlur .paymentCardCancel .buttons{
+  display: flex;
+  justify-content: space-around;
+}
+.accounts_right .backgroundBlur .paymentCardCancel .buttons button{
+  border: none;
+  padding: 15px;
+  background-color: #42ec42;
+  font-size: 0.4cm;
+  font-weight: 700;
+  border-radius: 20px;
+}
+.accounts_right .backgroundBlur .paymentCardCancel .buttons button:hover{
+  box-shadow: 0px 2px 3px 5px rgb(76, 75, 75);
+}
 .accounts_right{
   background-color: #fff;
   color: #7f7f7f;
@@ -41,8 +71,8 @@
   color: #fff;
 }
 .accounts_right .paymentCard .cardType{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+  display: flex;
+  justify-content: space-around;
 }
 .accounts_right .paymentCard .cardType img{
   margin-top: -10px;
@@ -64,4 +94,7 @@
   color: black;
   font-size: 0.6cm;
   font-weight: 400;
+}
+.accounts_right .cancelCard button:hover{
+  box-shadow: 0px 2px 3px 5px rgb(76, 75, 75);
 }
