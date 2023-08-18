@@ -1,0 +1,183 @@
+[33mcommit 7a9214bd6cd2ab5efe5e9e230c1daa9188b74294[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: RICMED <ricmed241323@gmail.com>
+Date:   Wed Jul 19 21:42:53 2023 +0530
+
+    19.07.2023 Subscribed plan component working
+
+[1mdiff --git a/registerdatabase.json b/registerdatabase.json[m
+[1mindex 878fdb2..d178529 100644[m
+[1m--- a/registerdatabase.json[m
+[1m+++ b/registerdatabase.json[m
+[36m@@ -1,7 +1,7 @@[m
+ {[m
+   "usersregister": [[m
+     {[m
+[31m-      "regname": "HARISH B 13",[m
+[32m+[m[32m      "regname": "HARISH B",[m
+       "regemail": "balahkharish@gmail.com",[m
+       "regpassword": "Harish@2002",[m
+       "regconfirmpassword": "Harish@2002",[m
+[36m@@ -9,20 +9,80 @@[m
+       "subscribedPlans": [[m
+         {[m
+           "plans": {[m
+[31m-            "title": "Feliq",[m
+[31m-            "offer": "₹107/month",[m
+[31m-            "info": "Local Files Feature"[m
+[32m+[m[32m            "title": "Individual",[m
+[32m+[m[32m            "offer": "₹240/year",[m
+[32m+[m[32m            "info": "Play as your wish"[m
+           },[m
+           "benefits": {[m
+             "one": "Ad-free music listening",[m
+[31m-            "two": "Downolad 30 songs"[m
+[32m+[m[32m            "two": "Download 50 songs"[m
+           },[m
+[31m-          "id": 1[m
+[32m+[m[32m          "id": 3[m
+         }[m
+       ],[m
+       "userPlaylist": [],[m
+[31m-      "paymentCard": [],[m
+[31m-      "profilePicture": "/assets/images/HARISH B UPDATED.JPG"[m
+[32m+[m[32m      "paymentCard": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "cardExpiryDate": "12/25",[m
+[32m+[m[32m          "cardType": "Visa",[m
+[32m+[m[32m          "cardNumber": "XXXX XXXX 5785",[m
+[32m+[m[32m          "cardHolderName": "HARISH B",[m
+[32m+[m[32m          "cardImage": "https://paymentsdk.spotifycdn.com/svg/cards/visa.svg",[m
+[32m+[m[32m          "premiumPlanPurchasedDate": "Sat Jul 15 2023",[m
+[32m+[m[32m          "premiumPlanPurchasedDateWithTime": "2023-07-15T05:30:45.124Z",[m
+[32m+[m[32m          "premiumPlanTitle": "Individual",[m
+[32m+[m[32m          "premiumPlanOffers": "₹240/year",[m
+[32m+[m[32m          "premiumPlanPrice": "₹240",[m
+[32m+[m[32m          "userState": ""[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "profilePicture": "/assets/images/HARISH B UPDATED.JPG",[m
+[32m+[m[32m      "myPlaylist_1": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Name is Vikram",[m
+[32m+[m[32m          "images": "/assets/images/album/The Name is Vikram.jpg",[m
+[32m+[m[32m          "audios": "/assets/images/audio/The-Name-is-Vikram-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 12[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Ghost Unmasked",[m
+[32m+[m[32m          "images": "/assets/images/album/Ghost Unmasked.jpg",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Ghost-Unmasked-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 6[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Rolex's Theme",[m
+[32m+[m[32m          "images": "/assets/images/album/Rolex-Theme.jpg",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Rolex-Theme-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 9[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Agent Tina Theme",[m
+[32m+[m[32m          "images": "/assets/images/album/Agent-Tina.jpg",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Agent-Tina-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 2[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Sandhanam's Theme",[m
+[32m+[m[32m          "images": "/assets/images/album/Sandhanam-Vikram.png",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Sandhanam-Theme-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 10[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "likedSongs": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "Vikram - II",[m
+[32m+[m[32m          "song_name": "Agent Vikram",[m
+[32m+[m[32m          "images": "/assets/images/album/Agent-Vikram.jpg",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Agent-Vikram-(Background-Score)-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 3[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ][m
+     },[m
+     {[m
+       "regname": "Jeeva122",[m
+[36m@@ -105,7 +165,7 @@[m
+       "userPlaylist": [][m
+     },[m
+     {[m
+[31m-      "regname": "Jeeva_Arav",[m
+[32m+[m[32m      "regname": "JEEVA",[m
+       "regemail": "2k19me070@kiot.ac.in",[m
+       "regpassword": "Jeeva@2001",[m
+       "regconfirmpassword": "Jeeva@2001",[m
+[36m@@ -114,45 +174,51 @@[m
+       "subscribedPlans": [[m
+         {[m
+           "plans": {[m
+[31m-            "title": "Mini",[m
+[31m-            "offer": "₹190/month",[m
+[31m-            "info": "Enjoy without Ads"[m
+[32m+[m[32m            "title": "Individual",[m
+[32m+[m[32m            "offer": "₹240/year",[m
+[32m+[m[32m            "info": "Play as your wish"[m
+           },[m
+           "benefits": {[m
+             "one": "Ad-free music listening",[m
+[31m-            "two": "Downolad 30 songs"[m
+[32m+[m[32m            "two": "Download 50 songs"[m
+           },[m
+[31m-          "id": 2[m
+[32m+[m[32m          "id": 3[m
+         }[m
+       ],[m
+[31m-      "profilePicture": "/assets/images/IMG_20230327_195943 - Jeeva Aravinth J V.jpg",[m
+[31m-      "userPlaylist": [][m
+[31m-    }[m
+[31m-  ],[m
+[31m-  "songs_list": [[m
+[31m-    {[m
+[31m-      "albums": "/assets/images/album/1.jpg",[m
+[31m-      "audio": "/assets/images/audio/1.mp3",[m
+[31m-      "singers_name": "A.R.Rahman",[m
+[31m-      "movie_name": "Ponniyin Selvan -I",[m
+[31m-      "song_name": "Chola Chola",[m
+[31m-      "id": 1[m
+[31m-    },[m
+[31m-    {[m
+[31m-      "albums": "/assets/images/album/2.jpg",[m
+[31m-      "audio": "/assets/images/audio/2.mp3",[m
+[31m-      "singers_name": "Karthik",[m
+[31m-      "movie_name": "Navarasa",[m
+[31m-      "song_name": "Thooriga",[m
+[31m-      "id": 2[m
+[32m+[m[32m      "profilePicture": "/assets/images/IMG_20220815_201146.jpg",[m
+[32m+[m[32m      "userPlaylist": [],[m
+[32m+[m[32m      "paymentCard": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "cardExpiryDate": "12/26",[m
+[32m+[m[32m          "cardType": "Visa",[m
+[32m+[m[32m          "cardNumber": "XXXX XXXX 4325",[m
+[32m+[m[32m          "cardHolderName": "JEEVA ARAVINTH J V",[m
+[32m+[m[32m          "cardImage": "https://paymentsdk.spotifycdn.com/svg/cards/visa.svg",[m
+[32m+[m[32m          "premiumPlanPurchasedDate": "Sun Oct 16 2023",[m
+[32m+[m[32m          "premiumPlanPurchasedDateWithTime": "2023-07-16T13:15:56.909Z",[m
+[32m+[m[32m          "premiumPlanTitle": "Individual",[m
+[32m+[m[32m          "premiumPlanOffers": "₹240/year",[m
+[32m+[m[32m          "premiumPlanPrice": "₹240",[m
+[32m+[m[32m          "userState": "Delhi"[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "likedSongs": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "movie_name": "LEO",[m
+[32m+[m[32m          "song_name": "Naa Ready Dhaan",[m
+[32m+[m[32m          "images": "/assets/images/album/LEO-Naa-Ready-Song.png",[m
+[32m+[m[32m          "audios": "/assets/images/audio/Naa-Ready-MassTamilan.dev.mp3",[m
+[32m+[m[32m          "id": 1[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ][m
+     }
