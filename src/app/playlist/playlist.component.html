@@ -2,44 +2,44 @@
 
 <div class="playlist-container">
   <div class="playlistHead"><span>Playlists we offer you</span></div>
-  <hr>
+  <hr />
   <div class="flexPlaylistHeads">
     <a (click)="openLEOPlaylist()">LEO</a>
     <a (click)="openVikramPlaylist()">Vikram - II</a>
     <a (click)="openPlaylist()">Playlists</a>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="flexPlaylistHeads" *ngIf="openLEODiv">
     <div>
-      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br />
       <p>Shuffle</p>
     </div>
     <div>
-      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br />
       <p>Un-shuffle</p>
     </div>
   </div>
 
   <div class="flexPlaylistHeads" *ngIf="openVikramIIDiv">
     <div>
-      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br />
       <p>Shuffle</p>
     </div>
     <div>
-      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br />
       <p>Un-shuffle</p>
     </div>
   </div>
 
   <div class="flexPlaylistHeads" *ngIf="userPlaylist">
     <div>
-      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="shufflePlaylist()"></i><br />
       <p>Shuffle</p>
     </div>
     <div>
-      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br>
+      <i class="fa-solid fa-shuffle" (click)="unShufflePlaylist()"></i><br />
       <p>Un-shuffle</p>
     </div>
   </div>
@@ -47,10 +47,14 @@
   <div class="singlePlaylist" *ngIf="openLEODiv">
     <div *ngFor="let songs of leoSongsAssets">
       <div class="card">
-        <img  class="image" src="{{songs['images']}}" alt="{{songs['movie_name']}}">
+        <img
+          class="image"
+          src="{{ songs['images'] }}"
+          alt="{{ songs['movie_name'] }}"
+        />
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs)"></i>
-        <small class="maintitle">{{songs['movie_name']}}</small>
-        <small class="subtitle">{{songs['song_name']}}</small>
+        <small class="maintitle">{{ songs["movie_name"] }}</small>
+        <small class="subtitle">{{ songs["song_name"] }}</small>
       </div>
     </div>
   </div>
@@ -58,10 +62,14 @@
   <div class="singlePlaylist" *ngIf="openVikramIIDiv">
     <div *ngFor="let songs of vikramSongsAssets">
       <div class="card">
-        <img  class="image" src="{{songs['images']}}" alt="{{songs['movie_name']}}">
+        <img
+          class="image"
+          src="{{ songs['images'] }}"
+          alt="{{ songs['movie_name'] }}"
+        />
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs)"></i>
-        <small class="maintitle">{{songs['movie_name']}}</small>
-        <small class="subtitle">{{songs['song_name']}}</small>
+        <small class="maintitle">{{ songs["movie_name"] }}</small>
+        <small class="subtitle">{{ songs["song_name"] }}</small>
       </div>
     </div>
   </div>
@@ -69,10 +77,14 @@
   <div class="singlePlaylist" *ngIf="userPlaylist">
     <div *ngFor="let songs of usersPlaylist">
       <div class="card">
-        <img  class="image" src="{{songs.images}}" alt="{{songs.movie_name}}">
+        <img
+          class="image"
+          src="{{ songs.images }}"
+          alt="{{ songs.movie_name }}"
+        />
         <i class="fa fa-play" id="playicon" (click)="loadAudio(songs)"></i>
-        <small class="maintitle">{{songs.movie_name}}</small>
-        <small class="subtitle">{{songs.song_name}}</small>
+        <small class="maintitle">{{ songs.movie_name }}</small>
+        <small class="subtitle">{{ songs.song_name }}</small>
       </div>
     </div>
   </div>
@@ -94,19 +106,26 @@
     <div><p>Action</p></div>
   </div>
   <div class="horizontalLine"></div>
-  <div class="gridPlaylistDiv"  *ngFor="let source of allPlaylistSongs; let i = index;">
-   <div>
-    <span class="number">{{i+1}}</span>
-   </div>
-   <div class="gridColumns">
-    <img src="{{source.images}}" alt="">
-    <span class="maintitle">{{source.song_name}}</span>
-   </div>
-   <div id="">{{source.duration}}</div>
-   <div class="gridColumnsCenter">
-    <button (click)="addSongsToPlaylist(source)">Add</button>
-    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
-  </div>
+  <div
+    class="gridPlaylistDiv"
+    *ngFor="let source of allPlaylistSongs; let i = index"
+  >
+    <div>
+      <span class="number">{{ i + 1 }}</span>
+    </div>
+    <div class="gridColumns">
+      <img src="{{ source.images }}" alt="" />
+      <span class="maintitle">{{ source.song_name }}</span>
+    </div>
+    <div id="">{{ source.duration }}</div>
+    <div class="gridColumnsCenter">
+      <button (click)="addSongsToPlaylist(source)">Add</button>
+      <i
+        class="fa-solid fa-heart"
+        (click)="addToFavouritesSongs(source)"
+        [ngClass]="{ liked: !toggled, untouched: toggled }"
+      ></i>
+    </div>
   </div>
 </div>
 
@@ -120,64 +139,117 @@
     <div><p>Action</p></div>
   </div>
   <div class="horizontalLine"></div>
-  <div class="gridPlaylistDiv"  *ngFor="let source of allPlaylistSongs; let i = index;">
-   <div>
-    <span class="number">{{i+1}}</span>
-   </div>
-   <div class="gridColumns">
-    <img src="{{source.images}}" alt="">
-    <span class="maintitle">{{source.song_name}}</span>
-   </div>
-   <div id="">{{source.duration}}</div>
-   <div class="gridColumnsCenter">
-    <button (click)="addSongsToPlaylist(source)">Add</button>
-    <i class="fa-solid fa-heart" (click)="addToFavouritesSongs(source)" [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
-  </div>
+  <div
+    class="gridPlaylistDiv"
+    *ngFor="let source of allPlaylistSongs; let i = index"
+  >
+    <div>
+      <span class="number">{{ i + 1 }}</span>
+    </div>
+    <div class="gridColumns">
+      <img src="{{ source.images }}" alt="" />
+      <span class="maintitle">{{ source.song_name }}</span>
+    </div>
+    <div id="">{{ source.duration }}</div>
+    <div class="gridColumnsCenter">
+      <button (click)="addSongsToPlaylist(source)">Add</button>
+      <i
+        class="fa-solid fa-heart"
+        (click)="addToFavouritesSongs(source)"
+        [ngClass]="{ liked: !toggled, untouched: toggled }"
+      ></i>
+    </div>
   </div>
 </div>
 
-
 <div *ngIf="openSongTracker">
-  <div class="master_play" >
+  <div class="bottom-song-tracker">
     <div class="box1">
       <div class="notwave" id="masterplay">
-        <div class="wave1"></div>
-        <div class="wave1"></div>
-        <div class="wave1"></div>
+        <span class="wave1"></span>
+        <span class="wave1"></span>
+        <span class="wave1"></span>
       </div>
       <div>
-        <img src="{{imagepath}}" alt="" id="poster_master_play">
+        <img src="{{ imagepath }}" alt="" id="poster_master_play" />
       </div>
       <div class="flexs">
-        <p class="title">{{maintitle}}</p>
-        <p class="subtitle">{{subtitle}}</p>
+        <p class="title">{{ maintitle }}</p>
+        <p class="subtitle">{{ subtitle }}</p>
       </div>
-      <i class="fa-solid fa-heart" (click)="addToLike()"  [ngClass]="{'liked' : !toggled, 'untouched': toggled}"></i>
+      <div
+        class="fa-solid fa-heart"
+        (click)="addToLike()"
+        [ngClass]="{ liked: !toggled, untouched: toggled }"
+      ></div>
     </div>
     <div class="box2">
       <div class="icon">
-        <button (click)="playSong()" id="previous"><i class="bi bi-play-fill" id="masterPlay"></i></button>
-        <button (click)="pauseSong()" id="previous"><i class="bi bi-pause-fill" id="masterPlay"></i></button>
-        <button (click)="previousSong()" id="play"><i class=" bi bi-skip-start-fill"  id="masterPlay"></i></button>
-        <button (click)="nextSong()" id="next"><i class="bi bi-skip-end-fill" id="next"></i></button>
+        <button
+          type="button"
+          role="button"
+          title="songs"
+          (click)="playSong()"
+          id="previous"
+        >
+          <i class="bi bi-play-fill" id="masterPlay"></i>
+        </button>
+        <button
+          type="button"
+          role="button"
+          title="songs"
+          (click)="pauseSong()"
+          id="previous"
+        >
+          <i class="bi bi-pause-fill" id="masterPlay"></i>
+        </button>
+        <button
+          type="button"
+          role="button"
+          title="songs"
+          (click)="previousSong()"
+          id="play"
+        >
+          <i class="bi bi-skip-start-fill" id="masterPlay"></i>
+        </button>
+        <button
+          type="button"
+          role="button"
+          title="songs"
+          (click)="nextSong()"
+          id="next"
+        >
+          <i class="bi bi-skip-end-fill" id="next"></i>
+        </button>
       </div>
       <div class="box1">
-        <div id="currentStart">0:00</div>
-        <div class="bar">
-            <input type="range" id="seek" min="0" value="0" max="100" style="color: white;">
-            <div class="bar2" id="bar2"></div>
-            <div class="dot"></div>
-        </div>
-        <div id="currentEnd"></div>
+        <div id="currentStart">{{ currentTime }}</div>
+        <input
+          type="range"
+          id="seek"
+          min="0"
+          value="0"
+          max="100"
+          (input)="onSeekBarChange($event)"
+          style="color: white"
+        />
+        <div id="currentEnd">{{ duration }}</div>
       </div>
-  </div>
+    </div>
 
-  <div class="vol">
+    <div class="volume-container">
+      <div class="bi bi-volume-down-fill"></div>
+      <div class="volume-bar">
+        <div class="volume-level"></div>
+      </div>
+    </div>
+
+    <!-- <div class="box1 vol">
       <i class="bi bi-volume-down-fill" id="vol_icon"></i>
       <input type="range" id="vol" min="0" value="30" max="100">
       <div class="vol_bar"></div>
-      <div class="dot" id="vol_dot"></div>
-  </div>
+      <div class="dot" id="vol_dot" draggable="false"></div>
+  </div> -->
   </div>
 </div>
 
@@ -217,4 +289,3 @@
   </div>
 </div>
 </div> -->
-

@@ -1,7 +1,7 @@
 {
   "usersregister": [
     {
-      "regname": "HARISH B",
+      "regname": "Harish B",
       "regemail": "balahkharish@gmail.com",
       "regpassword": "Harish@2002",
       "regconfirmpassword": "Harish@2002",
@@ -9,15 +9,15 @@
       "subscribedPlans": [
         {
           "plans": {
-            "title": "Individual",
-            "offer": "₹240/year",
-            "info": "Play as your wish"
+            "title": "Duo",
+            "offer": "₹365/year",
+            "info": "More number of Podcasts"
           },
           "benefits": {
-            "one": "Ad-free music listening",
-            "two": "Download 50 songs"
+            "one": "Group session",
+            "two": "For couples who live together"
           },
-          "id": 3
+          "id": 4
         }
       ],
       "userPlaylist": [],
@@ -36,7 +36,7 @@
           "userState": ""
         }
       ],
-      "profilePicture": "/assets/images/HARISH B UPDATED.JPG",
+      "profilePicture": "/assets/user-profile-storage/Professional_Profile_Picture__1_-removebg-preview.png",
       "myPlaylist_1": [
         {
           "movie_name": "Vikram - II",
@@ -219,6 +219,15 @@
       "regconfirmpassword": "Harish@2002",
       "UserRegisterTime": "17-07-2023 10:28:10 AM",
       "id": 7
+    },
+    {
+      "regname": "Kaviya S",
+      "regemail": "balahkharish@gmail.com",
+      "regpassword": "Kaviya@2002",
+      "regconfirmpassword": "Kaviya@2002",
+      "UserRegisterTime": "17-10-2023 08:33:23 PM",
+      "id": 8,
+      "profilePicture": "/assets/images/Snapchat-259624908.jpg"
     }
   ],
   "Vibes": [

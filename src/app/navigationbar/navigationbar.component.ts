@@ -9,18 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigationbar.component.css']
 })
 export class NavigationbarComponent {
-  login:boolean=true;
-  loggedinNavBar:boolean=false;
-  name:string | null | undefined ='';
+  login : boolean = true;
+  loggedinNavBar : boolean = false;
+  toggleOffBoolean : boolean = true;
+  toggleOnBoolean : boolean = true;
+  toggleClickedOffBoolean : boolean = false;
+  closeIcon : boolean = false;
+  barIcon : boolean = true;
+  class : any;
+  newclass :any;
+
   constructor(private userService:UserregisterService,
     private AL:AlertifyServiceService,
     private router:Router)  {
-    this.name=localStorage.getItem("loggedin");
 
     if(sessionStorage.getItem("loggedin")=="true"){
       this.loggedinNavBar=true;
       this.login=false;
     }
+  }
+
+  openToggleOffDiv(){
+    this.toggleClickedOffBoolean =! this.toggleClickedOffBoolean;
+    this.toggleOffBoolean =! this.toggleOffBoolean;
+    this.closeIcon =! this.closeIcon;
+    this.barIcon =! this.barIcon;
   }
 
   logout(){

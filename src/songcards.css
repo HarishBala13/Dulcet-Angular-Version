@@ -1,0 +1,61 @@
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+  /*Gap concept need to work more bcoz of moving*/
+}
+.card{
+  display: grid;
+  place-items: center;
+  background-color: #000;
+  margin-left: 3%;
+  margin-top: 2%;
+  padding: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  position: relative;
+  margin-bottom: 20px;
+  /* box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35); */
+}
+.card .image{
+  height: 175px;
+  width: 150px;
+}
+.card .maintitle{
+  color: #fff;
+  font-size: 0.4cm;
+  padding: 8px;
+}
+.card .subtitle{
+  color: #fff;
+  font-size: 0.28cm;
+  padding: 5px;
+  /* text-shadow: 2px 3px cyan; */
+}
+.card #playicon{
+  position: absolute;
+  background-color: hsl(84, 81%, 47%);
+  left: 108px;
+  top: 130px;
+  padding: 0.75rem;
+  border-radius: 30px;
+  opacity: 0;
+  border: none;
+  color: #0d1ace;
+  transition: 800ms ease;
+}
+.card:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+.card:hover .maintitle, .card:hover .subtitle{
+  opacity: 0.75;
+}
+.card:hover .image{
+  opacity: 1;
+}
+.card:hover #playicon{
+  opacity: 1;
+  box-shadow: 2px 3px 0px 1px rgb(158, 152, 152);
+  transition: 800ms ease;
+}

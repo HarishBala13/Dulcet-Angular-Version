@@ -65,7 +65,7 @@ export class UserregisterService {
   }
   else if(!user){
     this.AL.Error("User not Found");
-    console.log("User not found");
+    // console.log("User not found");
   }
   });
 }

@@ -17,7 +17,7 @@
  grid-template-columns: repeat(4,1fr);
  padding: 10px;
 }
-.company,.communities{
+.company .company-details,.communities .community-details{
   display: flex;
   flex-direction: column;
 }
@@ -32,14 +32,12 @@
   color: #9a9a9a;
   text-decoration: none;
   padding: 1rem;
-}
-.company a:hover,.communities a:hover{
   cursor: pointer;
-  text-decoration: underline;
 }
 .social-media-links{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .brandlogo{
   display: grid;
@@ -53,9 +51,44 @@
   text-decoration: none;
   color: #9a9a9a;
   font-size: 0.5cm;
+  cursor: pointer;
 }
 .bottom-contents .social-media-links i{
   border-radius: 50%;
   padding: 15px;
   font-size: 0.7cm;
+}
+
+.company a:hover,
+.communities a:hover,
+.bottom-contents .social-media-links a:hover{
+  color: #fff;
+  transition: 1s;
+}
+
+@media only screen and (max-width: 640px) {
+  .footer{
+    width: 100%;
+  }
+  .company p,.communities p{
+    font-size: 24px;
+  }
+  .company a,.communities a{
+    font-size: 18px;
+    padding: 10px;
+  }
+  .bottom-contents{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    padding-left: 10px;
+   }
+  .social-media-links a i{
+    font-size: 14px;
+  }
+  .footer .copyrights{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

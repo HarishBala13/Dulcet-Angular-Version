@@ -1,5 +1,22 @@
 <header>
-  <a routerLink=""><img src="../../assets/images/whiteBGBrandLogo.png" alt="" class="brandlogo"></a>
+  <div class="brandlogoDiv">
+    <a routerLink=""><img src="../../assets/images/whiteBGBrandLogo.png" alt="" class="brandlogo" title="Dulcet Home"></a>
+  </div>
+  <div class="toggleOffDiv" *ngIf="toggleOffBoolean">
+    <a routerLink="/search">Search</a>
+    <a routerLink="/playlist">Playlist</a>
+    <a routerLink="/premium">Premium</a>
+    <!-- <a routerLink="/register" *ngIf="!loggedinNavBar">Register</a> -->
+    <a routerLink="/login" *ngIf="login" class="loginButton">Login</a>
+    <a *ngIf="loggedinNavBar" routerLink="/profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a>
+    <a (click)="logout()" *ngIf="loggedinNavBar" class="loginButton">Logout</a>
+  </div>
+  <div class="toggleOnDiv" (click)="openToggleOffDiv()" *ngIf="toggleOnBoolean">
+    <i class="fa-solid fa-bars" *ngIf="barIcon"></i>
+    <i class="fa-solid fa-close" *ngIf="closeIcon"></i>
+  </div>
+</header>
+<div class="toggleClickedDiv" *ngIf="toggleClickedOffBoolean">
   <a routerLink="/search">Search</a>
   <a routerLink="/playlist">Playlist</a>
   <a routerLink="/premium">Premium</a>
@@ -7,4 +24,4 @@
   <a routerLink="/login" *ngIf="login" class="loginButton">Login</a>
   <a *ngIf="loggedinNavBar" routerLink="/profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a>
   <a (click)="logout()" *ngIf="loggedinNavBar" class="loginButton">Logout</a>
-</header>
+</div>

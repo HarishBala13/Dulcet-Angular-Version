@@ -88,10 +88,10 @@ export class TopsongsComponent implements OnInit{
     this.audioPlayer.play();
   }
   loadAudio(audioObject:any){
-    if(localStorage.getItem("loggedin")=="true"){
-      localStorage.setItem("songTrackLocalStorage","true");
-      console.log(localStorage.getItem("songTrackLocalStorage"));
-      this.openSongTracker=localStorage.getItem("songTrackLocalStorage");
+    if(sessionStorage.getItem("loggedin")=="true"){
+      sessionStorage.setItem("songTracker","true");
+      console.log(localStorage.getItem("songTracker"));
+      this.openSongTracker=localStorage.getItem("songTracker");
       this.audiosrc=audioObject.audios;
       this.imagepath=audioObject.images;
       this.maintitle=audioObject.maintitle;

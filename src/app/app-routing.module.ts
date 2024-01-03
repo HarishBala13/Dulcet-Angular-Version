@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './Home/Home.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { RegisterComponent } from './register/register.component';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistComponent }  from './playlist/playlist.component';
 import { UserAuthorizationGuard } from './user-authorization.guard';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { PaymentComponent } from './payment/payment.component';
